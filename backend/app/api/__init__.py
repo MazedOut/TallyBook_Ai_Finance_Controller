@@ -7,6 +7,8 @@ from .periods import router as periods_router
 from .audit import router as audit_router
 from .stats import router as stats_router
 from .data import router as data_router
+from .import_data import router as import_router
+from .assistant import router as assistant_router
 
 api_router = APIRouter(prefix="/api")
 api_router.include_router(auth_router)
@@ -17,5 +19,8 @@ api_router.include_router(periods_router)
 api_router.include_router(audit_router)
 api_router.include_router(stats_router)
 api_router.include_router(data_router)
+api_router.include_router(import_router)
+api_router.include_router(assistant_router)
 
 __all__ = ["api_router"]
+

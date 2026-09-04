@@ -15,7 +15,7 @@ from app.engine.rules_engine import RulesEngine
 from app.engine.ai_engine import AIEngine
 from app.engine.scorer import ReconciliationScorer
 from app.engine.exception_triage import ExceptionTriage
-from app.repository.memory import repo
+from app.repository import repo
 
 router = APIRouter(prefix="/reconcile", tags=["Reconciliation"])
 

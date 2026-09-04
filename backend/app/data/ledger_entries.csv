@@ -1,80 +1,104 @@
 id,date,amount,currency,description,ref_id,account_id,entity,gl_account
-LDG-5001,2026-02-01,9308.15,USD,Salesforce.com Inc - PO 10000,REF-EX-10000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5002,2026-02-08,1873.29,USD,HubSpot Inc - PO 10001,REF-EX-10001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5003,2026-02-22,9297.25,USD,Salesforce.com Inc - PO 10002,REF-EX-10002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5004,2026-02-03,7442.58,USD,Segment.io Inc - PO 10003,REF-EX-10003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5005,2026-02-01,1307.14,USD,Google Workspace - PO 10004,REF-EX-10004,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5006,2026-02-17,7584.93,USD,HubSpot Inc - PO 10005,REF-EX-10005,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5007,2026-02-07,8992.84,USD,Segment.io Inc - PO 10006,REF-EX-10006,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5008,2026-02-14,2872.44,USD,Segment.io Inc - PO 10007,REF-EX-10007,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5009,2026-02-09,10146.47,USD,MongoDB Atlas - PO 10008,REF-EX-10008,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5010,2026-02-25,10101.87,USD,Amazon Web Services - PO 10009,REF-EX-10009,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5011,2026-02-11,3581.71,USD,WeWork Management - PO 10010,REF-EX-10010,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5012,2026-02-25,4306.94,USD,Zoom Video Comm - PO 10011,REF-EX-10011,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5013,2026-02-13,1344.45,USD,Slack Technologies - PO 10012,REF-EX-10012,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5014,2026-02-20,3416.83,USD,GitHub Enterprise - PO 10013,REF-EX-10013,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5015,2026-02-24,5823.9,USD,Google Workspace - PO 10014,REF-EX-10014,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5016,2026-02-13,1123.18,USD,Salesforce.com Inc - PO 10015,REF-EX-10015,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5017,2026-02-21,7788.72,USD,Datadog Monitoring - PO 10016,REF-EX-10016,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5018,2026-02-19,2524.76,USD,GitHub Enterprise - PO 10017,REF-EX-10017,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5019,2026-02-02,8316.6,USD,Slack Technologies - PO 10018,REF-EX-10018,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5020,2026-02-03,10713.17,USD,Datadog Monitoring - PO 10019,REF-EX-10019,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5021,2026-02-13,3582.97,USD,Salesforce.com Inc - PO 10020,REF-EX-10020,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5022,2026-02-06,4721.73,USD,GitHub Enterprise - PO 10021,REF-EX-10021,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5023,2026-02-22,3447.18,USD,Zoom Video Comm - PO 10022,REF-EX-10022,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5024,2026-02-20,7991.98,USD,Slack Technologies - PO 10023,REF-EX-10023,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5025,2026-02-24,3173.41,USD,Segment.io Inc - PO 10024,REF-EX-10024,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5026,2026-02-13,3483.86,USD,Dell Computers Corp - PO 10025,REF-EX-10025,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5027,2026-02-08,8604.99,USD,Segment.io Inc - PO 10026,REF-EX-10026,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5028,2026-02-08,10299.26,USD,Google Workspace - PO 10027,REF-EX-10027,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5029,2026-02-13,3456.6,USD,Figma Design Inc - PO 10028,REF-EX-10028,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5030,2026-02-19,10973.14,USD,Zoom Video Comm - PO 10029,REF-EX-10029,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5031,2026-02-08,4892.93,USD,Figma Design Inc Scheduled AP Disbursement 20000,SAP-PAY-20000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5032,2026-02-06,1584.6,USD,Dell Computers Corp Scheduled AP Disbursement 20001,SAP-PAY-20001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5033,2026-02-19,7172.53,USD,Segment.io Inc Scheduled AP Disbursement 20002,SAP-PAY-20002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5034,2026-02-20,3630.37,USD,WeWork Management Scheduled AP Disbursement 20003,SAP-PAY-20003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5035,2026-02-18,1136.37,USD,Stripe Payouts Scheduled AP Disbursement 20004,SAP-PAY-20004,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5036,2026-02-05,6072.5,USD,Google Workspace Scheduled AP Disbursement 20005,SAP-PAY-20005,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5037,2026-02-21,3839.86,USD,WeWork Management Scheduled AP Disbursement 20006,SAP-PAY-20006,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5038,2026-02-16,2613.01,USD,PagerDuty Inc Scheduled AP Disbursement 20007,SAP-PAY-20007,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5039,2026-02-02,6930.64,USD,Segment.io Inc Scheduled AP Disbursement 20008,SAP-PAY-20008,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5040,2026-02-10,3429.61,USD,Segment.io Inc Scheduled AP Disbursement 20009,SAP-PAY-20009,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5041,2026-02-15,4474.26,USD,Datadog Monitoring Scheduled AP Disbursement 20010,SAP-PAY-20010,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5042,2026-02-18,4970.67,USD,Twilio Inc Scheduled AP Disbursement 20011,SAP-PAY-20011,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5043,2026-02-11,4970.5,USD,Salesforce.com Inc Scheduled AP Disbursement 20012,SAP-PAY-20012,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5044,2026-02-06,7315.1,USD,Zoom Video Comm Scheduled AP Disbursement 20013,SAP-PAY-20013,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5045,2026-02-18,5810.29,USD,Segment.io Inc Scheduled AP Disbursement 20014,SAP-PAY-20014,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5046,2026-02-03,858.66,USD,Snowflake Inc Gross AP Invoice,REF-FEE-30000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5047,2026-02-10,637.49,USD,Datadog Monitoring Gross AP Invoice,REF-FEE-30001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5048,2026-02-05,3400.82,USD,Slack Technologies Gross AP Invoice,REF-FEE-30002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5049,2026-02-07,926.41,USD,Segment.io Inc Gross AP Invoice,REF-FEE-30003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5050,2026-02-08,1486.73,USD,Segment.io Inc Gross AP Invoice,REF-FEE-30004,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5051,2026-02-09,4208.55,USD,WeWork Management Gross AP Invoice,REF-FEE-30005,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5052,2026-02-15,4480.11,USD,Datadog Monitoring Gross AP Invoice,REF-FEE-30006,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5053,2026-02-19,2251.09,USD,Dell Computers Corp Gross AP Invoice,REF-FEE-30007,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5054,2026-02-11,3420.5,USD,Amazon Web Services Inc Infrastructure,VOUCHER-ERP-40000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5055,2026-02-06,1850.0,USD,Google LLC Enterprise Workspace Suite,VOUCHER-ERP-40001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5056,2026-02-14,840.25,USD,Slack Technologies Team Subscription,VOUCHER-ERP-40002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5057,2026-02-04,14500.0,USD,Stripe Inc Merchant Processing Settlements,VOUCHER-ERP-40003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5058,2026-02-22,6210.8,USD,Microsoft Corporation Azure Enterprise,VOUCHER-ERP-40004,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5059,2026-02-21,2150.0,USD,Datadog Cloud Observability Platform,VOUCHER-ERP-40005,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5060,2026-02-13,510.79,USD,HubSpot Inc Milestone Tranche A SPLIT-50000,LDG-A-SPLIT-50000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5061,2026-02-13,1561.76,USD,HubSpot Inc Milestone Tranche B SPLIT-50000,LDG-B-SPLIT-50000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5062,2026-02-13,601.1,USD,Google Workspace Milestone Tranche A SPLIT-50001,LDG-A-SPLIT-50001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5063,2026-02-13,547.12,USD,Google Workspace Milestone Tranche B SPLIT-50001,LDG-B-SPLIT-50001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5064,2026-02-08,1271.23,USD,Figma Design Inc Milestone Tranche A SPLIT-50002,LDG-A-SPLIT-50002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5065,2026-02-08,917.72,USD,Figma Design Inc Milestone Tranche B SPLIT-50002,LDG-B-SPLIT-50002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5066,2026-02-12,1308.85,USD,Snowflake Inc Milestone Tranche A SPLIT-50003,LDG-A-SPLIT-50003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5067,2026-02-12,1585.03,USD,Snowflake Inc Milestone Tranche B SPLIT-50003,LDG-B-SPLIT-50003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5068,2026-02-01,9308.15,USD,Salesforce.com Inc - PO 10000 [ACC-DOUBLE-ENTRY],REF-EX-10000-DUP,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5069,2026-02-01,1307.14,USD,Google Workspace - PO 10004 [ACC-DOUBLE-ENTRY],REF-EX-10004-DUP,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5070,2026-02-21,5000.0,USD,Accrued Legal Retainer - Cooley LLP,LDG-UNRES-5071,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5071,2026-02-19,750.0,USD,Outstanding Vendor Check #99014,LDG-UNRES-5072,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5072,2026-02-12,3200.0,USD,Internal Intercompany Rebalance Entry,LDG-UNRES-5073,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5073,2026-02-09,1650.0,USD,Prepaid Software Amortization March,LDG-UNRES-5074,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5074,2026-02-23,3517.36,USD,Salesforce.com Inc - Operating Expense Voucher 60000,REF-EX-TOP-60000,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5075,2026-02-15,3769.17,USD,WeWork Management - Operating Expense Voucher 60001,REF-EX-TOP-60001,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5076,2026-02-23,5074.19,USD,Google Workspace - Operating Expense Voucher 60002,REF-EX-TOP-60002,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5077,2026-02-03,3318.35,USD,Salesforce.com Inc - Operating Expense Voucher 60003,REF-EX-TOP-60003,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5078,2026-02-27,6531.71,USD,Figma Design Inc - Operating Expense Voucher 60004,REF-EX-TOP-60004,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
-LDG-5079,2026-02-08,1831.46,USD,HubSpot Inc - Operating Expense Voucher 60005,REF-EX-TOP-60005,ACC-GL-1010,RazorPay Global Inc,1010-Operating-Cash
+LDG-5001,2026-02-01,9308.15,USD,Salesforce.com Inc - PO 10000,REF-EX-10000,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5002,2026-02-08,1873.29,USD,HubSpot Inc - PO 10001,REF-EX-10001,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5003,2026-02-22,9297.25,USD,Salesforce.com Inc - PO 10002,REF-EX-10002,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5004,2026-02-03,7442.58,USD,Segment.io Inc - PO 10003,REF-EX-10003,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5005,2026-02-01,1307.14,USD,Google Workspace - PO 10004,REF-EX-10004,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5006,2026-02-17,7584.93,USD,HubSpot Inc - PO 10005,REF-EX-10005,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5007,2026-02-07,8992.84,USD,Segment.io Inc - PO 10006,REF-EX-10006,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5008,2026-02-14,2872.44,USD,Segment.io Inc - PO 10007,REF-EX-10007,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5009,2026-02-09,10146.47,USD,MongoDB Atlas - PO 10008,REF-EX-10008,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5010,2026-02-25,10101.87,USD,Amazon Web Services - PO 10009,REF-EX-10009,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5011,2026-02-11,3581.71,USD,WeWork Management - PO 10010,REF-EX-10010,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5012,2026-02-25,4306.94,USD,Zoom Video Comm - PO 10011,REF-EX-10011,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5013,2026-02-13,1344.45,USD,Slack Technologies - PO 10012,REF-EX-10012,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5014,2026-02-20,3416.83,USD,GitHub Enterprise - PO 10013,REF-EX-10013,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5015,2026-02-24,5823.9,USD,Google Workspace - PO 10014,REF-EX-10014,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5016,2026-02-13,1123.18,USD,Salesforce.com Inc - PO 10015,REF-EX-10015,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5017,2026-02-21,7788.72,USD,Datadog Monitoring - PO 10016,REF-EX-10016,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5018,2026-02-19,2524.76,USD,GitHub Enterprise - PO 10017,REF-EX-10017,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5019,2026-02-02,8316.6,USD,Slack Technologies - PO 10018,REF-EX-10018,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5020,2026-02-03,10713.17,USD,Datadog Monitoring - PO 10019,REF-EX-10019,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5021,2026-02-13,3582.97,USD,Salesforce.com Inc - PO 10020,REF-EX-10020,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5022,2026-02-06,4721.73,USD,GitHub Enterprise - PO 10021,REF-EX-10021,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5023,2026-02-22,3447.18,USD,Zoom Video Comm - PO 10022,REF-EX-10022,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5024,2026-02-20,7991.98,USD,Slack Technologies - PO 10023,REF-EX-10023,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5025,2026-02-24,3173.41,USD,Segment.io Inc - PO 10024,REF-EX-10024,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5026,2026-02-13,3483.86,USD,Dell Computers Corp - PO 10025,REF-EX-10025,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5027,2026-02-08,8604.99,USD,Segment.io Inc - PO 10026,REF-EX-10026,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5028,2026-02-08,10299.26,USD,Google Workspace - PO 10027,REF-EX-10027,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5029,2026-02-13,3456.6,USD,Figma Design Inc - PO 10028,REF-EX-10028,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5030,2026-02-19,10973.14,USD,Zoom Video Comm - PO 10029,REF-EX-10029,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5031,2026-02-07,8244.67,USD,Figma Design Inc - PO 10030,REF-EX-10030,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5032,2026-02-21,5816.82,USD,Notion Labs Inc - PO 10031,REF-EX-10031,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5033,2026-02-05,3195.85,USD,Twilio Inc - PO 10032,REF-EX-10032,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5034,2026-02-18,3394.86,USD,Segment.io Inc - PO 10033,REF-EX-10033,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5035,2026-02-14,11238.11,USD,MongoDB Atlas - PO 10034,REF-EX-10034,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5036,2026-02-13,9475.4,USD,Notion Labs Inc Scheduled AP Disbursement 20000,SAP-PAY-20000,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5037,2026-02-18,1136.37,USD,Stripe Payouts Scheduled AP Disbursement 20001,SAP-PAY-20001,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5038,2026-02-05,6072.5,USD,Google Workspace Scheduled AP Disbursement 20002,SAP-PAY-20002,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5039,2026-02-21,3839.86,USD,WeWork Management Scheduled AP Disbursement 20003,SAP-PAY-20003,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5040,2026-02-16,2613.01,USD,PagerDuty Inc Scheduled AP Disbursement 20004,SAP-PAY-20004,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5041,2026-02-02,6930.64,USD,Segment.io Inc Scheduled AP Disbursement 20005,SAP-PAY-20005,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5042,2026-02-10,3429.61,USD,Segment.io Inc Scheduled AP Disbursement 20006,SAP-PAY-20006,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5043,2026-02-15,4474.26,USD,Datadog Monitoring Scheduled AP Disbursement 20007,SAP-PAY-20007,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5044,2026-02-18,4970.67,USD,Twilio Inc Scheduled AP Disbursement 20008,SAP-PAY-20008,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5045,2026-02-11,4970.5,USD,Salesforce.com Inc Scheduled AP Disbursement 20009,SAP-PAY-20009,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5046,2026-02-06,7315.1,USD,Zoom Video Comm Scheduled AP Disbursement 20010,SAP-PAY-20010,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5047,2026-02-18,5810.29,USD,Segment.io Inc Scheduled AP Disbursement 20011,SAP-PAY-20011,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5048,2026-02-02,8847.71,USD,Snowflake Inc Scheduled AP Disbursement 20012,SAP-PAY-20012,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5049,2026-02-09,2516.02,USD,Datadog Monitoring Scheduled AP Disbursement 20013,SAP-PAY-20013,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5050,2026-02-04,7033.55,USD,MongoDB Atlas Scheduled AP Disbursement 20014,SAP-PAY-20014,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5051,2026-02-19,1481.2,USD,Slack Technologies Scheduled AP Disbursement 20015,SAP-PAY-20015,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5052,2026-02-20,1407.27,USD,Snowflake Inc Gross AP Invoice,REF-FEE-30000,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5053,2026-02-16,6282.61,USD,PagerDuty Inc Gross AP Invoice,REF-FEE-30001,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5054,2026-02-12,2833.85,USD,Zoom Video Comm Gross AP Invoice,REF-FEE-30002,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5055,2026-02-19,3154.07,USD,Dell Computers Corp Gross AP Invoice,REF-FEE-30003,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5056,2026-02-05,2462.32,USD,HubSpot Inc Gross AP Invoice,REF-FEE-30004,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5057,2026-02-10,3989.48,USD,Segment.io Inc Gross AP Invoice,REF-FEE-30005,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5058,2026-02-23,759.13,USD,Slack Technologies Gross AP Invoice,REF-FEE-30006,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5059,2026-02-13,832.23,USD,Google Workspace Gross AP Invoice,REF-FEE-30007,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5060,2026-02-18,1706.84,USD,Twilio Inc Gross AP Invoice,REF-FEE-30008,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5061,2026-02-21,3283.29,USD,MongoDB Atlas Gross AP Invoice,REF-FEE-30009,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5062,2026-02-09,975.39,USD,WeWork Management Gross AP Invoice,REF-FEE-30010,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5063,2026-02-16,2907.72,USD,GitHub Enterprise Gross AP Invoice,REF-FEE-30011,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5064,2026-02-24,3420.5,USD,Amazon Web Services Inc Infrastructure,VOUCHER-ERP-40000,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5065,2026-02-24,1850.0,USD,Google LLC Enterprise Workspace Suite,VOUCHER-ERP-40001,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5066,2026-02-07,840.25,USD,Slack Technologies Team Subscription,VOUCHER-ERP-40002,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5067,2026-02-05,14500.0,USD,Stripe Inc Merchant Processing Settlements,VOUCHER-ERP-40003,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5068,2026-02-16,6210.8,USD,Microsoft Corporation Azure Enterprise,VOUCHER-ERP-40004,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5069,2026-02-14,2150.0,USD,Datadog Cloud Observability Platform,VOUCHER-ERP-40005,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5070,2026-02-07,4890.0,USD,Salesforce.com Inc Enterprise CRM,VOUCHER-ERP-40006,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5071,2026-02-11,3120.0,USD,Snowflake Inc Cloud Data Platform,VOUCHER-ERP-40007,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5072,2026-02-10,1400.0,USD,Cloudflare Inc Enterprise DDoS Protection,VOUCHER-ERP-40008,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5073,2026-02-10,960.0,USD,Figma Design Inc Collaborative Subscriptions,VOUCHER-ERP-40009,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5074,2026-02-20,8000.0,USD,Amazon Web Services Milestone Tranche A SPLIT-50000,LDG-A-SPLIT-50000,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5075,2026-02-20,4800.0,USD,Amazon Web Services Milestone Tranche B SPLIT-50000,LDG-B-SPLIT-50000,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5076,2026-02-10,6000.0,USD,WeWork Management Milestone Tranche A SPLIT-50001,LDG-A-SPLIT-50001,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5077,2026-02-10,1500.0,USD,WeWork Management Milestone Tranche B SPLIT-50001,LDG-B-SPLIT-50001,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5078,2026-02-19,5500.0,USD,Salesforce.com Inc Milestone Tranche A SPLIT-50002,LDG-A-SPLIT-50002,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5079,2026-02-19,3500.0,USD,Salesforce.com Inc Milestone Tranche B SPLIT-50002,LDG-B-SPLIT-50002,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5080,2026-02-11,3200.0,USD,Dell Computers Corp Milestone Tranche A SPLIT-50003,LDG-A-SPLIT-50003,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5081,2026-02-11,1000.0,USD,Dell Computers Corp Milestone Tranche B SPLIT-50003,LDG-B-SPLIT-50003,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5082,2026-02-14,3500.0,USD,HubSpot Inc Milestone Tranche A SPLIT-50004,LDG-A-SPLIT-50004,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5083,2026-02-14,1500.0,USD,HubSpot Inc Milestone Tranche B SPLIT-50004,LDG-B-SPLIT-50004,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5084,2026-02-20,2800.0,USD,MongoDB Atlas Milestone Tranche A SPLIT-50005,LDG-A-SPLIT-50005,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5085,2026-02-20,1200.0,USD,MongoDB Atlas Milestone Tranche B SPLIT-50005,LDG-B-SPLIT-50005,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5086,2026-02-01,9308.15,USD,Salesforce.com Inc - PO 10000 [ACC-DOUBLE-ENTRY],REF-EX-10000-DUP,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5087,2026-02-17,7584.93,USD,HubSpot Inc - PO 10005 [ACC-DOUBLE-ENTRY],REF-EX-10005-DUP,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5088,2026-02-11,3581.71,USD,WeWork Management - PO 10010 [ACC-DOUBLE-ENTRY],REF-EX-10010-DUP,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5089,2026-02-09,18750.0,USD,ORACLE ERP ANNUAL ENTERPRISE LICENSE,LDG-HIGH-5090,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5090,2026-02-07,34950.0,USD,DELL SERVER CLUSTER HARDWARE CAPITALIZATION,LDG-HIGH-5091,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5091,2026-02-26,14600.0,USD,SNOWFLAKE ENTERPRISE CAPACITY COMMITMENT,LDG-HIGH-5092,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5092,2026-02-23,16800.0,USD,KPMG STATUTORY VALUATION & TRANSFER PRICING,LDG-HIGH-5093,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5093,2026-02-18,5000.0,USD,Accrued Legal Retainer - Cooley LLP,LDG-OP-5094,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5094,2026-02-07,750.0,USD,Outstanding Vendor Check #99014 - Alpha Supplies,LDG-OP-5095,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5095,2026-02-11,2400.0,USD,Outstanding Vendor Check #99018 - TechLogistics,LDG-OP-5096,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5096,2026-02-18,3200.0,USD,Internal Intercompany Rebalance Entry GL-1010 to GL-2050,LDG-OP-5097,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5097,2026-02-06,1650.0,USD,Prepaid Software Amortization March 2026,LDG-OP-5098,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5098,2026-02-18,4100.0,USD,In-Transit Customer Wire - Acme European Subsidiary,LDG-OP-5099,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5099,2026-02-14,8500.0,USD,Accrued Performance Incentive Bonus Pool Q1,LDG-OP-5100,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5100,2026-02-20,1200.0,USD,Petty Cash Imprest Fund Replenishment Voucher,LDG-OP-5101,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5101,2026-02-13,1450.0,USD,Vendor Consulting Advisory PO-8801 - Alpha Group,PO-8801-AMBIG,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5102,2026-02-13,1450.0,USD,Vendor Consulting Advisory PO-8802 - Beta Group,PO-8802-AMBIG,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash
+LDG-5103,2026-02-19,5000.0,USD,Contractor Full Milestone PO - $5000 Gross,LDG-PART-FULL,ACC-GL-1010,TechCorp Global Inc,1010-Operating-Cash

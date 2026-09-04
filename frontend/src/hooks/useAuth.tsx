@@ -60,26 +60,9 @@ const DEFAULT_DEMO_USERS: Record<UserRole, User> = {
 }
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(() => {
-    const savedDemo = localStorage.getItem("tallybook_demo_mode")
-    const savedUser = localStorage.getItem("tallybook_user")
-    if (savedDemo === "true") {
-      const savedRole = (localStorage.getItem("tallybook_demo_role") || "controller") as UserRole
-      return DEFAULT_DEMO_USERS[savedRole] || DEFAULT_DEMO_USERS.controller
-    }
-    if (savedUser) {
-      try {
-        return JSON.parse(savedUser)
-      } catch {
-        return null
-      }
-    }
-    return null
-  })
-
-  const [isDemoMode, setIsDemoMode] = useState<boolean>(() => {
-    return localStorage.getItem("tallybook_demo_mode") === "true"
-  })
+  // Always start with user = null so the first page to open is the login page
+  const [user, setUser] = useState<User | null>(null)
+  const [isDemoMode, setIsDemoMode] = useState<boolean>(false)
 
   const [demoAccounts, setDemoAccounts] = useState<DemoAccount[]>([])
   const [isLoading, setIsLoading] = useState<boolean>(false)

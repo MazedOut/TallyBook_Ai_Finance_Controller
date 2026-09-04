@@ -1,0 +1,8 @@
+Payout_Date,Merchant_Description,Net_Amount,Payout_ID,Account_Code
+2026-02-16,Stripe US Payout - Ecommerce Direct,28450.00,po_1Qxyz9901,CHASE-4991
+2026-02-17,Stripe EU Payout - Multi-Currency EUR,14320.75,po_1Qxyz9902,CHASE-4991
+2026-02-18,Stripe APAC Settlement - SGD,9850.20,po_1Qxyz9903,CHASE-4991
+2026-02-19,Stripe Instant Payout - Weekend Volume,42100.00,po_1Qxyz9904,CHASE-4991
+2026-02-20,Stripe Recurring Subscriptions SaaS,56900.50,po_1Qxyz9905,CHASE-4991
+2026-02-21,Stripe Dispute Reserve Holdback,-1250.00,po_res_9901,CHASE-4991
+2026-02-22,Stripe Dispute Resolution Credit,1250.00,po_rev_9901,CHASE-4991

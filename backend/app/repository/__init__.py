@@ -1,8 +1,9 @@
 from .base import BaseRepository
-from .memory import MemoryRepository, repo as memory_repo
-from .supabase import SupabaseRepository
+from .memory import MemoryRepository
+from .sqlite import SqliteRepository
 
-# Active repository with Supabase integration and memory caching
-repo = SupabaseRepository(fallback_repo=memory_repo)
+# Active persistent SQLite repository
+repo = SqliteRepository()
 
-__all__ = ["BaseRepository", "MemoryRepository", "SupabaseRepository", "repo"]
+__all__ = ["BaseRepository", "MemoryRepository", "SqliteRepository", "repo"]
+

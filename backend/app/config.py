@@ -3,10 +3,8 @@ from pydantic_settings import BaseSettings
 from pydantic import Field
 
 class Settings(BaseSettings):
-    # Supabase Settings
-    supabase_url: str = Field(default="", env="SUPABASE_URL")
-    supabase_key: str = Field(default="", env="SUPABASE_KEY")
-    supabase_service_role_key: str = Field(default="", env="SUPABASE_SERVICE_ROLE_KEY")
+    # SQLite Persistence Settings
+    sqlite_db_path: str = Field(default="./app/data/tallybook.db", env="SQLITE_DB_PATH")
 
     # Groq AI Settings
     groq_api_key: str = Field(default="", env="GROQ_API_KEY")

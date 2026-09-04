@@ -9,19 +9,19 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant = "primary", size = "md", icon, children, disabled, ...props }, ref) => {
-    const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-150 rounded-[18px] cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed select-none active:scale-[0.99]"
+    const baseStyles = "inline-flex items-center justify-center font-medium transition-all duration-150 rounded-[18px] cursor-pointer disabled:opacity-40 disabled:cursor-not-allowed select-none active:opacity-90"
     
     const variants = {
-      primary: "bg-[#0a0a0a] text-[#fafafa] hover:bg-[#171717] border-none shadow-none",
-      secondary: "bg-[#f5f5f5] text-[#0a0a0a] hover:bg-[#eaeaea] border-none",
-      outline: "bg-transparent text-[#0a0a0a] border border-[#e5e5e5] hover:bg-[#f5f5f5] hover:border-[#d4d4d4]",
-      destructive: "bg-transparent text-[#e7000b] border border-[#fed7d7] hover:bg-[#fff5f5]"
+      primary: "bg-ink text-paper hover:bg-ink-soft border-none",
+      secondary: "bg-canvas text-ink hover:bg-[#ebebeb] border-none",
+      outline: "bg-transparent text-ink border border-hairline hover:bg-canvas hover:border-[#d4d4d4]",
+      destructive: "bg-paper text-ember border border-[#fee2e2] hover:bg-[#fef2f2]"
     }
 
     const sizes = {
-      sm: "h-[32px] px-3 text-[13px] gap-1.5",
-      md: "h-[38px] px-4 text-[14px] gap-2",
-      lg: "h-[44px] px-5 text-[15px] gap-2.5"
+      sm: "h-[32px] px-3 text-[12.5px] gap-1.5",
+      md: "h-[36px] px-4 text-[13.5px] gap-2",
+      lg: "h-[42px] px-5 text-[14.5px] gap-2.5"
     }
 
     return (

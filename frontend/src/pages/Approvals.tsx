@@ -33,20 +33,39 @@ export const Approvals: React.FC<ApprovalsProps> = ({ exceptions, onRefresh }) =
     }
   }
 
+  const getCategoryLabel = (category: string) => {
+    switch (category) {
+      case "duplicate_fee_noise":
+        return "Bank Fee / Charge"
+      case "no_counterpart":
+        return "Missing from Books"
+      case "ambiguous_candidates":
+        return "Multiple Candidates"
+      case "split_payment_partial":
+        return "Partial Payment"
+      case "date_lag_possible":
+        return "Timing Difference"
+      case "unresolved_discrepancy":
+        return "Open Difference"
+      default:
+        return category.replace(/_/g, " ")
+    }
+  }
+
   return (
     <div className="space-y-6 max-w-6xl mx-auto pb-10">
       <div className="flex items-center justify-between">
         <div>
           <h2 className="text-[20px] font-semibold tracking-[-0.025em] text-ink flex items-center gap-2">
             <CheckSquare className="w-5 h-5 text-ink" />
-            Controller Sign-Off & Approval Workflow
+            Review & Approval Queue
           </h2>
           <p className="text-[13px] text-mid-gray mt-0.5">
-            Audit-grade authorization queue for high-value items, disputed adjustments, and GL write-offs.
+            Review queue for high-value items, differences, and approved adjustments.
           </p>
         </div>
         <Badge variant={isController ? "solid" : "soft"}>
-          {isController ? "Controller Access Authorized" : "Auditor Read-Only Mode"}
+          {isController ? "Manager Access Active" : "Read-Only Mode"}
         </Badge>
       </div>
 
@@ -54,7 +73,7 @@ export const Approvals: React.FC<ApprovalsProps> = ({ exceptions, onRefresh }) =
         <div className="p-4 rounded-[18px] bg-canvas border border-hairline flex items-center gap-3">
           <AlertCircle className="w-5 h-5 text-mid-gray shrink-0" />
           <p className="text-[13px] text-mid-gray">
-            You are viewing this queue as <strong className="text-ink capitalize">{role}</strong>. Switch to the <strong>Controller</strong> persona in the sidebar to authorize write-offs or adjustments.
+            You are viewing this queue as <strong className="text-ink capitalize">{role}</strong>. Switch to the <strong>Manager</strong> role in the sidebar to approve adjustments.
           </p>
         </div>
       )}
@@ -62,11 +81,11 @@ export const Approvals: React.FC<ApprovalsProps> = ({ exceptions, onRefresh }) =
       <Card>
         <CardHeader>
           <div className="flex items-center justify-between">
-            <CardTitle>Pending Authorization Queue</CardTitle>
-            <Badge variant="ember">{pendingApprovals.length} Pending Sign-Off</Badge>
+            <CardTitle>Items Awaiting Review</CardTitle>
+            <Badge variant="ember">{pendingApprovals.length} Need Review</Badge>
           </div>
           <CardDescription>
-            All exceptions with amounts exceeding thresholds or classified as unresolved noise.
+            All transactions needing approval or verification.
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -100,7 +119,7 @@ export const Approvals: React.FC<ApprovalsProps> = ({ exceptions, onRefresh }) =
                       </td>
                       <td className="py-3 px-3 whitespace-nowrap">
                         <Badge variant="soft" size="sm">
-                          {exc.category.replace(/_/g, " ")}
+                          {getCategoryLabel(exc.category)}
                         </Badge>
                       </td>
                       <td className="py-3 px-3 whitespace-nowrap font-mono font-semibold text-ink">

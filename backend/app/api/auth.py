@@ -2,7 +2,7 @@ from fastapi import APIRouter, HTTPException, status, Depends
 from pydantic import BaseModel
 from app.models.user import UserResponse, Token
 from app.middleware.auth import verify_password, create_access_token, get_current_user
-from app.repository.memory import repo
+from app.repository import repo
 
 router = APIRouter(prefix="/auth", tags=["Auth"])
 

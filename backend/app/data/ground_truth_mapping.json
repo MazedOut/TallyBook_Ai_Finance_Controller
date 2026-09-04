@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-04T17:30:42.575564+00:00",
-  "total_bank_records": 75,
-  "total_ledger_records": 79,
-  "ground_truth_matches_count": 69,
-  "ground_truth_unresolvables_count": 8,
-  "ground_truth_duplicates_count": 4,
+  "generated_at": "2026-09-04T20:17:10.867609+00:00",
+  "total_bank_records": 97,
+  "total_ledger_records": 103,
+  "ground_truth_matches_count": 81,
+  "ground_truth_unresolvables_count": 25,
+  "ground_truth_duplicates_count": 6,
   "matches": [
     {
       "bank_id": "BNK-1001",
@@ -14,7 +14,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1002",
@@ -24,7 +24,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1003",
@@ -34,7 +34,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1004",
@@ -44,7 +44,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1005",
@@ -54,7 +54,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1006",
@@ -64,7 +64,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1007",
@@ -74,7 +74,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1008",
@@ -84,7 +84,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1009",
@@ -94,7 +94,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1010",
@@ -104,7 +104,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1011",
@@ -114,7 +114,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1012",
@@ -124,7 +124,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1013",
@@ -134,7 +134,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1014",
@@ -144,7 +144,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1015",
@@ -154,7 +154,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1016",
@@ -164,7 +164,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1017",
@@ -174,7 +174,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1018",
@@ -184,7 +184,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1019",
@@ -194,7 +194,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1020",
@@ -204,7 +204,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1021",
@@ -214,7 +214,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1022",
@@ -224,7 +224,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1023",
@@ -234,7 +234,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1024",
@@ -244,7 +244,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1025",
@@ -254,7 +254,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1026",
@@ -264,7 +264,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1027",
@@ -274,7 +274,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1028",
@@ -284,7 +284,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1029",
@@ -294,7 +294,7 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1030",
@@ -304,57 +304,57 @@
       "match_type": "EXACT",
       "expected_delta": 0.0,
       "rule": "RULE:REF_EXACT",
-      "notes": "Exact match on ref_id, amount, and date"
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1031",
       "ledger_ids": [
         "LDG-5031"
       ],
-      "match_type": "DATE_OFFSET",
+      "match_type": "EXACT",
       "expected_delta": 0.0,
-      "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 3 days (2026-02-08 -> 2026-02-11)"
+      "rule": "RULE:REF_EXACT",
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1032",
       "ledger_ids": [
         "LDG-5032"
       ],
-      "match_type": "DATE_OFFSET",
+      "match_type": "EXACT",
       "expected_delta": 0.0,
-      "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 2 days (2026-02-06 -> 2026-02-08)"
+      "rule": "RULE:REF_EXACT",
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1033",
       "ledger_ids": [
         "LDG-5033"
       ],
-      "match_type": "DATE_OFFSET",
+      "match_type": "EXACT",
       "expected_delta": 0.0,
-      "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 2 days (2026-02-19 -> 2026-02-21)"
+      "rule": "RULE:REF_EXACT",
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1034",
       "ledger_ids": [
         "LDG-5034"
       ],
-      "match_type": "DATE_OFFSET",
+      "match_type": "EXACT",
       "expected_delta": 0.0,
-      "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 2 days (2026-02-20 -> 2026-02-22)"
+      "rule": "RULE:REF_EXACT",
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1035",
       "ledger_ids": [
         "LDG-5035"
       ],
-      "match_type": "DATE_OFFSET",
+      "match_type": "EXACT",
       "expected_delta": 0.0,
-      "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 2 days (2026-02-18 -> 2026-02-20)"
+      "rule": "RULE:REF_EXACT",
+      "notes": "Exact match on reference ID, amount, and ledger date"
     },
     {
       "bank_id": "BNK-1036",
@@ -364,7 +364,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 1 days (2026-02-05 -> 2026-02-06)"
+      "notes": "Settlement lag of 1 days (2026-02-13 -> 2026-02-14)"
     },
     {
       "bank_id": "BNK-1037",
@@ -374,7 +374,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 1 days (2026-02-21 -> 2026-02-22)"
+      "notes": "Settlement lag of 2 days (2026-02-18 -> 2026-02-20)"
     },
     {
       "bank_id": "BNK-1038",
@@ -384,7 +384,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 3 days (2026-02-16 -> 2026-02-19)"
+      "notes": "Settlement lag of 1 days (2026-02-05 -> 2026-02-06)"
     },
     {
       "bank_id": "BNK-1039",
@@ -394,7 +394,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 3 days (2026-02-02 -> 2026-02-05)"
+      "notes": "Settlement lag of 1 days (2026-02-21 -> 2026-02-22)"
     },
     {
       "bank_id": "BNK-1040",
@@ -404,7 +404,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 3 days (2026-02-10 -> 2026-02-13)"
+      "notes": "Settlement lag of 3 days (2026-02-16 -> 2026-02-19)"
     },
     {
       "bank_id": "BNK-1041",
@@ -414,7 +414,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 1 days (2026-02-15 -> 2026-02-16)"
+      "notes": "Settlement lag of 3 days (2026-02-02 -> 2026-02-05)"
     },
     {
       "bank_id": "BNK-1042",
@@ -424,7 +424,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 1 days (2026-02-18 -> 2026-02-19)"
+      "notes": "Settlement lag of 3 days (2026-02-10 -> 2026-02-13)"
     },
     {
       "bank_id": "BNK-1043",
@@ -434,7 +434,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 3 days (2026-02-11 -> 2026-02-14)"
+      "notes": "Settlement lag of 1 days (2026-02-15 -> 2026-02-16)"
     },
     {
       "bank_id": "BNK-1044",
@@ -444,7 +444,7 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 2 days (2026-02-06 -> 2026-02-08)"
+      "notes": "Settlement lag of 1 days (2026-02-18 -> 2026-02-19)"
     },
     {
       "bank_id": "BNK-1045",
@@ -454,67 +454,67 @@
       "match_type": "DATE_OFFSET",
       "expected_delta": 0.0,
       "rule": "RULE:DATE_OFFSET",
-      "notes": "Settlement lag of 1 days (2026-02-18 -> 2026-02-19)"
+      "notes": "Settlement lag of 3 days (2026-02-11 -> 2026-02-14)"
     },
     {
       "bank_id": "BNK-1046",
       "ledger_ids": [
         "LDG-5046"
       ],
-      "match_type": "FEE_DELTA",
-      "expected_delta": 1.5,
-      "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $1.5 wire/service fee"
+      "match_type": "DATE_OFFSET",
+      "expected_delta": 0.0,
+      "rule": "RULE:DATE_OFFSET",
+      "notes": "Settlement lag of 2 days (2026-02-06 -> 2026-02-08)"
     },
     {
       "bank_id": "BNK-1047",
       "ledger_ids": [
         "LDG-5047"
       ],
-      "match_type": "FEE_DELTA",
-      "expected_delta": 2.5,
-      "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $2.5 wire/service fee"
+      "match_type": "DATE_OFFSET",
+      "expected_delta": 0.0,
+      "rule": "RULE:DATE_OFFSET",
+      "notes": "Settlement lag of 1 days (2026-02-18 -> 2026-02-19)"
     },
     {
       "bank_id": "BNK-1048",
       "ledger_ids": [
         "LDG-5048"
       ],
-      "match_type": "FEE_DELTA",
-      "expected_delta": 0.75,
-      "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $0.75 wire/service fee"
+      "match_type": "DATE_OFFSET",
+      "expected_delta": 0.0,
+      "rule": "RULE:DATE_OFFSET",
+      "notes": "Settlement lag of 1 days (2026-02-02 -> 2026-02-03)"
     },
     {
       "bank_id": "BNK-1049",
       "ledger_ids": [
         "LDG-5049"
       ],
-      "match_type": "FEE_DELTA",
-      "expected_delta": 2.0,
-      "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $2.0 wire/service fee"
+      "match_type": "DATE_OFFSET",
+      "expected_delta": 0.0,
+      "rule": "RULE:DATE_OFFSET",
+      "notes": "Settlement lag of 1 days (2026-02-09 -> 2026-02-10)"
     },
     {
       "bank_id": "BNK-1050",
       "ledger_ids": [
         "LDG-5050"
       ],
-      "match_type": "FEE_DELTA",
-      "expected_delta": 2.5,
-      "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $2.5 wire/service fee"
+      "match_type": "DATE_OFFSET",
+      "expected_delta": 0.0,
+      "rule": "RULE:DATE_OFFSET",
+      "notes": "Settlement lag of 1 days (2026-02-04 -> 2026-02-05)"
     },
     {
       "bank_id": "BNK-1051",
       "ledger_ids": [
         "LDG-5051"
       ],
-      "match_type": "FEE_DELTA",
-      "expected_delta": 1.25,
-      "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $1.25 wire/service fee"
+      "match_type": "DATE_OFFSET",
+      "expected_delta": 0.0,
+      "rule": "RULE:DATE_OFFSET",
+      "notes": "Settlement lag of 1 days (2026-02-19 -> 2026-02-20)"
     },
     {
       "bank_id": "BNK-1052",
@@ -522,9 +522,9 @@
         "LDG-5052"
       ],
       "match_type": "FEE_DELTA",
-      "expected_delta": 1.5,
+      "expected_delta": 25.0,
       "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $1.5 wire/service fee"
+      "notes": "Bank deducted $25.00 wire or interchange processing fee"
     },
     {
       "bank_id": "BNK-1053",
@@ -532,14 +532,114 @@
         "LDG-5053"
       ],
       "match_type": "FEE_DELTA",
-      "expected_delta": 1.25,
+      "expected_delta": 25.0,
       "rule": "RULE:FEE_DELTA",
-      "notes": "Bank deducted $1.25 wire/service fee"
+      "notes": "Bank deducted $25.00 wire or interchange processing fee"
     },
     {
       "bank_id": "BNK-1054",
       "ledger_ids": [
         "LDG-5054"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 2.5,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $2.50 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1055",
+      "ledger_ids": [
+        "LDG-5055"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 1.5,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $1.50 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1056",
+      "ledger_ids": [
+        "LDG-5056"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 25.0,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $25.00 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1057",
+      "ledger_ids": [
+        "LDG-5057"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 0.75,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $0.75 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1058",
+      "ledger_ids": [
+        "LDG-5058"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 0.75,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $0.75 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1059",
+      "ledger_ids": [
+        "LDG-5059"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 1.5,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $1.50 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1060",
+      "ledger_ids": [
+        "LDG-5060"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 1.5,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $1.50 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1061",
+      "ledger_ids": [
+        "LDG-5061"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 15.0,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $15.00 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1062",
+      "ledger_ids": [
+        "LDG-5062"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 15.0,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $15.00 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1063",
+      "ledger_ids": [
+        "LDG-5063"
+      ],
+      "match_type": "FEE_DELTA",
+      "expected_delta": 0.75,
+      "rule": "RULE:FEE_DELTA",
+      "notes": "Bank deducted $0.75 wire or interchange processing fee"
+    },
+    {
+      "bank_id": "BNK-1064",
+      "ledger_ids": [
+        "LDG-5064"
       ],
       "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
@@ -547,9 +647,9 @@
       "notes": "Semantic vendor abbreviation match (AMZN AWS US-EAST CLOUD SVCS <-> Amazon Web Services Inc Infrastructure)"
     },
     {
-      "bank_id": "BNK-1055",
+      "bank_id": "BNK-1065",
       "ledger_ids": [
-        "LDG-5055"
+        "LDG-5065"
       ],
       "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
@@ -557,9 +657,9 @@
       "notes": "Semantic vendor abbreviation match (GGL *GSUITE CALENDAR CORP <-> Google LLC Enterprise Workspace Suite)"
     },
     {
-      "bank_id": "BNK-1056",
+      "bank_id": "BNK-1066",
       "ledger_ids": [
-        "LDG-5056"
+        "LDG-5066"
       ],
       "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
@@ -567,9 +667,9 @@
       "notes": "Semantic vendor abbreviation match (SLK*SLACK DIRECT COMM <-> Slack Technologies Team Subscription)"
     },
     {
-      "bank_id": "BNK-1057",
+      "bank_id": "BNK-1067",
       "ledger_ids": [
-        "LDG-5057"
+        "LDG-5067"
       ],
       "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
@@ -577,9 +677,9 @@
       "notes": "Semantic vendor abbreviation match (STRIPE TRANSFER REVENUE ACH <-> Stripe Inc Merchant Processing Settlements)"
     },
     {
-      "bank_id": "BNK-1058",
+      "bank_id": "BNK-1068",
       "ledger_ids": [
-        "LDG-5058"
+        "LDG-5068"
       ],
       "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
@@ -587,9 +687,9 @@
       "notes": "Semantic vendor abbreviation match (MSFT *AZURE CLOUD US <-> Microsoft Corporation Azure Enterprise)"
     },
     {
-      "bank_id": "BNK-1059",
+      "bank_id": "BNK-1069",
       "ledger_ids": [
-        "LDG-5059"
+        "LDG-5069"
       ],
       "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
@@ -597,129 +697,255 @@
       "notes": "Semantic vendor abbreviation match (DATADOG INC SYS METRICS APM <-> Datadog Cloud Observability Platform)"
     },
     {
-      "bank_id": "BNK-1060",
-      "ledger_ids": [
-        "LDG-5060",
-        "LDG-5061"
-      ],
-      "match_type": "SPLIT_PAYMENT",
-      "expected_delta": 0.0,
-      "rule": "RULE:SPLIT_PAYMENT",
-      "notes": "Bank payment of $2072.55 split into $510.79 + $1561.76"
-    },
-    {
-      "bank_id": "BNK-1061",
-      "ledger_ids": [
-        "LDG-5062",
-        "LDG-5063"
-      ],
-      "match_type": "SPLIT_PAYMENT",
-      "expected_delta": 0.0,
-      "rule": "RULE:SPLIT_PAYMENT",
-      "notes": "Bank payment of $1148.22 split into $601.1 + $547.12"
-    },
-    {
-      "bank_id": "BNK-1062",
-      "ledger_ids": [
-        "LDG-5064",
-        "LDG-5065"
-      ],
-      "match_type": "SPLIT_PAYMENT",
-      "expected_delta": 0.0,
-      "rule": "RULE:SPLIT_PAYMENT",
-      "notes": "Bank payment of $2188.95 split into $1271.23 + $917.72"
-    },
-    {
-      "bank_id": "BNK-1063",
-      "ledger_ids": [
-        "LDG-5066",
-        "LDG-5067"
-      ],
-      "match_type": "SPLIT_PAYMENT",
-      "expected_delta": 0.0,
-      "rule": "RULE:SPLIT_PAYMENT",
-      "notes": "Bank payment of $2893.88 split into $1308.85 + $1585.03"
-    },
-    {
       "bank_id": "BNK-1070",
       "ledger_ids": [
-        "LDG-5074"
+        "LDG-5070"
       ],
-      "match_type": "EXACT",
+      "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
-      "rule": "RULE:REF_EXACT",
-      "notes": "Exact match vendor settlement"
+      "rule": "AI:REASONING",
+      "notes": "Semantic vendor abbreviation match (SFDC CRM CLOUD SUB ONLINE <-> Salesforce.com Inc Enterprise CRM)"
     },
     {
       "bank_id": "BNK-1071",
       "ledger_ids": [
-        "LDG-5075"
+        "LDG-5071"
       ],
-      "match_type": "EXACT",
+      "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
-      "rule": "RULE:REF_EXACT",
-      "notes": "Exact match vendor settlement"
+      "rule": "AI:REASONING",
+      "notes": "Semantic vendor abbreviation match (SNOWFLAKE COMPUTING DATA WHS <-> Snowflake Inc Cloud Data Platform)"
     },
     {
       "bank_id": "BNK-1072",
       "ledger_ids": [
-        "LDG-5076"
+        "LDG-5072"
       ],
-      "match_type": "EXACT",
+      "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
-      "rule": "RULE:REF_EXACT",
-      "notes": "Exact match vendor settlement"
+      "rule": "AI:REASONING",
+      "notes": "Semantic vendor abbreviation match (CLOUDFLARE EDGE NETWORK CDN <-> Cloudflare Inc Enterprise DDoS Protection)"
     },
     {
       "bank_id": "BNK-1073",
       "ledger_ids": [
-        "LDG-5077"
+        "LDG-5073"
       ],
-      "match_type": "EXACT",
+      "match_type": "SEMANTIC_FUZZY",
       "expected_delta": 0.0,
-      "rule": "RULE:REF_EXACT",
-      "notes": "Exact match vendor settlement"
+      "rule": "AI:REASONING",
+      "notes": "Semantic vendor abbreviation match (FIGMA ENTERPRISE DESIGN SEAT <-> Figma Design Inc Collaborative Subscriptions)"
     },
     {
       "bank_id": "BNK-1074",
       "ledger_ids": [
-        "LDG-5078"
+        "LDG-5074",
+        "LDG-5075"
       ],
-      "match_type": "EXACT",
+      "match_type": "SPLIT_PAYMENT",
       "expected_delta": 0.0,
-      "rule": "RULE:REF_EXACT",
-      "notes": "Exact match vendor settlement"
+      "rule": "RULE:SPLIT_PAYMENT",
+      "notes": "Bank payment of $12800.00 split into $8000.00 + $4800.00"
     },
     {
       "bank_id": "BNK-1075",
       "ledger_ids": [
+        "LDG-5076",
+        "LDG-5077"
+      ],
+      "match_type": "SPLIT_PAYMENT",
+      "expected_delta": 0.0,
+      "rule": "RULE:SPLIT_PAYMENT",
+      "notes": "Bank payment of $7500.00 split into $6000.00 + $1500.00"
+    },
+    {
+      "bank_id": "BNK-1076",
+      "ledger_ids": [
+        "LDG-5078",
         "LDG-5079"
       ],
-      "match_type": "EXACT",
+      "match_type": "SPLIT_PAYMENT",
       "expected_delta": 0.0,
-      "rule": "RULE:REF_EXACT",
-      "notes": "Exact match vendor settlement"
+      "rule": "RULE:SPLIT_PAYMENT",
+      "notes": "Bank payment of $9000.00 split into $5500.00 + $3500.00"
+    },
+    {
+      "bank_id": "BNK-1077",
+      "ledger_ids": [
+        "LDG-5080",
+        "LDG-5081"
+      ],
+      "match_type": "SPLIT_PAYMENT",
+      "expected_delta": 0.0,
+      "rule": "RULE:SPLIT_PAYMENT",
+      "notes": "Bank payment of $4200.00 split into $3200.00 + $1000.00"
+    },
+    {
+      "bank_id": "BNK-1078",
+      "ledger_ids": [
+        "LDG-5082",
+        "LDG-5083"
+      ],
+      "match_type": "SPLIT_PAYMENT",
+      "expected_delta": 0.0,
+      "rule": "RULE:SPLIT_PAYMENT",
+      "notes": "Bank payment of $5000.00 split into $3500.00 + $1500.00"
+    },
+    {
+      "bank_id": "BNK-1079",
+      "ledger_ids": [
+        "LDG-5084",
+        "LDG-5085"
+      ],
+      "match_type": "SPLIT_PAYMENT",
+      "expected_delta": 0.0,
+      "rule": "RULE:SPLIT_PAYMENT",
+      "notes": "Bank payment of $4000.00 split into $2800.00 + $1200.00"
+    },
+    {
+      "bank_id": "BNK-1095",
+      "ledger_ids": [
+        "LDG-5101"
+      ],
+      "match_type": "AMBIGUOUS",
+      "expected_delta": 0.0,
+      "rule": "AI:DISAMBIGUATION",
+      "notes": "Disambiguated between two identical $1,450.00 candidate disbursements"
+    },
+    {
+      "bank_id": "BNK-1096",
+      "ledger_ids": [
+        "LDG-5102"
+      ],
+      "match_type": "AMBIGUOUS",
+      "expected_delta": 0.0,
+      "rule": "AI:DISAMBIGUATION",
+      "notes": "Disambiguated between two identical $1,450.00 candidate disbursements"
     }
   ],
   "unresolvables": [
     {
-      "id": "BNK-1066",
+      "id": "BNK-1083",
+      "source": "bank",
+      "amount": 15500.0,
+      "date": "2026-02-13",
+      "reason": "Enterprise Security emergency incident retainer missing AP voucher",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "BNK-1084",
+      "source": "bank",
+      "amount": 22400.0,
+      "date": "2026-02-08",
+      "reason": "Treasury M&A escrow transaction unbooked in cash ledger",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "BNK-1085",
+      "source": "bank",
+      "amount": 11200.0,
+      "date": "2026-02-20",
+      "reason": "Annual network security firewall renewal wire unvouched",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "BNK-1086",
+      "source": "bank",
+      "amount": 28000.0,
+      "date": "2026-02-23",
+      "reason": "Board-authorized restructuring advisory payment unbooked",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "LDG-5089",
+      "source": "ledger",
+      "amount": 18750.0,
+      "date": "2026-02-09",
+      "reason": "Scheduled ERP software renewal awaiting bank wire release",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "LDG-5090",
+      "source": "ledger",
+      "amount": 34950.0,
+      "date": "2026-02-07",
+      "reason": "Capitalized data center compute hardware awaiting invoice clearing",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "LDG-5091",
+      "source": "ledger",
+      "amount": 14600.0,
+      "date": "2026-02-26",
+      "reason": "Prepaid compute consumption voucher awaiting Treasury wire clearing",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "LDG-5092",
+      "source": "ledger",
+      "amount": 16800.0,
+      "date": "2026-02-23",
+      "reason": "Statutory tax filing audit fee accrual pending wire disbursement",
+      "expected_category": "no_counterpart",
+      "requires_approval": true
+    },
+    {
+      "id": "BNK-1087",
       "source": "bank",
       "amount": 35.0,
-      "date": "2026-02-24",
-      "reason": "Unrecorded bank wire fee",
+      "date": "2026-02-06",
+      "reason": "Unrecorded domestic wire fee",
       "expected_category": "no_counterpart"
     },
     {
-      "id": "BNK-1067",
+      "id": "BNK-1088",
+      "source": "bank",
+      "amount": 45.0,
+      "date": "2026-02-08",
+      "reason": "Foreign bank intermediary fee",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "BNK-1089",
+      "source": "bank",
+      "amount": 15.0,
+      "date": "2026-02-13",
+      "reason": "Bank treasury account management fee",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "BNK-1090",
       "source": "bank",
       "amount": 1250.0,
-      "date": "2026-02-24",
-      "reason": "Employee travel expense missing AP receipt",
+      "date": "2026-02-11",
+      "reason": "Executive offsite travel missing expense report",
       "expected_category": "no_counterpart"
     },
     {
-      "id": "BNK-1068",
+      "id": "BNK-1091",
+      "source": "bank",
+      "amount": 840.0,
+      "date": "2026-02-19",
+      "reason": "Corporate travel ticket missing counterpart receipt",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "BNK-1092",
+      "source": "bank",
+      "amount": 185.5,
+      "date": "2026-02-21",
+      "reason": "Monthly rideshare commute billing unvouched",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "BNK-1093",
       "source": "bank",
       "amount": 89.99,
       "date": "2026-02-21",
@@ -727,74 +953,128 @@
       "expected_category": "no_counterpart"
     },
     {
-      "id": "BNK-1069",
+      "id": "BNK-1094",
       "source": "bank",
       "amount": 412.5,
-      "date": "2026-02-13",
-      "reason": "Unbooked treasury currency adjustment",
+      "date": "2026-02-12",
+      "reason": "Unbooked treasury currency revaluation adjustment",
       "expected_category": "no_counterpart"
     },
     {
-      "id": "LDG-5070",
+      "id": "LDG-5093",
       "source": "ledger",
       "amount": 5000.0,
-      "date": "2026-02-21",
-      "reason": "Accrual entry with no cash movement yet",
+      "date": "2026-02-18",
+      "reason": "Accrual entry with no bank cash movement yet",
       "expected_category": "no_counterpart"
     },
     {
-      "id": "LDG-5071",
+      "id": "LDG-5094",
       "source": "ledger",
       "amount": 750.0,
-      "date": "2026-02-19",
-      "reason": "Uncashed check still outstanding at month-end",
+      "date": "2026-02-07",
+      "reason": "Uncashed vendor check still outstanding at bank cutoff",
       "expected_category": "no_counterpart"
     },
     {
-      "id": "LDG-5072",
+      "id": "LDG-5095",
+      "source": "ledger",
+      "amount": 2400.0,
+      "date": "2026-02-11",
+      "reason": "Courier check in transit to payee",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "LDG-5096",
       "source": "ledger",
       "amount": 3200.0,
-      "date": "2026-02-12",
-      "reason": "Internal transfer between non-cash accounts",
+      "date": "2026-02-18",
+      "reason": "Internal transfer between non-cash subsidiary accounts",
       "expected_category": "no_counterpart"
     },
     {
-      "id": "LDG-5073",
+      "id": "LDG-5097",
       "source": "ledger",
       "amount": 1650.0,
-      "date": "2026-02-09",
-      "reason": "Non-cash depreciation/amortization journal entry",
+      "date": "2026-02-06",
+      "reason": "Non-cash depreciation and amortization journal voucher",
       "expected_category": "no_counterpart"
+    },
+    {
+      "id": "LDG-5098",
+      "source": "ledger",
+      "amount": 4100.0,
+      "date": "2026-02-18",
+      "reason": "Cross-border bank wire in clearing transit",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "LDG-5099",
+      "source": "ledger",
+      "amount": 8500.0,
+      "date": "2026-02-14",
+      "reason": "Quarterly payroll bonus accrual awaiting distribution",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "LDG-5100",
+      "source": "ledger",
+      "amount": 1200.0,
+      "date": "2026-02-20",
+      "reason": "Office cash box replenishment check pending presentation",
+      "expected_category": "no_counterpart"
+    },
+    {
+      "id": "BNK-1097",
+      "source": "bank",
+      "amount": 2500.0,
+      "date": "2026-02-19",
+      "reason": "50% partial progress payment against $5,000 PO",
+      "expected_category": "split_payment_partial"
     }
   ],
   "duplicates": [
     {
-      "id": "BNK-1064",
+      "id": "BNK-1080",
       "duplicate_of": "BNK-1001",
       "source": "bank",
       "category": "duplicate_fee_noise",
-      "reason": "Duplicate transaction posting in bank feed"
+      "reason": "Duplicate debit posting in bank feed"
     },
     {
-      "id": "BNK-1065",
-      "duplicate_of": "BNK-1005",
+      "id": "BNK-1081",
+      "duplicate_of": "BNK-1006",
       "source": "bank",
       "category": "duplicate_fee_noise",
-      "reason": "Duplicate transaction posting in bank feed"
+      "reason": "Duplicate debit posting in bank feed"
     },
     {
-      "id": "LDG-5068",
+      "id": "BNK-1082",
+      "duplicate_of": "BNK-1011",
+      "source": "bank",
+      "category": "duplicate_fee_noise",
+      "reason": "Duplicate debit posting in bank feed"
+    },
+    {
+      "id": "LDG-5086",
       "duplicate_of": "LDG-5001",
       "source": "ledger",
       "category": "duplicate_fee_noise",
-      "reason": "Accidental double-booking in internal ledger"
+      "reason": "Accidental double-booking in internal ERP ledger"
     },
     {
-      "id": "LDG-5069",
-      "duplicate_of": "LDG-5005",
+      "id": "LDG-5087",
+      "duplicate_of": "LDG-5006",
       "source": "ledger",
       "category": "duplicate_fee_noise",
-      "reason": "Accidental double-booking in internal ledger"
+      "reason": "Accidental double-booking in internal ERP ledger"
+    },
+    {
+      "id": "LDG-5088",
+      "duplicate_of": "LDG-5011",
+      "source": "ledger",
+      "category": "duplicate_fee_noise",
+      "reason": "Accidental double-booking in internal ERP ledger"
     }
   ]
 }

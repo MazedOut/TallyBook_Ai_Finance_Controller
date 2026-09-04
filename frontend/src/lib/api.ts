@@ -125,5 +125,58 @@ export const api = {
     },
     getCsvExportUrl: (runId: string) => `${API_BASE_URL}/data/export/${runId}/csv`,
     getPdfExportUrl: (runId: string) => `${API_BASE_URL}/data/export/${runId}/pdf`,
+    previewImport: async (payload: { raw_content: string; file_name: string; source_type: "bank" | "ledger" }): Promise<any> => {
+      const res = await apiClient.post("/data/import/preview", payload)
+      return res.data
+    },
+    confirmImport: async (payload: {
+      file_name: string
+      source_type: "bank" | "ledger"
+      mode: "append" | "replace"
+      mapping: Record<string, string>
+      parsed_rows?: Array<Record<string, any>>
+      raw_content?: string
+      run_reconciliation_now?: boolean
+    }): Promise<any> => {
+      const res = await apiClient.post("/data/import/confirm", payload)
+      return res.data
+    },
+    manualEntry: async (payload: {
+      source_type: "bank" | "ledger"
+      date: string
+      amount: number
+      description: string
+      ref_id?: string
+      account_id?: string
+      currency?: string
+    }): Promise<any> => {
+      const res = await apiClient.post("/data/manual-entry", payload)
+      return res.data
+    },
+    getImportHistory: async (): Promise<any[]> => {
+      const res = await apiClient.get("/data/imports")
+      return res.data
+    },
+    resetDemo: async (): Promise<any> => {
+      const res = await apiClient.post("/data/reset-demo")
+      return res.data
+    }
+  },
+
+  assistant: {
+    sendMessage: async (message: string, conversationHistory?: any[]): Promise<{
+      id: string
+      reply: string
+      timestamp: string
+      suggested_actions?: string[]
+      metrics_snapshot?: Record<string, any>
+    }> => {
+      const res = await apiClient.post("/chat/message", { 
+        message, 
+        conversation_history: conversationHistory 
+      })
+      return res.data
+    }
   }
 }
+

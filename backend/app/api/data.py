@@ -12,7 +12,7 @@ from app.config import settings
 from app.models.user import User
 from app.middleware.auth import get_current_user, require_role
 from app.data.generator import generate_synthetic_dataset
-from app.repository.memory import repo
+from app.repository import repo
 
 router = APIRouter(prefix="/data", tags=["Data & Export"])
 

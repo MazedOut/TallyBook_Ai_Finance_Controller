@@ -8,7 +8,7 @@ from app.models.exception import ExceptionRecord, ExceptionCategory
 from app.models.audit import AuditLog
 from app.models.user import User
 from app.middleware.auth import get_current_user, require_role
-from app.repository.memory import repo
+from app.repository import repo
 
 router = APIRouter(prefix="/exceptions", tags=["Exceptions"])
 
@@ -34,7 +34,7 @@ async def list_exceptions(
             raise HTTPException(status_code=404, detail=f"Run '{run_id}' not found.")
         exceptions = run.get("exceptions", [])
     else:
-        exceptions = list(repo.exceptions.values())
+        exceptions = repo.list_all_exceptions() if hasattr(repo, "list_all_exceptions") else list(repo.exceptions.values())
 
     filtered = []
     for exc in exceptions:
@@ -57,7 +57,7 @@ async def approve_exception(
     Controller-gated approval for high-value or disputed exceptions.
     Authorizes GL adjustment voucher or write-off and creates an immutable audit entry.
     """
-    exc = repo.exceptions.get(exc_id)
+    exc = repo.get_exception(exc_id) if hasattr(repo, "get_exception") else repo.exceptions.get(exc_id)
     if not exc:
         raise HTTPException(status_code=404, detail=f"Exception '{exc_id}' not found.")
 
@@ -99,7 +99,7 @@ async def reclassify_exception(
     req: ReclassifyExceptionRequest,
     current_user: User = Depends(require_role(["analyst", "controller", "admin"]))
 ):
-    exc = repo.exceptions.get(exc_id)
+    exc = repo.get_exception(exc_id) if hasattr(repo, "get_exception") else repo.exceptions.get(exc_id)
     if not exc:
         raise HTTPException(status_code=404, detail=f"Exception '{exc_id}' not found.")
 

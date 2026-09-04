@@ -1,0 +1,6 @@
+Date	Narration	Debit_Amount	Sweep_Reference	Cost_Center
+2026-02-27	Federal 941 Payroll Tax Deposit	-38450.20	FED-941-0227	CORP-FIN
+2026-02-27	California EDD State Income Tax	-8920.15	CA-EDD-0227	CORP-FIN
+2026-02-27	New York State DTF Withholding	-6410.00	NY-DTF-0227	CORP-FIN
+2026-02-28	401k Fidelity Employer Match Contribution	-14200.00	FID-401K-0228	HR-BENEFITS
+2026-02-28	HSA Health Savings Custodian Transfer	-4150.00	HSA-TRF-0228	HR-BENEFITS

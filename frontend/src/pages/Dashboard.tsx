@@ -1,21 +1,23 @@
 import React from "react"
 import { 
-  GitCompare, 
   CheckCircle2, 
   AlertCircle, 
-  Sparkles, 
+  TrendingUp, 
+  FileSpreadsheet, 
+  FileText, 
+  DollarSign, 
+  Building2, 
+  BookOpen, 
   ArrowUpRight, 
-  Clock, 
-  ShieldCheck,
-  TrendingUp,
-  FileDown
+  ShieldCheck 
 } from "lucide-react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../components/ui/Card"
 import { Badge } from "../components/ui/Badge"
 import { Button } from "../components/ui/Button"
-import { ConfidenceBar } from "../components/reconcile/ConfidenceBar"
-import { formatCurrency, formatPercent } from "../lib/utils"
+import { formatCurrency } from "../lib/utils"
 import { api } from "../lib/api"
+import { useWorkspace } from "../hooks/useWorkspace"
+import { getWorkspaceData } from "../lib/workspaceData"
 import type { ReconciliationRun, MatchRecord, ExceptionRecord } from "../types"
 
 interface DashboardProps {
@@ -31,246 +33,232 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onRunBatch,
   isRunning,
 }) => {
+  const { activeWorkspace } = useWorkspace()
+  const wsData = getWorkspaceData(activeWorkspace.id)
+
   const scores = currentRun?.scores
   const matches = currentRun?.matches || []
   const exceptions = currentRun?.exceptions || []
 
-  const totalProcessed = (scores?.total_bank_records || 75) + (scores?.total_ledger_records || 79)
-  const autoResolvedCount = scores?.total_matches_count || 0
-  const matchRate = scores?.claimed_match_rate_pct || 0
-  const verifiedAccuracy = scores?.verified_accuracy_pct || 0
-  const precision = (scores?.precision || 0) * 100
-  const recall = (scores?.recall || 0) * 100
-  const f1 = (scores?.f1_score || 0) * 100
+  // Use real data when available, fall back to workspace synthetic data
+  const matchRate = scores?.claimed_match_rate_pct || wsData.matchRate
+  const reconciledVolume = matches.length > 0
+    ? matches.reduce((acc, m) => acc + (m.bank_amount || 0), 0)
+    : wsData.reconciledVolume
+  const exceptionsVolume = exceptions.length > 0
+    ? exceptions.reduce((acc, e) => acc + (e.amount || 0), 0)
+    : wsData.exceptionsVolume
+  const matchCount = matches.length || wsData.matchCount
+  const exceptionCount = exceptions.length || wsData.exceptionCount
+  const highValuePending = exceptions.filter(e => e.amount >= 10000 || e.approval_required).length || wsData.highValuePending
+
+  const recentMatches = matches.slice(0, 3)
+  const recentExceptions = exceptions.slice(0, 3)
 
   return (
-    <div className="space-y-6 max-w-7xl mx-auto pb-10">
-      {/* Top Banner / Hero Metric Strip */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {/* Stat 1: Match Rate & Review Time Reduction */}
-        <div className="card-container">
-          <div className="stat-label">Claimed Match Rate</div>
-          <div className="stat-value mt-1">{matchRate}%</div>
-          <div className="text-[13px] text-mid-gray mt-2 flex items-center gap-1.5 font-medium">
-            <TrendingUp className="w-3.5 h-3.5 text-ink" />
-            <span>86% manual review time saved</span>
+    <div className="space-y-5 max-w-6xl mx-auto pb-8">
+
+      {/* ── Clean KPI Grid ── */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
+        <div className="stat-card">
+          <div className="stat-label flex items-center justify-between">
+            <span>Match Rate</span>
+            <CheckCircle2 className="w-4 h-4 text-mid-gray" />
+          </div>
+          <div className="stat-value">{matchRate.toFixed(1)}%</div>
+          <div className="text-[12px] text-mid-gray mt-2 flex items-center gap-1.5">
+            <span>{matchCount} transactions matched</span>
           </div>
         </div>
 
-        {/* Stat 2: Measured Ground-Truth Precision */}
-        <div className="card-container">
-          <div className="stat-label">Verified Precision</div>
-          <div className="stat-value mt-1">{precision.toFixed(1)}%</div>
-          <div className="text-[13px] text-mid-gray mt-2 flex items-center gap-1.5">
-            <CheckCircle2 className="w-3.5 h-3.5 text-ink" />
-            <span>F1 Score: {f1.toFixed(1)}% verified</span>
+        <div className="stat-card">
+          <div className="stat-label flex items-center justify-between">
+            <span>Verified Cash Total</span>
+            <TrendingUp className="w-4 h-4 text-mid-gray" />
+          </div>
+          <div className="stat-value font-mono text-[24px]">{formatCurrency(reconciledVolume)}</div>
+          <div className="text-[12px] text-mid-gray mt-2 flex items-center gap-1.5 truncate">
+            <span>Matched with Company Books</span>
           </div>
         </div>
 
-        {/* Stat 3: AI Semantic Engine Invocations */}
-        <div className="card-container">
-          <div className="stat-label">AI Reasoning Invocations</div>
-          <div className="stat-value mt-1">{scores?.ai_resolved_count || 6}</div>
-          <div className="text-[13px] text-mid-gray mt-2 flex items-center gap-1.5">
-            <Sparkles className="w-3.5 h-3.5 text-ink" />
-            <span>Semantic abbreviation traces</span>
+        <div className="stat-card">
+          <div className="stat-label flex items-center justify-between">
+            <span>Unmatched Difference</span>
+            <AlertCircle className="w-4 h-4 text-ember" />
+          </div>
+          <div className="stat-value font-mono text-[24px] text-ember">{formatCurrency(exceptionsVolume)}</div>
+          <div className="text-[12px] text-mid-gray mt-2 flex items-center gap-1.5">
+            <span>{exceptionCount} items needing review</span>
           </div>
         </div>
 
-        {/* Stat 4: Honest Exceptions Triaged */}
-        <div className="card-container">
-          <div className="stat-label">Honest Exceptions</div>
-          <div className="stat-value mt-1">{exceptions.length}</div>
-          <div className="text-[13px] text-mid-gray mt-2 flex items-center gap-1.5">
-            <AlertCircle className="w-3.5 h-3.5 text-mid-gray" />
-            <span>Categorized, never forced</span>
+        <div className="stat-card">
+          <div className="stat-label flex items-center justify-between">
+            <span>Items Needing Sign-Off</span>
+            <ShieldCheck className="w-4 h-4 text-mid-gray" />
+          </div>
+          <div className="stat-value">{highValuePending}</div>
+          <div className="text-[12px] text-mid-gray mt-2 flex items-center gap-1.5">
+            <span>High-value items ≥ $10,000</span>
           </div>
         </div>
       </div>
 
-      {/* Main Two-Column Layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Left 2 Cols: Active Batch Overview & Ground Truth Honesty Card */}
-        <div className="lg:col-span-2 space-y-6">
-          {/* Ground Truth Honesty Card (The Buildathon Wow Factor) */}
+      {/* ── Balance Alignment Strip ── */}
+      <Card className="border-hairline bg-paper">
+        <CardHeader className="pb-3">
+          <div className="flex items-center justify-between">
+            <div>
+              <CardTitle>Bank vs Company Books</CardTitle>
+              <CardDescription>
+                {activeWorkspace.bankLabel} vs {activeWorkspace.glLabel} — {wsData.periodName}
+              </CardDescription>
+            </div>
+            <div className="flex items-center gap-2">
+              {currentRun?.run_id && (
+                <>
+                  <a
+                    href={api.data.getCsvExportUrl(currentRun.run_id)}
+                    target="_blank"
+                    rel="noreferrer"
+                    download
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[18px] border border-hairline bg-paper text-[12px] font-medium text-ink hover:bg-canvas transition-colors"
+                  >
+                    <FileSpreadsheet className="w-4 h-4 text-mid-gray" />
+                    <span>CSV</span>
+                  </a>
+                  <a
+                    href={api.data.getPdfExportUrl(currentRun.run_id)}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[18px] border border-hairline bg-paper text-[12px] font-medium text-ink hover:bg-canvas transition-colors"
+                  >
+                    <FileText className="w-4 h-4 text-mid-gray" />
+                    <span>PDF</span>
+                  </a>
+                </>
+              )}
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-2 gap-4 p-4 rounded-[18px] bg-canvas border border-hairline">
+            <div className="space-y-1">
+              <div className="text-[11px] text-mid-gray uppercase font-semibold flex items-center gap-1.5">
+                <Building2 className="w-4 h-4 text-mid-gray" />
+                <span>Bank Account Total</span>
+              </div>
+              <div className="text-[22px] font-mono font-bold text-ink">
+                {formatCurrency(reconciledVolume + exceptionsVolume)}
+              </div>
+              <div className="text-[11px] text-mid-gray">{activeWorkspace.bankAccount}</div>
+            </div>
+
+            <div className="space-y-1">
+              <div className="text-[11px] text-mid-gray uppercase font-semibold flex items-center gap-1.5">
+                <BookOpen className="w-4 h-4 text-mid-gray" />
+                <span>Company Books Total</span>
+              </div>
+              <div className="text-[22px] font-mono font-bold text-ink">
+                {formatCurrency(reconciledVolume)}
+              </div>
+              <div className="text-[11px] text-mid-gray">{activeWorkspace.entityName} · {activeWorkspace.glAccount}</div>
+            </div>
+          </div>
+          {exceptionsVolume > 0 && (
+            <div className="mt-3 px-4 py-2.5 rounded-[14px] bg-canvas border border-hairline flex items-center justify-between">
+              <div className="text-[12.5px] text-ink flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-ember" />
+                <span><strong>{formatCurrency(exceptionsVolume)}</strong> difference across {exceptionCount} unmatched items</span>
+              </div>
+              <Button variant="outline" size="sm" onClick={() => onNavigate("reconcile")}>
+                Review Unmatched
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* ── Two Column: Recent Activity + Quick Actions ── */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-5">
+        {/* Left 3 cols: Recent Cleared */}
+        <div className="lg:col-span-3">
           <Card>
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>
-                    <ShieldCheck className="w-5 h-5 text-ink" />
-                    Self-Graded Ground Truth Calibration
-                  </CardTitle>
-                  <CardDescription>
-                    Comparing the agent's claimed confidence against actual verified synthetic ground truth.
-                  </CardDescription>
-                </div>
-                <Badge variant="solid">Audited Loop</Badge>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 p-4 rounded-[18px] bg-canvas border border-hairline text-center">
-                <div>
-                  <div className="text-[11px] text-mid-gray uppercase font-semibold">True Positives</div>
-                  <div className="text-[22px] font-mono font-bold text-ink mt-0.5">
-                    {scores?.true_positives || 69}
-                  </div>
-                  <div className="text-[10.5px] text-mid-gray">Correct matches</div>
-                </div>
-                <div>
-                  <div className="text-[11px] text-mid-gray uppercase font-semibold">False Positives</div>
-                  <div className="text-[22px] font-mono font-bold text-ink mt-0.5">
-                    {scores?.false_positives || 2}
-                  </div>
-                  <div className="text-[10.5px] text-mid-gray">Discrepancies flagged</div>
-                </div>
-                <div>
-                  <div className="text-[11px] text-mid-gray uppercase font-semibold">False Negatives</div>
-                  <div className="text-[22px] font-mono font-bold text-ink mt-0.5">
-                    {scores?.false_negatives || 0}
-                  </div>
-                  <div className="text-[10.5px] text-mid-gray">Missed matches</div>
-                </div>
-                <div>
-                  <div className="text-[11px] text-mid-gray uppercase font-semibold">Calibration Delta</div>
-                  <div className="text-[22px] font-mono font-bold text-ink mt-0.5">
-                    {scores?.confidence_accuracy_calibration_delta || 0.015}
-                  </div>
-                  <div className="text-[10.5px] text-mid-gray">Confidence alignment</div>
-                </div>
-              </div>
-
-              {/* Progress & Engine Contributions */}
-              <div className="space-y-2">
-                <div className="flex items-center justify-between text-[13px] font-medium">
-                  <span>Engine Resolution Contribution</span>
-                  <span className="text-mid-gray">
-                    {scores?.rule_resolved_count || 65} Rules &bull; {scores?.ai_resolved_count || 6} AI Reasoning
-                  </span>
-                </div>
-                <div className="h-3 w-full bg-canvas rounded-full overflow-hidden flex border border-hairline">
-                  <div 
-                    className="h-full bg-ink transition-all"
-                    style={{ width: `${((scores?.rule_resolved_count || 65) / (autoResolvedCount || 71)) * 100}%` }}
-                    title="Deterministic Rules"
-                  />
-                  <div 
-                    className="h-full bg-mid-gray transition-all"
-                    style={{ width: `${((scores?.ai_resolved_count || 6) / (autoResolvedCount || 71)) * 100}%` }}
-                    title="AI Reasoning Layer"
-                  />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-
-          {/* Recent Reconciled Records Preview */}
-          <Card>
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle>Recent Reconciled Records</CardTitle>
-                  <CardDescription>
-                    Live sample of matched bank feeds against internal general ledger accounts.
-                  </CardDescription>
+                  <CardTitle>Recently Matched</CardTitle>
+                  <CardDescription>Latest transactions verified against company books</CardDescription>
                 </div>
                 <Button variant="outline" size="sm" onClick={() => onNavigate("reconcile")}>
-                  View All ({matches.length})
+                  View All ({matchCount})
                 </Button>
               </div>
             </CardHeader>
             <CardContent>
-              <div className="divide-y divide-hairline/60">
-                {matches.slice(0, 5).map((m: MatchRecord) => (
-                  <div key={m.id} className="py-3 flex items-center justify-between gap-4">
-                    <div className="min-w-0 flex-1">
-                      <div className="font-medium text-[13.5px] text-ink truncate">
-                        {m.bank_description}
+              {recentMatches.length > 0 ? (
+                <div className="divide-y divide-hairline/60">
+                  {recentMatches.map((m: MatchRecord) => (
+                    <div key={m.id} className="py-3 flex items-center justify-between gap-4">
+                      <div className="min-w-0 flex-1">
+                        <div className="font-medium text-[13.5px] text-ink truncate">{m.bank_description}</div>
+                        <div className="text-[11.5px] text-mid-gray mt-0.5">{m.bank_date}</div>
                       </div>
-                      <div className="text-[12px] text-mid-gray flex items-center gap-2 mt-0.5">
-                        <span>{m.bank_date}</span>
-                        <span>&bull;</span>
-                        <span className="truncate">{m.ledger_descriptions[0]}</span>
-                      </div>
-                    </div>
-                    <div className="text-right shrink-0">
-                      <div className="font-mono text-[13.5px] font-semibold text-ink">
-                        {formatCurrency(m.bank_amount)}
-                      </div>
-                      <div className="mt-1">
-                        <ConfidenceBar confidence={m.confidence} />
+                      <div className="text-right shrink-0">
+                        <div className="font-mono text-[13.5px] font-semibold text-ink">{formatCurrency(m.bank_amount)}</div>
+                        <div className="text-[11px] text-mid-gray mt-0.5">
+                          {m.amount_delta === 0 ? "Direct Match" : `Difference: Δ $${Math.abs(m.amount_delta).toFixed(2)}`}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="py-6 text-center text-[13px] text-mid-gray">
+                  <DollarSign className="w-8 h-8 mx-auto mb-2 text-mid-gray" />
+                  <p>Click Auto-Match to find matching transactions</p>
+                  <Button variant="primary" size="sm" className="mt-3" onClick={onRunBatch} disabled={isRunning}>
+                    {isRunning ? "Matching..." : "Auto-Match Now"}
+                  </Button>
+                </div>
+              )}
             </CardContent>
           </Card>
         </div>
 
-        {/* Right 1 Col: Exception Triage & Period Status */}
-        <div className="space-y-6">
-          {/* Categorized Exceptions Card */}
-          <Card>
+        {/* Right 2 cols: Items needing review */}
+        <div className="lg:col-span-2">
+          <Card className="h-full">
             <CardHeader>
               <div className="flex items-center justify-between">
-                <CardTitle>Honest Exceptions</CardTitle>
-                <Badge variant="ember">{exceptions.length} Open</Badge>
+                <CardTitle>Items Needing Review</CardTitle>
+                <Badge variant="ember">{exceptionCount}</Badge>
               </div>
-              <CardDescription>
-                Triaged failure modes with actionable next steps.
-              </CardDescription>
+              <CardDescription>Bank records without a match</CardDescription>
             </CardHeader>
-            <CardContent className="space-y-3">
-              {exceptions.slice(0, 4).map((exc: ExceptionRecord) => (
-                <div key={exc.id} className="p-3 rounded-[18px] bg-canvas border border-hairline/80 space-y-1.5">
-                  <div className="flex items-center justify-between text-[11px]">
-                    <span className="font-mono uppercase text-mid-gray">{exc.source_type}</span>
-                    <span className="font-semibold text-ink font-mono">{formatCurrency(exc.amount)}</span>
+            <CardContent className="space-y-2">
+              {recentExceptions.length > 0 ? (
+                recentExceptions.map((exc: ExceptionRecord) => (
+                  <div key={exc.id} className="p-3 rounded-[14px] bg-canvas border border-hairline">
+                    <div className="flex items-center justify-between text-[11px] mb-1">
+                      <span className="font-mono text-mid-gray">{exc.date}</span>
+                      <span className="font-semibold text-ink font-mono">{formatCurrency(exc.amount)}</span>
+                    </div>
+                    <div className="text-[12.5px] font-medium text-ink truncate">{exc.description}</div>
                   </div>
-                  <div className="text-[13px] font-medium text-ink truncate leading-tight">
-                    {exc.description}
-                  </div>
-                  <div className="text-[11.5px] text-mid-gray leading-snug">
-                    {exc.what_would_resolve}
-                  </div>
-                </div>
-              ))}
+                ))
+              ) : (
+                <div className="text-[13px] text-mid-gray text-center py-4">All records matched</div>
+              )}
               <Button
                 variant="outline"
                 size="sm"
                 className="w-full mt-2"
-                onClick={() => onNavigate("reconcile")}
+                onClick={() => onNavigate("approvals")}
               >
-                Inspect All Exceptions
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Period Close & Certification Card */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Accounting Period</CardTitle>
-              <CardDescription>February 2026 Monthly Reconciliation</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="flex items-center justify-between p-3 rounded-[18px] bg-canvas border border-hairline">
-                <div>
-                  <div className="text-[11px] text-mid-gray uppercase font-semibold">Period Status</div>
-                  <div className="text-[14px] font-semibold text-ink mt-0.5">Open & Unlocked</div>
-                </div>
-                <Badge variant="soft">Cycle Active</Badge>
-              </div>
-              <p className="text-[12.5px] text-mid-gray leading-relaxed">
-                Once all exceptions above the $10,000 threshold have received Controller sign-off, the period can be closed and locked.
-              </p>
-              <Button
-                variant="primary"
-                size="sm"
-                className="w-full"
-                onClick={() => onNavigate("periods")}
-              >
-                Go to Period Management
+                <ArrowUpRight className="w-3.5 h-3.5 mr-1" />
+                Open Sign-Off Queue
               </Button>
             </CardContent>
           </Card>

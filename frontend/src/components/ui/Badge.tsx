@@ -16,10 +16,10 @@ export const Badge: React.FC<BadgeProps> = ({
   const baseStyles = "inline-flex items-center gap-1.5 font-medium rounded-[18px] select-none transition-colors"
   
   const variants = {
-    solid: "bg-[#171717] text-[#fafafa] border border-transparent",
-    soft: "bg-[#f5f5f5] text-[#171717] border border-transparent",
-    outline: "bg-transparent text-[#0a0a0a] border border-[#e5e5e5]",
-    ember: "bg-[#fff5f5] text-[#e7000b] border border-[#fed7d7]"
+    solid: "bg-ink text-paper border border-transparent",
+    soft: "bg-canvas text-ink border border-hairline",
+    outline: "bg-transparent text-ink border border-hairline",
+    ember: "bg-[#fef2f2] text-ember border border-[#fee2e2]"
   }
 
   const sizes = {

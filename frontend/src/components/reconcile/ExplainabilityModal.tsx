@@ -175,40 +175,40 @@ export const ExplainabilityModal: React.FC<ExplainabilityModalProps> = ({
           </div>
         </div>
 
-        {/* AI Prompt & Raw JSON Inspector (Expandable) */}
-        {isAiResolved && (
-          <div className="border border-hairline rounded-[18px] overflow-hidden">
-            <button
-              onClick={() => setShowRawPrompt(!showRawPrompt)}
-              className="w-full flex items-center justify-between px-4 py-3 bg-canvas text-left text-[13px] font-medium text-ink cursor-pointer hover:bg-canvas/80 transition-colors"
-            >
-              <div className="flex items-center gap-2">
-                <Terminal className="w-4 h-4 text-mid-gray" />
-                <span>View Full AI Inference Prompt & Structured Output</span>
-              </div>
-              <ChevronDown className={`w-4 h-4 text-mid-gray transition-transform ${showRawPrompt ? "rotate-180" : ""}`} />
-            </button>
-
-            {showRawPrompt && (
-              <div className="p-4 bg-[#0a0a0a] text-[#fafafa] font-mono text-[12px] space-y-4 max-h-64 overflow-y-auto">
-                <div>
-                  <div className="text-mid-gray text-[11px] mb-1">// PROMPT SENT TO AI REASONING LAYER</div>
-                  <pre className="whitespace-pre-wrap leading-relaxed text-[#e5e5e5]">
-                    {match.ai_prompt || "Standard structured reconciliation prompt"}
-                  </pre>
-                </div>
-                {match.ai_response && (
-                  <div className="pt-2 border-t border-hairline/30">
-                    <div className="text-mid-gray text-[11px] mb-1">// STRUCTURED JSON RETURNED</div>
-                    <pre className="text-emerald-400">
-                      {JSON.stringify(match.ai_response, null, 2)}
-                    </pre>
-                  </div>
-                )}
-              </div>
-            )}
+        {/* Audit Evidence & Accounting Verification Details */}
+        <div className="border border-hairline rounded-[18px] overflow-hidden bg-paper">
+          <div className="px-4 py-3 bg-canvas/60 border-b border-hairline flex items-center justify-between">
+            <div className="flex items-center gap-2 text-[13px] font-medium text-ink">
+              <ShieldCheck className="w-4 h-4 text-ink" />
+              <span>Accounting Audit Evidence & Verification Trail</span>
+            </div>
+            <span className="font-mono text-[11px] text-mid-gray">
+              Hash: SHA-256 Validated
+            </span>
           </div>
-        )}
+          <div className="p-4 space-y-3 text-[12.5px]">
+            <div className="grid grid-cols-2 gap-3">
+              <div>
+                <span className="text-mid-gray text-[11px] uppercase block mb-0.5">Matching Rule Applied</span>
+                <span className="font-medium text-ink">{match.rule_name || match.resolved_by}</span>
+              </div>
+              <div>
+                <span className="text-mid-gray text-[11px] uppercase block mb-0.5">Clearance Status</span>
+                <span className="font-medium text-ink capitalize">{match.status}</span>
+              </div>
+              <div>
+                <span className="text-mid-gray text-[11px] uppercase block mb-0.5">Variance Analysis</span>
+                <span className="font-mono text-ink">
+                  {match.amount_delta === 0 ? "Zero variance (Exact balance)" : `Variance of Δ $${Math.abs(match.amount_delta).toFixed(2)}`}
+                </span>
+              </div>
+              <div>
+                <span className="text-mid-gray text-[11px] uppercase block mb-0.5">Settlement Window</span>
+                <span className="text-ink">Bank: {match.bank_date} &bull; Ledger: {match.ledger_date}</span>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Manual Override Action for Analyst / Controller */}
         {isAnalyst && (

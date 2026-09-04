@@ -8,7 +8,7 @@ from app.models.period import Period
 from app.models.audit import AuditLog
 from app.models.user import User
 from app.middleware.auth import get_current_user, require_role
-from app.repository.memory import repo
+from app.repository import repo
 
 router = APIRouter(prefix="/periods", tags=["Periods"])
 

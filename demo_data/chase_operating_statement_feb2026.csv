@@ -1,0 +1,16 @@
+Transaction_Date,Description,Amount,Reference_Number,Account_Number
+2026-02-01,Stripe Settlement Batch #8819,45210.50,STR-994101,CHASE-4991
+2026-02-02,AWS Cloud Hosting EMEA,-3840.25,INV-AWS-2026-02,CHASE-4991
+2026-02-03,Client Wire - Apex Global Ltd,125000.00,WIRE-APX-881,CHASE-4991
+2026-02-03,Domestic Wire Transfer Fee,-25.00,FEE-WIRE-0203,CHASE-4991
+2026-02-04,Salesforce CRM Annual Enterprise,-18400.00,SFDC-99214,CHASE-4991
+2026-02-05,Gusto Payroll Operating Sweep,-64200.80,GUSTO-PAY-0205,CHASE-4991
+2026-02-06,Google Workspace & Cloud Storage,-680.00,GOOG-7721,CHASE-4991
+2026-02-07,Client Wire - Meridian Capital,88500.00,WIRE-MER-0207,CHASE-4991
+2026-02-08,Chase Corporate Credit Card Auto-Pay,-9420.15,CHASE-CC-FEB,CHASE-4991
+2026-02-09,Mercury Treasury Interest Yield,1450.32,INT-YIELD-0209,CHASE-4991
+2026-02-10,WeWork Office Lease Q1,-12500.00,LEASE-WW-101,CHASE-4991
+2026-02-11,RazorPay Merchant Settlement,34800.00,RZP-SETTLE-8812,CHASE-4991
+2026-02-12,Slack Technologies Enterprise,-2400.00,SLACK-INV-2026,CHASE-4991
+2026-02-13,Datadog Observability Suite,-4120.00,DDOG-88190,CHASE-4991
+2026-02-14,Deloitte Audit Retainer Installment,-15000.00,DEL-AUD-0214,CHASE-4991

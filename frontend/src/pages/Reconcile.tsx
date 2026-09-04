@@ -55,10 +55,10 @@ export const Reconcile: React.FC<ReconcileProps> = ({
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 pb-2 border-b border-hairline/60">
         <div>
           <h2 className="text-[20px] font-semibold tracking-[-0.025em] text-ink">
-            Batch Reconciliation Engine
+            Transaction Matching
           </h2>
           <p className="text-[13px] text-mid-gray mt-0.5">
-            Full automated multi-source pass across 75 Chase bank records and 79 ERP ledger entries.
+            Automated verification across bank statements and company ledger records.
           </p>
         </div>
 
@@ -83,7 +83,7 @@ export const Reconcile: React.FC<ReconcileProps> = ({
                 className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[18px] border border-hairline bg-paper text-[13px] font-medium text-ink hover:bg-canvas transition-colors"
               >
                 <FileText className="w-3.5 h-3.5" />
-                <span>Audit PDF Certificate</span>
+                <span>Download Report (PDF)</span>
               </a>
             </>
           )}
@@ -95,7 +95,7 @@ export const Reconcile: React.FC<ReconcileProps> = ({
             disabled={isRunning}
             icon={<Play className="w-3.5 h-3.5" />}
           >
-            {isRunning ? "Reconciling..." : "Run Batch"}
+            {isRunning ? "Matching..." : "Auto-Match Now"}
           </Button>
         </div>
       </div>
@@ -111,7 +111,7 @@ export const Reconcile: React.FC<ReconcileProps> = ({
           }`}
         >
           <GitCompare className="w-4 h-4" />
-          <span>Reconciled Matches</span>
+          <span>Matched Records</span>
           <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-paper/20">
             {matches.length}
           </span>
@@ -126,7 +126,7 @@ export const Reconcile: React.FC<ReconcileProps> = ({
           }`}
         >
           <AlertCircle className="w-4 h-4" />
-          <span>Categorized Exceptions</span>
+          <span>Unmatched Items</span>
           <span className="text-[11px] font-mono px-2 py-0.5 rounded-full bg-paper/20">
             {exceptions.length}
           </span>

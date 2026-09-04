@@ -1,0 +1,37 @@
+[
+  {
+    "Transaction_Date": "2026-02-23",
+    "Description": "Inbound Wire - Sequoia Growth Fund",
+    "Amount": 500000.00,
+    "Reference": "WIRE-SEQ-9921",
+    "Account": "CHASE-4991"
+  },
+  {
+    "Transaction_Date": "2026-02-24",
+    "Description": "Outbound Wire - Tokyo Data Center Equipment",
+    "Amount": -78450.00,
+    "Reference": "WIRE-TYO-4412",
+    "Account": "CHASE-4991"
+  },
+  {
+    "Transaction_Date": "2026-02-24",
+    "Description": "International Wire Intermediary Fee",
+    "Amount": -45.00,
+    "Reference": "FEE-INTL-0224",
+    "Account": "CHASE-4991"
+  },
+  {
+    "Transaction_Date": "2026-02-25",
+    "Description": "Treasury Bill Maturity Principal + Yield",
+    "Amount": 250890.12,
+    "Reference": "TBILL-MAT-0225",
+    "Account": "CHASE-4991"
+  },
+  {
+    "Transaction_Date": "2026-02-26",
+    "Description": "State Franchise Tax Board Sweep",
+    "Amount": -12500.00,
+    "Reference": "TAX-FTB-0226",
+    "Account": "CHASE-4991"
+  }
+]

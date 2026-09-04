@@ -1,0 +1,14 @@
+Posting_Date,Voucher_Memo,Amount,Voucher_ID,GL_Account
+2026-02-01,Stripe Settlement Batch #8819,45210.50,JE-STR-0201,GL-1010
+2026-02-02,AWS Cloud Hosting EMEA,-3840.25,JE-AWS-0202,GL-1010
+2026-02-04,Client Wire - Apex Global Ltd (Booked),125000.00,JE-APX-881,GL-1010
+2026-02-04,Salesforce CRM Annual Enterprise,-18400.00,JE-SFDC-0204,GL-1010
+2026-02-05,Gusto Payroll Operating Sweep,-64200.80,JE-PAY-0205,GL-1010
+2026-02-06,Google Workspace & Cloud Storage,-680.00,JE-GOOG-0206,GL-1010
+2026-02-08,Client Wire - Meridian Capital,88500.00,JE-MER-0208,GL-1010
+2026-02-08,Chase Corporate Credit Card Auto-Pay,-9420.15,JE-CC-0208,GL-1010
+2026-02-10,WeWork Office Lease Q1,-12500.00,JE-WW-0210,GL-1010
+2026-02-11,RazorPay Merchant Settlement,34800.00,JE-RZP-0211,GL-1010
+2026-02-12,Slack Technologies Enterprise,-2400.00,JE-SLACK-0212,GL-1010
+2026-02-13,Datadog Observability Suite,-4120.00,JE-DDOG-0213,GL-1010
+2026-02-15,Deloitte Audit Retainer Installment,-15000.00,JE-DEL-0215,GL-1010

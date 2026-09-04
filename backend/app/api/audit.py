@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends, Query
 from app.models.audit import AuditLog
 from app.models.user import User
 from app.middleware.auth import get_current_user
-from app.repository.memory import repo
+from app.repository import repo
 
 router = APIRouter(prefix="/audit", tags=["Audit Trail"])
 

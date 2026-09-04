@@ -6,7 +6,7 @@ from jose import JWTError, jwt
 from passlib.hash import pbkdf2_sha256
 from app.config import settings
 from app.models.user import User, UserRole
-from app.repository.memory import repo
+from app.repository import repo
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/api/auth/login", auto_error=False)
 

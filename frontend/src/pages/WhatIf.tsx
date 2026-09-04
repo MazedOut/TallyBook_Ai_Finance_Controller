@@ -92,10 +92,10 @@ export const WhatIf: React.FC = () => {
       <div>
         <h2 className="text-[20px] font-semibold tracking-[-0.025em] text-ink flex items-center gap-2">
           <FlaskConical className="w-5 h-5 text-ink" />
-          Live What-If & Transaction Injection Simulator
+          Scenario Simulator
         </h2>
         <p className="text-[13px] text-mid-gray mt-0.5">
-          Inject arbitrary transactions into the active reconciliation loop or slide acceptance thresholds to observe decision behavior in real time.
+          Test how transactions match against company books in real time.
         </p>
       </div>
 
@@ -103,7 +103,7 @@ export const WhatIf: React.FC = () => {
       <div>
         <div className="text-[12px] font-semibold text-mid-gray uppercase tracking-wider mb-2 flex items-center gap-1.5">
           <Zap className="w-3.5 h-3.5 text-ink" />
-          <span>Quick Benchmark Scenarios:</span>
+          <span>Standard Accounting Test Cases:</span>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
           {presetScenarios.map((sc, i) => (
@@ -116,7 +116,7 @@ export const WhatIf: React.FC = () => {
                 {sc.title}
               </div>
               <div className="text-[11.5px] font-mono text-mid-gray mt-1">
-                {formatCurrency(sc.amount)} &bull; {sc.type}
+                {formatCurrency(sc.amount)} &bull; {sc.type === "bank" ? "Statement Feed" : "Ledger Entry"}
               </div>
               <div className="text-[11px] text-mid-gray mt-1.5 line-clamp-2 leading-relaxed">
                 {sc.note}
@@ -127,13 +127,13 @@ export const WhatIf: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-        {/* Left 6 cols: Injection Form */}
+        {/* Left 6 cols: Simulation Form */}
         <div className="lg:col-span-6 space-y-6">
           <Card>
             <CardHeader>
-              <CardTitle>Transaction Injection Parameters</CardTitle>
+              <CardTitle>Simulated Transaction Entry</CardTitle>
               <CardDescription>
-                Provide simulated record attributes to test rules and AI reasoning.
+                Enter transaction line attributes to evaluate against general ledger vouchers.
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">

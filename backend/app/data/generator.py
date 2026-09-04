@@ -42,8 +42,10 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
     current_bank_id = 1001
     current_ledger_id = 5001
 
-    # 1. 30 Exact Matches (Identical ref_id, amount, date)
-    for i in range(30):
+    # =========================================================================
+    # 1. 35 Exact Matches (1:1 Match on ref_id, amount, and date)
+    # =========================================================================
+    for i in range(35):
         vendor, bank_desc, ledger_desc = random.choice(vendor_catalogue)
         ref_id = f"REF-EX-{10000 + i}"
         day_offset = random.randint(0, 24)
@@ -63,7 +65,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": f"{bank_desc} - Invoice {10000+i}",
             "ref_id": ref_id,
             "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
+            "raw_source": "Chase Commercial Banking"
         })
 
         ledger_entries.append({
@@ -74,7 +76,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": f"{vendor} - PO {10000+i}",
             "ref_id": ref_id,
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
 
@@ -84,11 +86,13 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "match_type": "EXACT",
             "expected_delta": 0.0,
             "rule": "RULE:REF_EXACT",
-            "notes": "Exact match on ref_id, amount, and date"
+            "notes": "Exact match on reference ID, amount, and ledger date"
         })
 
-    # 2. 15 Date-Offset Matches (T+1 to T+3 settlement lag, amount matches, different/no ref_id so REF_EXACT does not fire)
-    for i in range(15):
+    # =========================================================================
+    # 2. 16 Date-Offset Matches (Settlement Lag T+1 to T+3, amount matches)
+    # =========================================================================
+    for i in range(16):
         vendor, bank_desc, ledger_desc = random.choice(vendor_catalogue)
         day_offset = random.randint(1, 20)
         lag_days = random.choice([1, 2, 3])
@@ -101,7 +105,6 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
         current_bank_id += 1
         current_ledger_id += 1
 
-        # Use disparate ref formats to ensure DATE_OFFSET fires
         bank_txs.append({
             "id": b_id,
             "date": b_date,
@@ -110,7 +113,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": f"{vendor} ACH CLEARING TXN {20000+i}",
             "ref_id": f"ACH-CHASE-{20000+i}",
             "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
+            "raw_source": "Chase Commercial Banking"
         })
 
         ledger_entries.append({
@@ -121,7 +124,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": f"{vendor} Scheduled AP Disbursement {20000+i}",
             "ref_id": f"SAP-PAY-{20000+i}",
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
 
@@ -134,14 +137,16 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "notes": f"Settlement lag of {lag_days} days ({l_date} -> {b_date})"
         })
 
-    # 3. 8 Fee-Delta Matches (Amount differs by <= $2.50 wire fee or foreign exchange rounding)
-    for i in range(8):
+    # =========================================================================
+    # 3. 12 Fee-Delta Matches (Bank amount net of $0.75 - $25.00 wire/gateway fees)
+    # =========================================================================
+    for i in range(12):
         vendor, bank_desc, ledger_desc = random.choice(vendor_catalogue)
         ref_id = f"REF-FEE-{30000 + i}"
         day_offset = random.randint(2, 22)
         tx_date = (base_date + timedelta(days=day_offset)).strftime("%Y-%m-%d")
-        base_amt = round(random.uniform(400.0, 4500.0), 2)
-        fee = random.choice([0.75, 1.25, 1.50, 2.00, 2.50])
+        base_amt = round(random.uniform(400.0, 6500.0), 2)
+        fee = random.choice([0.75, 1.50, 2.50, 15.00, 25.00])
         bank_amt = round(base_amt - fee, 2)
 
         b_id = f"BNK-{current_bank_id}"
@@ -154,10 +159,10 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "date": tx_date,
             "amount": bank_amt,
             "currency": "USD",
-            "description": f"{bank_desc} WIRE NET OF ${fee} FEE",
+            "description": f"{bank_desc} WIRE NET OF ${fee:.2f} FEE",
             "ref_id": ref_id,
             "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
+            "raw_source": "Chase Commercial Banking"
         })
 
         ledger_entries.append({
@@ -168,7 +173,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": f"{vendor} Gross AP Invoice",
             "ref_id": ref_id,
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
 
@@ -176,12 +181,14 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "bank_id": b_id,
             "ledger_ids": [l_id],
             "match_type": "FEE_DELTA",
-            "expected_delta": round(base_amt - bank_amt, 2),
+            "expected_delta": fee,
             "rule": "RULE:FEE_DELTA",
-            "notes": f"Bank deducted ${fee} wire/service fee"
+            "notes": f"Bank deducted ${fee:.2f} wire or interchange processing fee"
         })
 
-    # 4. 6 Semantic / Vendor Abbreviation Typos (No exact ref_id, different descriptions, identical amounts)
+    # =========================================================================
+    # 4. 10 Semantic / Vendor Abbreviation Typos (AI Reasoning Engine)
+    # =========================================================================
     typo_pairs = [
         ("AMZN AWS US-EAST CLOUD SVCS", "Amazon Web Services Inc Infrastructure", 3420.50),
         ("GGL *GSUITE CALENDAR CORP", "Google LLC Enterprise Workspace Suite", 1850.00),
@@ -189,11 +196,14 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
         ("STRIPE TRANSFER REVENUE ACH", "Stripe Inc Merchant Processing Settlements", 14500.00),
         ("MSFT *AZURE CLOUD US", "Microsoft Corporation Azure Enterprise", 6210.80),
         ("DATADOG INC SYS METRICS APM", "Datadog Cloud Observability Platform", 2150.00),
+        ("SFDC CRM CLOUD SUB ONLINE", "Salesforce.com Inc Enterprise CRM", 4890.00),
+        ("SNOWFLAKE COMPUTING DATA WHS", "Snowflake Inc Cloud Data Platform", 3120.00),
+        ("CLOUDFLARE EDGE NETWORK CDN", "Cloudflare Inc Enterprise DDoS Protection", 1400.00),
+        ("FIGMA ENTERPRISE DESIGN SEAT", "Figma Design Inc Collaborative Subscriptions", 960.00),
     ]
 
     for i, (b_desc, l_desc, amt) in enumerate(typo_pairs):
         day_offset = random.randint(3, 23)
-        # 1-day variance or identical date
         tx_date_bank = (base_date + timedelta(days=day_offset + 1)).strftime("%Y-%m-%d")
         tx_date_ledger = (base_date + timedelta(days=day_offset)).strftime("%Y-%m-%d")
 
@@ -210,7 +220,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": b_desc,
             "ref_id": f"BNK-DEBIT-{40000+i}",
             "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
+            "raw_source": "Chase Commercial Banking"
         })
 
         ledger_entries.append({
@@ -221,7 +231,7 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "description": l_desc,
             "ref_id": f"VOUCHER-ERP-{40000+i}",
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
 
@@ -234,15 +244,22 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "notes": f"Semantic vendor abbreviation match ({b_desc} <-> {l_desc})"
         })
 
-    # 5. 4 Split Payment Matches (1 bank transaction = 2 ledger entries)
-    for i in range(4):
-        vendor, bank_desc, ledger_desc = random.choice(vendor_catalogue)
+    # =========================================================================
+    # 5. 6 Split Payment Matches (1 Bank Transaction = Sum of 2 Ledger PO Tranches)
+    # =========================================================================
+    split_configs = [
+        ("Amazon Web Services", "AMZN AWS US-EAST CLOUD", 8000.00, 4800.00),
+        ("WeWork Management", "WEWORK SHARED DESK NYC", 6000.00, 1500.00),
+        ("Salesforce.com Inc", "SFDC CRM CLOUD SUB", 5500.00, 3500.00),
+        ("Dell Computers Corp", "DELL DIRECT HARDWARE EQ", 3200.00, 1000.00),
+        ("HubSpot Inc", "HUBSPOT INBOUND MKTG", 3500.00, 1500.00),
+        ("MongoDB Atlas", "MONGODB CLOUD DATABASE", 2800.00, 1200.00),
+    ]
+
+    for i, (vendor, b_desc, amt1, amt2) in enumerate(split_configs):
         day_offset = random.randint(5, 20)
         tx_date = (base_date + timedelta(days=day_offset)).strftime("%Y-%m-%d")
-        
-        amt_part1 = round(random.uniform(500.0, 2000.0), 2)
-        amt_part2 = round(random.uniform(500.0, 2000.0), 2)
-        total_bank_amt = round(amt_part1 + amt_part2, 2)
+        total_bank_amt = round(amt1 + amt2, 2)
 
         b_id = f"BNK-{current_bank_id}"
         l_id1 = f"LDG-{current_ledger_id}"
@@ -258,33 +275,33 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "date": tx_date,
             "amount": total_bank_amt,
             "currency": "USD",
-            "description": f"{bank_desc} CONSOLIDATED {ref_base}",
+            "description": f"{b_desc} CONSOLIDATED BATCH {ref_base}",
             "ref_id": f"BNK-{ref_base}",
             "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
+            "raw_source": "Chase Commercial Banking"
         })
 
         ledger_entries.append({
             "id": l_id1,
             "date": tx_date,
-            "amount": amt_part1,
+            "amount": amt1,
             "currency": "USD",
             "description": f"{vendor} Milestone Tranche A {ref_base}",
             "ref_id": f"LDG-A-{ref_base}",
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
 
         ledger_entries.append({
             "id": l_id2,
             "date": tx_date,
-            "amount": amt_part2,
+            "amount": amt2,
             "currency": "USD",
             "description": f"{vendor} Milestone Tranche B {ref_base}",
             "ref_id": f"LDG-B-{ref_base}",
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
 
@@ -294,12 +311,14 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "match_type": "SPLIT_PAYMENT",
             "expected_delta": 0.0,
             "rule": "RULE:SPLIT_PAYMENT",
-            "notes": f"Bank payment of ${total_bank_amt} split into ${amt_part1} + ${amt_part2}"
+            "notes": f"Bank payment of ${total_bank_amt:.2f} split into ${amt1:.2f} + ${amt2:.2f}"
         })
 
-    # 6. 4 Duplicates (2 duplicate entries in bank, 2 duplicate entries in ledger)
-    for i in range(2):
-        target_tx = bank_txs[i * 4]
+    # =========================================================================
+    # 6. 6 Duplicates (3 Bank Feed Duplicates, 3 Ledger Double Entries)
+    # =========================================================================
+    for i in range(3):
+        target_tx = bank_txs[i * 5]
         b_dup_id = f"BNK-{current_bank_id}"
         current_bank_id += 1
         dup_tx = dict(target_tx)
@@ -313,11 +332,11 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "duplicate_of": target_tx["id"],
             "source": "bank",
             "category": "duplicate_fee_noise",
-            "reason": "Duplicate transaction posting in bank feed"
+            "reason": "Duplicate debit posting in bank feed"
         })
 
-    for i in range(2):
-        target_entry = ledger_entries[i * 4]
+    for i in range(3):
+        target_entry = ledger_entries[i * 5]
         l_dup_id = f"LDG-{current_ledger_id}"
         current_ledger_id += 1
         dup_entry = dict(target_entry)
@@ -331,17 +350,19 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "duplicate_of": target_entry["id"],
             "source": "ledger",
             "category": "duplicate_fee_noise",
-            "reason": "Accidental double-booking in internal ledger"
+            "reason": "Accidental double-booking in internal ERP ledger"
         })
 
-    # 7. Deliberate Unresolvables (8 records with NO counterparts ~ 11% tail)
-    unresolvable_bank_reasons = [
-        ("CHASE SERVICE CHG WIRE TRANSFER", 35.00, "Unrecorded bank wire fee"),
-        ("AIRBNB RESERVATION SAN FRANCISCO", 1250.00, "Employee travel expense missing AP receipt"),
-        ("UNKNOWN ACH DEBIT MERCH-9921", 89.99, "Unidentified recurring software subscription"),
-        ("FOREIGN EXCHANGE DISCREPANCY REVAL", 412.50, "Unbooked treasury currency adjustment"),
+    # =========================================================================
+    # 7. High-Value Variance Exceptions (>= $10,000 requiring Controller Approval)
+    # =========================================================================
+    high_value_bank = [
+        ("MANDIANT CYBER INCIDENT RESPONSE", 15500.00, "Enterprise Security emergency incident retainer missing AP voucher"),
+        ("GOLDMAN SACHS M&A ESCROW DEPOSIT", 22400.00, "Treasury M&A escrow transaction unbooked in cash ledger"),
+        ("PALO ALTO NETWORKS PRISMA ACCESS SASE", 11200.00, "Annual network security firewall renewal wire unvouched"),
+        ("MCKINSEY STRATEGY CONSULTING TRANCHE", 28000.00, "Board-authorized restructuring advisory payment unbooked"),
     ]
-    for desc, amt, reason in unresolvable_bank_reasons:
+    for desc, amt, reason in high_value_bank:
         b_id = f"BNK-{current_bank_id}"
         current_bank_id += 1
         tx_date = (base_date + timedelta(days=random.randint(5, 25))).strftime("%Y-%m-%d")
@@ -351,9 +372,77 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "amount": amt,
             "currency": "USD",
             "description": desc,
-            "ref_id": f"BNK-UNRES-{current_bank_id}",
+            "ref_id": f"BNK-HIGH-{current_bank_id}",
             "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
+            "raw_source": "Chase Commercial Banking"
+        })
+        ground_truth_unresolvables.append({
+            "id": b_id,
+            "source": "bank",
+            "amount": amt,
+            "date": tx_date,
+            "reason": reason,
+            "expected_category": "no_counterpart",
+            "requires_approval": True
+        })
+
+    high_value_ledger = [
+        ("ORACLE ERP ANNUAL ENTERPRISE LICENSE", 18750.00, "Scheduled ERP software renewal awaiting bank wire release"),
+        ("DELL SERVER CLUSTER HARDWARE CAPITALIZATION", 34950.00, "Capitalized data center compute hardware awaiting invoice clearing"),
+        ("SNOWFLAKE ENTERPRISE CAPACITY COMMITMENT", 14600.00, "Prepaid compute consumption voucher awaiting Treasury wire clearing"),
+        ("KPMG STATUTORY VALUATION & TRANSFER PRICING", 16800.00, "Statutory tax filing audit fee accrual pending wire disbursement"),
+    ]
+    for desc, amt, reason in high_value_ledger:
+        l_id = f"LDG-{current_ledger_id}"
+        current_ledger_id += 1
+        tx_date = (base_date + timedelta(days=random.randint(5, 25))).strftime("%Y-%m-%d")
+        ledger_entries.append({
+            "id": l_id,
+            "date": tx_date,
+            "amount": amt,
+            "currency": "USD",
+            "description": desc,
+            "ref_id": f"LDG-HIGH-{current_ledger_id}",
+            "account_id": "ACC-GL-1010",
+            "entity": "TechCorp Global Inc",
+            "gl_account": "1010-Operating-Cash"
+        })
+        ground_truth_unresolvables.append({
+            "id": l_id,
+            "source": "ledger",
+            "amount": amt,
+            "date": tx_date,
+            "reason": reason,
+            "expected_category": "no_counterpart",
+            "requires_approval": True
+        })
+
+    # =========================================================================
+    # 8. Operational & Treasury Unrecorded Bank Charges
+    # =========================================================================
+    operational_bank_charges = [
+        ("CHASE SERVICE CHG WIRE TRANSFER", 35.00, "Unrecorded domestic wire fee"),
+        ("INTERNATIONAL SWIFT INCOMING WIRE FEE", 45.00, "Foreign bank intermediary fee"),
+        ("MONTHLY COMMERCIAL ACCOUNT MAINTENANCE FEE", 15.00, "Bank treasury account management fee"),
+        ("AIRBNB RESERVATION SAN FRANCISCO", 1250.00, "Executive offsite travel missing expense report"),
+        ("UNITED AIRLINES TICKET SFO-JFK", 840.00, "Corporate travel ticket missing counterpart receipt"),
+        ("UBER FOR BUSINESS ENTERPRISE CORP", 185.50, "Monthly rideshare commute billing unvouched"),
+        ("UNKNOWN ACH DEBIT MERCH-9921", 89.99, "Unidentified recurring software subscription"),
+        ("FOREIGN EXCHANGE DISCREPANCY REVAL EUR/USD", 412.50, "Unbooked treasury currency revaluation adjustment"),
+    ]
+    for desc, amt, reason in operational_bank_charges:
+        b_id = f"BNK-{current_bank_id}"
+        current_bank_id += 1
+        tx_date = (base_date + timedelta(days=random.randint(5, 25))).strftime("%Y-%m-%d")
+        bank_txs.append({
+            "id": b_id,
+            "date": tx_date,
+            "amount": amt,
+            "currency": "USD",
+            "description": desc,
+            "ref_id": f"BNK-OP-{current_bank_id}",
+            "account_id": "ACC-BANK-CHASE-01",
+            "raw_source": "Chase Commercial Banking"
         })
         ground_truth_unresolvables.append({
             "id": b_id,
@@ -364,13 +453,20 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "expected_category": "no_counterpart"
         })
 
-    unresolvable_ledger_reasons = [
-        ("Accrued Legal Retainer - Cooley LLP", 5000.00, "Accrual entry with no cash movement yet"),
-        ("Outstanding Vendor Check #99014", 750.00, "Uncashed check still outstanding at month-end"),
-        ("Internal Intercompany Rebalance Entry", 3200.00, "Internal transfer between non-cash accounts"),
-        ("Prepaid Software Amortization March", 1650.00, "Non-cash depreciation/amortization journal entry"),
+    # =========================================================================
+    # 9. Ledger Float, Outstanding Checks & Accounting Accruals
+    # =========================================================================
+    operational_ledger_entries = [
+        ("Accrued Legal Retainer - Cooley LLP", 5000.00, "Accrual entry with no bank cash movement yet"),
+        ("Outstanding Vendor Check #99014 - Alpha Supplies", 750.00, "Uncashed vendor check still outstanding at bank cutoff"),
+        ("Outstanding Vendor Check #99018 - TechLogistics", 2400.00, "Courier check in transit to payee"),
+        ("Internal Intercompany Rebalance Entry GL-1010 to GL-2050", 3200.00, "Internal transfer between non-cash subsidiary accounts"),
+        ("Prepaid Software Amortization March 2026", 1650.00, "Non-cash depreciation and amortization journal voucher"),
+        ("In-Transit Customer Wire - Acme European Subsidiary", 4100.00, "Cross-border bank wire in clearing transit"),
+        ("Accrued Performance Incentive Bonus Pool Q1", 8500.00, "Quarterly payroll bonus accrual awaiting distribution"),
+        ("Petty Cash Imprest Fund Replenishment Voucher", 1200.00, "Office cash box replenishment check pending presentation"),
     ]
-    for desc, amt, reason in unresolvable_ledger_reasons:
+    for desc, amt, reason in operational_ledger_entries:
         l_id = f"LDG-{current_ledger_id}"
         current_ledger_id += 1
         tx_date = (base_date + timedelta(days=random.randint(5, 25))).strftime("%Y-%m-%d")
@@ -380,9 +476,9 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "amount": amt,
             "currency": "USD",
             "description": desc,
-            "ref_id": f"LDG-UNRES-{current_ledger_id}",
+            "ref_id": f"LDG-OP-{current_ledger_id}",
             "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
+            "entity": "TechCorp Global Inc",
             "gl_account": "1010-Operating-Cash"
         })
         ground_truth_unresolvables.append({
@@ -394,52 +490,125 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
             "expected_category": "no_counterpart"
         })
 
-    # 8. Add 6 regular exact match vendor records to bring total bank records to 75
-    for i in range(6):
-        vendor, bank_desc, ledger_desc = random.choice(vendor_catalogue)
-        ref_id = f"REF-EX-TOP-{60000 + i}"
-        day_offset = random.randint(1, 26)
-        tx_date = (base_date + timedelta(days=day_offset)).strftime("%Y-%m-%d")
-        amount = round(random.uniform(500.0, 7500.0), 2)
+    # =========================================================================
+    # 10. Ambiguous Candidate Scenarios (Multiple Identical Amounts on Same Day)
+    # =========================================================================
+    ambig_date = (base_date + timedelta(days=12)).strftime("%Y-%m-%d")
+    ambig_amt = 1450.00
 
-        b_id = f"BNK-{current_bank_id}"
-        l_id = f"LDG-{current_ledger_id}"
-        current_bank_id += 1
-        current_ledger_id += 1
+    b_ambig_1 = f"BNK-{current_bank_id}"
+    current_bank_id += 1
+    bank_txs.append({
+        "id": b_ambig_1,
+        "date": ambig_date,
+        "amount": ambig_amt,
+        "currency": "USD",
+        "description": "ACH DEBIT CONSULTING SERVICES TRANCHE 1",
+        "ref_id": f"BNK-AMBIG-1",
+        "account_id": "ACC-BANK-CHASE-01",
+        "raw_source": "Chase Commercial Banking"
+    })
 
-        bank_txs.append({
-            "id": b_id,
-            "date": tx_date,
-            "amount": amount,
-            "currency": "USD",
-            "description": f"{bank_desc} - Regular Vendor Settlement {60000+i}",
-            "ref_id": ref_id,
-            "account_id": "ACC-BANK-CHASE-01",
-            "raw_source": "Chase Commercial"
-        })
+    b_ambig_2 = f"BNK-{current_bank_id}"
+    current_bank_id += 1
+    bank_txs.append({
+        "id": b_ambig_2,
+        "date": ambig_date,
+        "amount": ambig_amt,
+        "currency": "USD",
+        "description": "ACH DEBIT CONSULTING SERVICES TRANCHE 2",
+        "ref_id": f"BNK-AMBIG-2",
+        "account_id": "ACC-BANK-CHASE-01",
+        "raw_source": "Chase Commercial Banking"
+    })
 
-        ledger_entries.append({
-            "id": l_id,
-            "date": tx_date,
-            "amount": amount,
-            "currency": "USD",
-            "description": f"{vendor} - Operating Expense Voucher {60000+i}",
-            "ref_id": ref_id,
-            "account_id": "ACC-GL-1010",
-            "entity": "RazorPay Global Inc",
-            "gl_account": "1010-Operating-Cash"
-        })
+    l_ambig_1 = f"LDG-{current_ledger_id}"
+    current_ledger_id += 1
+    ledger_entries.append({
+        "id": l_ambig_1,
+        "date": ambig_date,
+        "amount": ambig_amt,
+        "currency": "USD",
+        "description": "Vendor Consulting Advisory PO-8801 - Alpha Group",
+        "ref_id": "PO-8801-AMBIG",
+        "account_id": "ACC-GL-1010",
+        "entity": "TechCorp Global Inc",
+        "gl_account": "1010-Operating-Cash"
+    })
 
-        ground_truth_matches.append({
-            "bank_id": b_id,
-            "ledger_ids": [l_id],
-            "match_type": "EXACT",
-            "expected_delta": 0.0,
-            "rule": "RULE:REF_EXACT",
-            "notes": "Exact match vendor settlement"
-        })
+    l_ambig_2 = f"LDG-{current_ledger_id}"
+    current_ledger_id += 1
+    ledger_entries.append({
+        "id": l_ambig_2,
+        "date": ambig_date,
+        "amount": ambig_amt,
+        "currency": "USD",
+        "description": "Vendor Consulting Advisory PO-8802 - Beta Group",
+        "ref_id": "PO-8802-AMBIG",
+        "account_id": "ACC-GL-1010",
+        "entity": "TechCorp Global Inc",
+        "gl_account": "1010-Operating-Cash"
+    })
 
-    # Convert to DataFrames and save
+    ground_truth_matches.append({
+        "bank_id": b_ambig_1,
+        "ledger_ids": [l_ambig_1],
+        "match_type": "AMBIGUOUS",
+        "expected_delta": 0.0,
+        "rule": "AI:DISAMBIGUATION",
+        "notes": "Disambiguated between two identical $1,450.00 candidate disbursements"
+    })
+
+    ground_truth_matches.append({
+        "bank_id": b_ambig_2,
+        "ledger_ids": [l_ambig_2],
+        "match_type": "AMBIGUOUS",
+        "expected_delta": 0.0,
+        "rule": "AI:DISAMBIGUATION",
+        "notes": "Disambiguated between two identical $1,450.00 candidate disbursements"
+    })
+
+    # =========================================================================
+    # 11. Partial Milestone Tranche (50% Progress Payment)
+    # =========================================================================
+    partial_date = (base_date + timedelta(days=18)).strftime("%Y-%m-%d")
+    b_part_id = f"BNK-{current_bank_id}"
+    current_bank_id += 1
+    bank_txs.append({
+        "id": b_part_id,
+        "date": partial_date,
+        "amount": 2500.00,
+        "currency": "USD",
+        "description": "CONTRACTOR PROGRESS PAYMENT 50% WIRE",
+        "ref_id": "BNK-PART-50",
+        "account_id": "ACC-BANK-CHASE-01",
+        "raw_source": "Chase Commercial Banking"
+    })
+
+    l_part_id = f"LDG-{current_ledger_id}"
+    current_ledger_id += 1
+    ledger_entries.append({
+        "id": l_part_id,
+        "date": partial_date,
+        "amount": 5000.00,
+        "currency": "USD",
+        "description": "Contractor Full Milestone PO - $5000 Gross",
+        "ref_id": "LDG-PART-FULL",
+        "account_id": "ACC-GL-1010",
+        "entity": "TechCorp Global Inc",
+        "gl_account": "1010-Operating-Cash"
+    })
+
+    ground_truth_unresolvables.append({
+        "id": b_part_id,
+        "source": "bank",
+        "amount": 2500.00,
+        "date": partial_date,
+        "reason": "50% partial progress payment against $5,000 PO",
+        "expected_category": "split_payment_partial"
+    })
+
+    # Save to CSV and JSON
     df_bank = pd.DataFrame(bank_txs)
     df_ledger = pd.DataFrame(ledger_entries)
 
@@ -478,4 +647,4 @@ def generate_synthetic_dataset(output_dir: str = "./app/data") -> dict:
 
 if __name__ == "__main__":
     res = generate_synthetic_dataset("./app/data")
-    print("Dataset generated:", res)
+    print("Comprehensive enterprise dataset generated:", res)

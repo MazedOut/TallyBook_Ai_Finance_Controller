@@ -160,11 +160,39 @@ export interface StatisticsData {
     ai_resolved_count: number
     mean_claimed_confidence: number
     calibration_delta: number
+    time_saved_hours?: number
   }
   category_counts: Record<string, number>
   category_values: Record<string, number>
   confidence_buckets: Record<string, number>
   aging_buckets: Record<string, number>
+  aging_values?: Record<string, number>
+  vendor_variance?: Array<{
+    name: string
+    count: number
+    amount: number
+  }>
+  cash_flow_summary?: {
+    inflow_cleared: number
+    outflow_cleared: number
+    net_cleared: number
+    inflow_count: number
+    outflow_count: number
+  }
+  engine_velocity?: {
+    duration_ms: number
+    throughput_tx_sec: number
+    total_records_processed: number
+    auto_match_first_pass_pct: number
+    avg_exception_resolution_days: number
+  }
+  audit_health_index?: {
+    integrity_score: number
+    hash_chain_verified: boolean
+    period_close_readiness_pct: number
+    dual_sign_off_compliance: boolean
+    zero_unlogged_actions: boolean
+  }
   rule_breakdown: Record<string, { total: number; correct: number; incorrect: number }>
   runs_trend: Array<{
     run_id: string
@@ -174,4 +202,68 @@ export interface StatisticsData {
     recall: number
     f1: number
   }>
+  daily_velocity?: Array<{
+    date: string
+    amount: number
+  }>
 }
+
+export interface ColumnMapping {
+  date?: string
+  amount?: string
+  description?: string
+  ref_id?: string
+  account_id?: string
+  currency?: string
+}
+
+export interface ImportPreviewResult {
+  file_name: string
+  source_type: "bank" | "ledger"
+  detected_columns: string[]
+  suggested_mapping: ColumnMapping
+  preview_rows: Array<Record<string, any>>
+  total_rows: number
+  valid_rows_count: number
+  warning_count: number
+  warnings: string[]
+  error_count: number
+  errors: string[]
+  duplicate_count: number
+}
+
+export interface ImportHistoryRecord {
+  id: string
+  timestamp: string
+  file_name: string
+  source_type: "bank" | "ledger"
+  total_records: number
+  imported_records: number
+  warning_count: number
+  error_count: number
+  status: "completed" | "completed_with_warnings" | "failed"
+  details: {
+    mode?: "append" | "replace"
+    imported_by?: string
+    column_mapping?: ColumnMapping
+  }
+}
+
+export interface ChatMessage {
+  id: string
+  sender: "user" | "assistant"
+  text: string
+  timestamp: string
+  suggested_actions?: string[]
+  metrics_snapshot?: Record<string, string | number>
+}
+
+export interface ChatMessageResponse {
+  id: string
+  reply: string
+  timestamp: string
+  suggested_actions?: string[]
+  metrics_snapshot?: Record<string, string | number>
+}
+
+
