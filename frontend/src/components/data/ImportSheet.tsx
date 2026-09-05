@@ -270,7 +270,7 @@ export const ImportSheet: React.FC<ImportSheetProps> = ({
               {/* Instant Sample Loader */}
               <div className="flex items-center justify-between p-4 rounded-[18px] bg-canvas border border-hairline">
                 <div className="flex items-center gap-3">
-                  <Database className="w-4 h-4 text-mid-gray" />
+                  <FileSpreadsheet className="w-4 h-4 text-mid-gray" />
                   <div>
                     <div className="text-[13px] font-medium text-primary-ink">No CSV file on hand?</div>
                     <div className="text-[11.5px] text-mid-gray">

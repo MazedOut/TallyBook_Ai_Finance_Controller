@@ -17,20 +17,32 @@ export const MatchTable: React.FC<MatchTableProps> = ({ matches, onSelectMatch }
 
   // Human-friendly finance match label
   const getFinanceMatchTag = (m: MatchRecord) => {
+    if (m.status === "flagged") {
+      return { label: "Flagged Review", variant: "amber" as const }
+    }
+    if (m.status === "overridden" || m.resolved_by.includes("MANUAL")) {
+      return { label: "Manual Override", variant: "indigo" as const }
+    }
     if (m.amount_delta !== 0 && Math.abs(m.amount_delta) <= 50) {
-      return { label: `Fee Diff: $${m.amount_delta.toFixed(2)}`, variant: "soft" as const }
+      return { label: `Fee Diff: $${m.amount_delta.toFixed(2)}`, variant: "amber" as const }
     }
     if (m.resolved_by.includes("LAG") || m.rule_name?.toLowerCase().includes("lag")) {
-      return { label: "Timing Difference", variant: "soft" as const }
+      return { label: "Timing Lag", variant: "teal" as const }
     }
     if (m.resolved_by.startsWith("AI:")) {
-      return { label: "Smart Match", variant: "solid" as const }
+      return { label: "Smart Match", variant: "purple" as const }
     }
-    if (m.status === "overridden") {
-      return { label: "Manual Match", variant: "ember" as const }
-    }
-    return { label: "Direct Match", variant: "soft" as const }
+    return { label: "Direct Match", variant: "emerald" as const }
   }
+
+  const statusCounts = useMemo(() => {
+    return {
+      all: matches.length,
+      accepted: matches.filter(m => m.status === "accepted").length,
+      flagged: matches.filter(m => m.status === "flagged").length,
+      overridden: matches.filter(m => m.status === "overridden" || m.resolved_by.includes("MANUAL")).length,
+    }
+  }, [matches])
 
   const filteredMatches = useMemo(() => {
     return matches.filter((m) => {
@@ -44,7 +56,10 @@ export const MatchTable: React.FC<MatchTableProps> = ({ matches, onSelectMatch }
         m.id.toLowerCase().includes(q)
 
       // Status
-      const matchStatus = statusFilter === "all" || m.status === statusFilter
+      const matchStatus =
+        statusFilter === "all" ||
+        m.status === statusFilter ||
+        (statusFilter === "overridden" && (m.status === "overridden" || m.resolved_by.includes("MANUAL")))
 
       // Financial type
       let matchType = true
@@ -77,21 +92,26 @@ export const MatchTable: React.FC<MatchTableProps> = ({ matches, onSelectMatch }
           {/* Status filters */}
           <div className="inline-flex p-1 bg-canvas rounded-[18px] border border-hairline text-[12px]">
             {[
-              { id: "all", label: "All Records" },
-              { id: "accepted", label: "Matched" },
-              { id: "flagged", label: "Flagged" },
-              { id: "overridden", label: "Manual" },
+              { id: "all", label: "All Records", count: statusCounts.all },
+              { id: "accepted", label: "Matched", count: statusCounts.accepted },
+              { id: "flagged", label: "Flagged", count: statusCounts.flagged },
+              { id: "overridden", label: "Manual", count: statusCounts.overridden },
             ].map((st) => (
               <button
                 key={st.id}
                 onClick={() => setStatusFilter(st.id)}
-                className={`px-3 py-1 rounded-[14px] font-medium transition-all cursor-pointer ${
+                className={`flex items-center gap-1.5 px-3 py-1 rounded-[14px] font-medium transition-all cursor-pointer ${
                   statusFilter === st.id
                     ? "bg-paper text-ink shadow-xs"
                     : "text-mid-gray hover:text-ink"
                 }`}
               >
-                {st.label}
+                <span>{st.label}</span>
+                <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded-full ${
+                  statusFilter === st.id ? "bg-canvas text-ink font-semibold" : "bg-paper/70 text-mid-gray"
+                }`}>
+                  {st.count}
+                </span>
               </button>
             ))}
           </div>

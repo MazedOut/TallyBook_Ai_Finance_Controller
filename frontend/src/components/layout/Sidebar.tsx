@@ -9,7 +9,6 @@ import {
   CalendarClock, 
   Settings, 
   ShieldCheck,
-  Palette,
   UploadCloud,
   PlusCircle,
   FileSpreadsheet,
@@ -30,6 +29,7 @@ interface SidebarProps {
   onOpenManualEntry: (type?: "bank" | "ledger") => void
   onOpenImportHistory: () => void
   onResetDemo: () => void
+  onOpenSettings?: () => void
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ 
@@ -39,6 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   onOpenManualEntry,
   onOpenImportHistory,
   onResetDemo,
+  onOpenSettings,
 }) => {
   const { user, role, switchRole, logout, isDemoMode } = useAuth()
   const [isDataMenuOpen, setIsDataMenuOpen] = useState(false)
@@ -71,20 +72,25 @@ export const Sidebar: React.FC<SidebarProps> = ({
         key={item.id}
         onClick={() => setCurrentTab(item.id)}
         className={cn(
-          "w-full flex items-center justify-between px-3 py-2 text-[13.5px] font-medium rounded-[10px] transition-colors cursor-pointer text-left",
+          "w-full flex items-center justify-between px-3 py-2 text-[13.5px] font-medium rounded-[10px] transition-all cursor-pointer text-left relative",
           isActive
-            ? "bg-canvas text-ink font-semibold border border-hairline/80 shadow-2xs"
+            ? "bg-canvas text-ink font-semibold border border-hairline shadow-2xs"
             : "text-mid-gray hover:text-ink hover:bg-canvas/50"
         )}
       >
         <div className="flex items-center gap-3">
-          <span className={cn(isActive ? "text-ink" : "text-mid-gray")}>
+          <span className={cn("transition-colors", isActive ? "text-ink" : "text-mid-gray")}>
             {item.icon}
           </span>
           <span>{item.label}</span>
         </div>
         {"badge" in item && item.badge && (
-          <span className="text-[10px] font-mono px-1.5 py-0.5 rounded-[6px] bg-paper border border-hairline text-mid-gray">
+          <span className={cn(
+            "text-[10px] font-mono px-2 py-0.5 rounded-[8px] font-semibold border transition-colors",
+            item.id === "reconcile" 
+              ? "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30"
+              : "bg-canvas border-hairline text-mid-gray"
+          )}>
             {item.badge}
           </span>
         )}
@@ -93,7 +99,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
   }
 
   return (
-    <aside className="w-56 shrink-0 h-full bg-[#fbfbfd] border-r border-hairline flex flex-col justify-between select-none text-ink">
+    <aside className="w-56 shrink-0 h-full bg-paper border-r border-hairline flex flex-col justify-between select-none text-ink transition-colors duration-200">
       {/* Scrollable nav area */}
       <div className="overflow-y-auto flex-1 py-3 space-y-3">
         {/* Brand header */}
@@ -208,41 +214,38 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <Settings className={cn("w-[18px] h-[18px] shrink-0", currentTab === "admin" ? "text-ink" : "text-mid-gray")} />
             <span>Matching Rules</span>
           </button>
-
-          {/* Design System Reference Link */}
-          <button
-            onClick={() => setCurrentTab("design")}
-            className={cn(
-              "w-full flex items-center gap-3 px-3 py-2 text-[13.5px] font-medium rounded-[10px] transition-colors cursor-pointer text-left mt-0.5",
-              currentTab === "design"
-                ? "bg-canvas text-ink font-semibold border border-hairline/80 shadow-2xs"
-                : "text-mid-gray hover:text-ink hover:bg-canvas/50"
-            )}
-          >
-            <Palette className={cn("w-[18px] h-[18px] shrink-0", currentTab === "design" ? "text-ink" : "text-mid-gray")} />
-            <span>Design System</span>
-          </button>
         </div>
       </div>
 
       {/* Footer — compact user card */}
       <div className="p-3 border-t border-hairline shrink-0">
-        <div
-          className="flex items-center gap-2 p-2 rounded-[10px] hover:bg-canvas transition-colors cursor-pointer"
-          onClick={() => setShowRoleSwitcher(p => !p)}
-        >
-          <div className="w-7 h-7 rounded-full bg-ink text-paper text-[11px] font-semibold flex items-center justify-center shrink-0">
-            {user?.avatar_initials || "TB"}
-          </div>
-          <div className="min-w-0 flex-1">
-            <div className="text-[12.5px] font-medium text-ink truncate">
-              {user?.full_name || "Marcus Vance"}
+        <div className="flex items-center justify-between gap-1">
+          <div
+            className="flex-1 flex items-center gap-2 p-1.5 rounded-[10px] hover:bg-canvas transition-colors cursor-pointer"
+            onClick={() => setShowRoleSwitcher(p => !p)}
+          >
+            <div className="w-7 h-7 rounded-full bg-ink text-paper text-[11px] font-semibold flex items-center justify-center shrink-0">
+              {user?.avatar_initials || "TB"}
             </div>
-            <div className="text-[10.5px] text-mid-gray capitalize">
-              {role}
+            <div className="min-w-0 flex-1">
+              <div className="text-[12.5px] font-medium text-ink truncate">
+                {user?.full_name || "Marcus Vance"}
+              </div>
+              <div className="text-[10.5px] text-mid-gray capitalize">
+                {role}
+              </div>
             </div>
+            <ChevronDown className={cn("w-3.5 h-3.5 text-mid-gray shrink-0 transition-transform", showRoleSwitcher && "rotate-180")} />
           </div>
-          <ChevronDown className={cn("w-3.5 h-3.5 text-mid-gray shrink-0 transition-transform", showRoleSwitcher && "rotate-180")} />
+          {onOpenSettings && (
+            <button
+              onClick={onOpenSettings}
+              className="p-1.5 rounded-[8px] hover:bg-canvas text-mid-gray hover:text-ink transition-colors cursor-pointer shrink-0"
+              title="Settings & Theme Modes"
+            >
+              <Settings className="w-4 h-4" />
+            </button>
+          )}
         </div>
 
         {/* Role Switcher — revealed on click */}
@@ -252,22 +255,40 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <ShieldCheck className="w-3.5 h-3.5 text-mid-gray" />
               <span>Switch role (demo)</span>
             </div>
-            <div className="grid grid-cols-2 gap-1">
-              {rolesList.map(r => (
-                <button
-                  key={r.role}
-                  onClick={() => switchRole(r.role)}
-                  className={cn(
-                    "px-2 py-1 text-[11px] font-medium rounded-[6px] border transition-colors text-left truncate cursor-pointer",
-                    role === r.role
-                      ? "bg-ink text-paper border-ink"
-                      : "bg-paper hover:bg-canvas border-hairline text-ink"
-                  )}
-                >
-                  {r.name.split(" ")[0]}
-                </button>
-              ))}
+            <div className="grid grid-cols-2 gap-1.5">
+              {rolesList.map(r => {
+                const roleColors: Record<UserRole, string> = {
+                  controller: "bg-blue-500/15 text-blue-600 dark:text-blue-400 border-blue-500/30",
+                  analyst: "bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border-emerald-500/30",
+                  auditor: "bg-amber-500/15 text-amber-600 dark:text-amber-400 border-amber-500/30",
+                  admin: "bg-purple-500/15 text-purple-600 dark:text-purple-400 border-purple-500/30",
+                }
+                const isSelected = role === r.role
+                return (
+                  <button
+                    key={r.role}
+                    onClick={() => switchRole(r.role)}
+                    className={cn(
+                      "px-2.5 py-1 text-[11px] font-medium rounded-[8px] border transition-all text-left truncate cursor-pointer",
+                      isSelected
+                        ? cn(roleColors[r.role], "font-semibold shadow-2xs")
+                        : "bg-paper hover:bg-canvas border-hairline text-mid-gray hover:text-ink"
+                    )}
+                  >
+                    {r.name.split(" ")[0]}
+                  </button>
+                )
+              })}
             </div>
+            {onOpenSettings && (
+              <button
+                onClick={onOpenSettings}
+                className="w-full flex items-center gap-1.5 text-[11.5px] text-mid-gray hover:text-ink transition-colors cursor-pointer px-1 pt-1"
+              >
+                <Settings className="w-3.5 h-3.5" />
+                <span>Settings & Themes</span>
+              </button>
+            )}
             <button
               onClick={logout}
               className="w-full flex items-center gap-1.5 text-[11.5px] text-mid-gray hover:text-ink transition-colors cursor-pointer px-1 pt-1"

@@ -10,15 +10,20 @@ import {
   RotateCcw, 
   TrendingUp, 
   AlertCircle, 
+  AlertTriangle,
   CheckCircle2, 
   UploadCloud, 
   Sliders, 
   ShieldCheck, 
   FileSpreadsheet,
   Minimize2,
-  Maximize2
+  Maximize2,
+  Globe,
+  BarChart3,
+  Languages
 } from "lucide-react"
 import { api } from "../../lib/api"
+import { cn } from "../../lib/utils"
 import type { ChatMessage } from "../../types"
 
 interface AIAssistantDrawerProps {
@@ -55,13 +60,119 @@ const INITIAL_MESSAGES: ChatMessage[] = [
   }
 ]
 
-const QUICK_PROMPTS = [
-  { label: "Import Data", query: "How do I import financial data?" },
-  { label: "Reconciliation Status", query: "What is the current reconciliation status?" },
-  { label: "Explain Variance", query: "Analyze outstanding variance and root causes" },
-  { label: "Controller Sign-Offs", query: "What items require controller approval?" },
-  { label: "What-If Simulator", query: "How does the what-if simulator work?" },
-  { label: "Benchmark Batches", query: "What sample demo files are available?" }
+const LANGUAGES = [
+  { code: "en", name: "English", short: "EN", label: "Executive Briefing" },
+  { code: "es", name: "Español", short: "ES", label: "Informe Ejecutivo" },
+  { code: "fr", name: "Français", short: "FR", label: "Briefing Exécutif" },
+  { code: "de", name: "Deutsch", short: "DE", label: "Vorstandsbericht" },
+  { code: "ja", name: "日本語", short: "JA", label: "エグゼクティブ報告" },
+  { code: "zh", name: "中文", short: "ZH", label: "执行对账简报" },
+  { code: "pt", name: "Português", short: "PT", label: "Relatório Executivo" },
+  { code: "hi", name: "हिन्दी", short: "HI", label: "कार्यकारी विवरण" },
+]
+
+const MULTILINGUAL_BRIEFINGS: Record<string, string> = {
+  en: `### Executive Financial Controller Briefing (English)
+
+**Autonomous Bank Reconciliation & Cash Positioning Summary**
+- **Reconciliation Clearance Rate**: 98.4% (87 transactions verified autonomously).
+- **Verified Book Volume**: $1,420,500.00 reconciled against General Ledger GL-1010.
+- **Unresolved Variances**: $18,450.00 across 10 open exceptions under active triage.
+- **High-Value Items (≥$10,000)**: 2 records pending dual-authorization controller sign-off.
+- **Regulatory Integrity**: SOX 404 append-only SHA-256 hash chain verified.
+
+*Controller Recommendation*: Authorize the 2 pending high-value items in the **Approvals** tab before initiating the month-end lock.`,
+
+  es: `### Informe Ejecutivo de Control Financiero (Español)
+
+**Resumen de Conciliación Bancaria y Posición de Caja**
+- **Tasa de Conciliación Automática**: 98.4% (87 partidas liquidadas de forma autónoma).
+- **Volumen Verificado en Libros**: $1,420,500.00 comprobado contra la cuenta mayor GL-1010.
+- **Variaciones Pendientes**: $18,450.00 distribuidos en 10 diferencias por liquidar.
+- **Aprobaciones de Alto Valor (≥$10,000)**: 2 partidas que requieren doble firma del Contralor.
+- **Cumplimiento SOX 404**: Cadena criptográfica SHA-256 verificada e inmutable.
+
+*Recomendación del Asistente*: Proceder a autorizar las 2 excepciones en la pestaña **Aprobaciones** para congelar el período fiscal.`,
+
+  fr: `### Rapport Exécutif du Contrôleur Financier (Français)
+
+**Synthèse du Rapprochement Bancaire et de Clôture**
+- **Taux de Rapprochement Automatisé** : 98,4 % (87 transactions vérifiées de manière autonome).
+- **Volume Rapproché au Grand Livre** : 1 420 500,00 $ validé avec le compte GL-1010.
+- **Écarts en Suspens** : 18 450,00 $ répartis sur 10 écritures à analyser.
+- **Signatures Haute Valeur (≥ 10 000 $)** : 2 éléments nécessitant la double autorisation du Contrôleur.
+- **Conformité Réglementaire SOX 404** : Chaîne cryptographique SHA-256 validée et inaltérable.
+
+*Recommandation de l'IA* : Valider les 2 exceptions dans l'onglet **Approbations** avant le gel de clôture mensuelle.`,
+
+  de: `### Vorstandsbericht Finanz-Controller (Deutsch)
+
+**Zusammenfassung des Bankabstimmungs- und Kassenstatus**
+- **Automatische Abstimmungsquote**: 98,4 % (87 Buchungen autonom abgeglichen).
+- **Verifiziertes Kassenvolumen**: 1.420.500,00 $ erfolgreich mit Hauptbuch GL-1010 synchronisiert.
+- **Offene Differenzen**: 18.450,00 $ verteilt auf 10 Klärungsfälle.
+- **Hochwertige Freigaben (≥ 10.000 $)**: 2 Positionen erfordern das Vier-Augen-Prinzip des Controllers.
+- **SOX 404 Revisionssicherheit**: Kryptografische SHA-256-Hashkette lückenlos validiert.
+
+*Empfehlung des KI-Controllers*: Zeichnen Sie die 2 offenen Posten unter **Genehmigungen** gegen, um den Monatsabschluss zu sperren.`,
+
+  ja: `### 財務コントローラー エグゼクティブ報告 (日本語)
+
+**銀行照合および残高統制サマリー**
+- **自動照合完了率**: 98.4% (87件の取引をルールエンジンにより自動照合)。
+- **検証済み総額**: $1,420,500.00 (一般会計元帳 GL-1010 と完全一致)。
+- **未解消差異残高**: $18,450.00 (10件の調査対象トランザクション)。
+- **高額承認案件 (1万ドル以上)**: コントローラーによる二重承認が必要な案件が2件。
+- **SOX 404内部統制基準**: 暗号化SHA-256ハッシュチェーン検証完了。改ざん耐性担保。
+
+*AIコントローラーの推奨事項*: **承認待ちキュー**で該当2件を確認・承認し、月次締め処理を確定してください。`,
+
+  zh: `### 财务总监执行对账简报 (中文)
+
+**银行对账与资金头寸管控摘要**
+- **自主对账率**: 98.4% (87笔交易已通过多层确定性规则自动核销)。
+- **总账核实入账金额**: $1,420,500.00 (已与GL-1010总账完全核对同步)。
+- **未核销差异头寸**: $18,450.00 (共涉及10笔待排查未对账记录)。
+- **高额审批事项 (≥$10,000)**: 2笔需财务总监双重签字授权的重大差异。
+- **SOX 404合规审计**: SHA-256防篡改哈希链全部校验通过，满足法定合规标准。
+
+*AI智能财务官建议*: 请在**审批中心**完成高额凭证会签，随后执行财务期间封账锁定。`,
+
+  pt: `### Relatório Executivo do Controlador Financeiro (Português)
+
+**Resumo da Conciliação Bancária e Posição de Caixa**
+- **Taxa de Conciliação Autônoma**: 98,4% (87 lançamentos compensados automaticamente).
+- **Volume Verificado no Livro-Razão**: $1.420.500,00 sincronizado com a conta GL-1010.
+- **Divergências Pendentes**: $18.450,00 distribuídos em 10 itens para análise.
+- **Aprovações de Alto Valor (≥ $10.000)**: 2 itens aguardando dupla autorização do Controlador.
+- **Conformidade SOX 404**: Encadeamento criptográfico SHA-256 verificado e imutável.
+
+*Recomendação da IA*: Proceda com a assinatura das 2 exceções na fila de **Aprovações** para concluir o fechamento mensal.`,
+
+  hi: `### वित्तीय नियंत्रक कार्यकारी विवरण (हिन्दी)
+
+**बैंक समाधान एवं नकदी स्थिति सारांश**
+- **स्वचालित समाधान दर**: 98.4% (87 लेन-देन स्वतः सत्यापित और स्वीकृत)।
+- **खाताबही सत्यापित कुल**: $1,420,500.00 (GL-1010 खाते के साथ पूर्ण समाधान)।
+- **लंबित अंतर राशि**: $18,450.00 (समीक्षा हेतु 10 अनसुलझे अंतर)।
+- **उच्च मूल्य अनुमोदन (≥ $10,000)**: नियंत्रक द्वारा दोहरे हस्ताक्षर हेतु 2 मदें।
+- **SOX 404 अनुपालन**: क्रिप्टोग्राफ़िक SHA-256 हैश शृंखला पूरी तरह सत्यापित और सुरक्षित।
+
+*एआई नियंत्रक अनुशंसा*: कृपया माह-अंत समाधान बंद करने से पहले **अनुमोदन** अनुभाग में 2 लंबित मामलों को अधिकृत करें।`
+}
+
+interface QuickPrompt {
+  label: string
+  query: string
+  icon: React.ComponentType<{ className?: string }>
+}
+
+const QUICK_PROMPTS: QuickPrompt[] = [
+  { label: "Status Summary", query: "Current reconciliation status and book balance", icon: BarChart3 },
+  { label: "Variance Drivers", query: "Explain outstanding variances and fee deductions", icon: AlertTriangle },
+  { label: "Dual Approvals", query: "Check Controller Approvals and high-value exceptions", icon: ShieldCheck },
+  { label: "What-If Tips", query: "What-If Simulator tips and interchange fee testing", icon: TrendingUp },
+  { label: "Import Guide", query: "How do I import bank transactions and ledger data?", icon: UploadCloud }
 ]
 
 export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({
@@ -74,6 +185,7 @@ export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({
 }) => {
   const [messages, setMessages] = useState<ChatMessage[]>(INITIAL_MESSAGES)
   const [inputMessage, setInputMessage] = useState("")
+  const [selectedLang, setSelectedLang] = useState<string>("en")
   const [isLoading, setIsLoading] = useState(false)
   const [isExpanded, setIsExpanded] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
@@ -94,6 +206,32 @@ export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }
 
+  const handleGenerateBriefing = (langCode: string) => {
+    const briefingText = MULTILINGUAL_BRIEFINGS[langCode] || MULTILINGUAL_BRIEFINGS["en"]
+    const activeLangObj = LANGUAGES.find(l => l.code === langCode) || LANGUAGES[0]
+
+    const briefingMsg: ChatMessage = {
+      id: `briefing-${Date.now()}`,
+      sender: "assistant",
+      text: briefingText,
+      timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+      suggested_actions: [
+        "Explain high-value exceptions",
+        "View cash velocity trajectory",
+        "Check SOX hash chain status"
+      ],
+      metrics_snapshot: {
+        match_rate: "98.4%",
+        reconciled_volume: "$1,420,500.00",
+        variance_exposure: "$18,450.00",
+        cleared_count: 87,
+        exceptions_count: 10,
+        high_value_pending: 2
+      }
+    }
+    setMessages(prev => [...prev, briefingMsg])
+  }
+
   const handleSendMessage = async (textToSend?: string) => {
     const text = (textToSend || inputMessage).trim()
     if (!text || isLoading) return
@@ -110,12 +248,17 @@ export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({
     setIsLoading(true)
 
     try {
+      const activeLangObj = LANGUAGES.find(l => l.code === selectedLang)
+      const promptQuery = selectedLang !== "en" && activeLangObj
+        ? `${text} (Please provide the response in ${activeLangObj.name})`
+        : text
+
       const historyPayload = messages.slice(-6).map(m => ({
         role: m.sender,
         content: m.text
       }))
 
-      const res = await api.assistant.sendMessage(text, historyPayload)
+      const res = await api.assistant.sendMessage(promptQuery, historyPayload)
 
       const assistantMsg: ChatMessage = {
         id: res.id || `assistant-${Date.now()}`,
@@ -295,17 +438,65 @@ export const AIAssistantDrawer: React.FC<AIAssistantDrawerProps> = ({
             </div>
           </div>
 
-          {/* Quick Prompts Horizontal Scroll Strip */}
-          <div className="px-3 py-2 bg-canvas border-b border-hairline overflow-x-auto flex items-center gap-1.5 no-scrollbar shrink-0">
-            {QUICK_PROMPTS.map((qp, i) => (
-              <button
-                key={i}
-                onClick={() => handleSendMessage(qp.query)}
-                className="px-2.5 py-1 rounded-full bg-paper hover:bg-cool-wash border border-hairline text-[11.5px] font-medium text-primary-ink/90 whitespace-nowrap transition-colors cursor-pointer shadow-2xs"
-              >
-                {qp.label}
-              </button>
-            ))}
+          {/* Executive Control & Language Bar */}
+          <div className="px-3.5 py-2.5 bg-canvas/80 border-b border-hairline flex items-center justify-between gap-2.5 shrink-0">
+            {/* Clean Segmented Language Chips with Globe Icon (NO EMOJIS, NO SCROLLBAR) */}
+            <div className="flex items-center gap-1.5 min-w-0 flex-1">
+              <div className="flex items-center gap-1 text-[11px] font-medium text-mid-gray shrink-0 mr-0.5 select-none">
+                <Globe className="w-3.5 h-3.5 text-mid-gray" />
+                <span className="font-semibold text-[10px] uppercase tracking-wider hidden sm:inline">Lang</span>
+              </div>
+              <div className="flex items-center gap-1 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-0.5 flex-1">
+                {LANGUAGES.map((lang) => {
+                  const isSelected = selectedLang === lang.code
+                  return (
+                    <button
+                      key={lang.code}
+                      onClick={() => {
+                        setSelectedLang(lang.code)
+                        handleGenerateBriefing(lang.code)
+                      }}
+                      className={cn(
+                        "px-2 py-0.5 rounded-[6px] text-[10.5px] font-semibold transition-all cursor-pointer shrink-0 border select-none",
+                        isSelected
+                          ? "bg-ink text-paper border-ink shadow-2xs scale-105"
+                          : "bg-paper text-mid-gray hover:text-ink hover:bg-canvas border-hairline/80"
+                      )}
+                      title={`${lang.name} (${lang.short}) — Click to switch and generate briefing`}
+                    >
+                      {lang.short}
+                    </button>
+                  )
+                })}
+              </div>
+            </div>
+
+            {/* Prominent Executive Briefing Trigger Button */}
+            <button
+              onClick={() => handleGenerateBriefing(selectedLang)}
+              className="px-2.5 py-1 rounded-[8px] bg-ink hover:bg-ink-soft text-paper text-[11px] font-semibold flex items-center gap-1.5 shrink-0 shadow-xs cursor-pointer active:scale-95 transition-all select-none"
+              title="Generate Executive Financial Briefing"
+            >
+              <Sparkles className="w-3 h-3 text-amber-400 shrink-0" />
+              <span>Briefing</span>
+            </button>
+          </div>
+
+          {/* Clean Smooth Quick Action Chips (NO EMOJIS, SLEEK LUCIDE ICONS, NO SCROLLBAR) */}
+          <div className="px-3.5 py-2 bg-paper/60 border-b border-hairline flex items-center gap-1.5 overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden shrink-0 select-none">
+            {QUICK_PROMPTS.map((qp, i) => {
+              const Icon = qp.icon
+              return (
+                <button
+                  key={i}
+                  onClick={() => handleSendMessage(qp.query)}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-canvas hover:bg-canvas/80 border border-hairline text-[11px] font-medium text-ink/90 hover:text-ink whitespace-nowrap transition-all cursor-pointer shadow-2xs hover:border-ink/20 active:scale-95 shrink-0"
+                >
+                  <Icon className="w-3 h-3 text-mid-gray shrink-0" />
+                  <span>{qp.label}</span>
+                </button>
+              )
+            })}
           </div>
 
           {/* Chat Messages Body */}

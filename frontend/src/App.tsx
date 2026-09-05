@@ -12,12 +12,13 @@ import { Approvals } from "./pages/Approvals"
 import { AuditTrail } from "./pages/AuditTrail"
 import { Periods } from "./pages/Periods"
 import { Admin } from "./pages/Admin"
-import { DesignSystem } from "./pages/DesignSystem"
 import { Login } from "./pages/Login"
 import { ImportSheet } from "./components/data/ImportSheet"
 import { ManualEntryModal } from "./components/data/ManualEntryModal"
 import { ImportHistoryModal } from "./components/data/ImportHistoryModal"
 import { AIAssistantDrawer } from "./components/assistant/AIAssistantDrawer"
+import { SettingsModal } from "./components/settings/SettingsModal"
+import { ThemeProvider } from "./hooks/useTheme"
 import { api } from "./lib/api"
 import type { ReconciliationRun } from "./types"
 import { CheckCircle2, Sparkles } from "lucide-react"
@@ -25,7 +26,7 @@ import { CheckCircle2, Sparkles } from "lucide-react"
 const MainWorkspace: React.FC = () => {
   const [currentTab, setCurrentTab] = useState<string>(() => {
     const hash = window.location.hash.replace(/^#\/?/, "")
-    return ["dashboard", "reconcile", "what-if", "stats", "approvals", "audit", "periods", "admin", "design"].includes(hash)
+    return ["dashboard", "reconcile", "what-if", "stats", "approvals", "audit", "periods", "admin"].includes(hash)
       ? hash
       : "dashboard"
   })
@@ -41,6 +42,7 @@ const MainWorkspace: React.FC = () => {
   const [manualEntryType, setManualEntryType] = useState<"bank" | "ledger">("bank")
   const [isImportHistoryOpen, setIsImportHistoryOpen] = useState<boolean>(false)
   const [isAssistantOpen, setIsAssistantOpen] = useState<boolean>(false)
+  const [isSettingsOpen, setIsSettingsOpen] = useState<boolean>(false)
   const [toastMessage, setToastMessage] = useState<string | null>(null)
 
   const showToast = (msg: string) => {
@@ -82,7 +84,7 @@ const MainWorkspace: React.FC = () => {
 
     const handleHashChange = () => {
       const hash = window.location.hash.replace(/^#\/?/, "")
-      if (hash && ["dashboard", "reconcile", "what-if", "stats", "approvals", "audit", "periods", "admin", "design"].includes(hash)) {
+      if (hash && ["dashboard", "reconcile", "what-if", "stats", "approvals", "audit", "periods", "admin"].includes(hash)) {
         setCurrentTab(hash)
       }
     }
@@ -171,6 +173,7 @@ const MainWorkspace: React.FC = () => {
         onOpenImportHistory={handleOpenImportHistory}
         onResetDemo={handleResetDemo}
         onOpenAssistant={() => setIsAssistantOpen(true)}
+        onOpenSettings={() => setIsSettingsOpen(true)}
       >
         {/* Toast Notification Banner */}
         <AnimatePresence>
@@ -196,6 +199,7 @@ const MainWorkspace: React.FC = () => {
             onOpenManualEntry={handleOpenManualEntry}
             onOpenImportHistory={handleOpenImportHistory}
             onResetDemo={handleResetDemo}
+            onOpenSettings={() => setIsSettingsOpen(true)}
           />
         )}
 
@@ -248,8 +252,6 @@ const MainWorkspace: React.FC = () => {
                   isRegenerating={isRegenerating}
                 />
               )}
-
-              {currentTab === "design" && <DesignSystem />}
             </motion.div>
           </AnimatePresence>
         </main>
@@ -273,6 +275,12 @@ const MainWorkspace: React.FC = () => {
           isOpen={isImportHistoryOpen}
           onClose={() => setIsImportHistoryOpen(false)}
           onResetDemo={handleResetDemo}
+        />
+
+        <SettingsModal
+          isOpen={isSettingsOpen}
+          onClose={() => setIsSettingsOpen(false)}
+          onSaveToast={showToast}
         />
       </MacWindowFrame>
 
@@ -340,11 +348,13 @@ const AppRouter: React.FC = () => {
 
 export function App() {
   return (
-    <AuthProvider>
-      <WorkspaceProvider>
-        <AppRouter />
-      </WorkspaceProvider>
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <WorkspaceProvider>
+          <AppRouter />
+        </WorkspaceProvider>
+      </AuthProvider>
+    </ThemeProvider>
   )
 }
 

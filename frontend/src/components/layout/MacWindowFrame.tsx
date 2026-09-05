@@ -10,7 +10,8 @@ import {
   ChevronDown,
   RotateCcw,
   LogOut,
-  Sparkles
+  Sparkles,
+  Settings
 } from "lucide-react"
 import { Badge } from "../ui/Badge"
 import { useAuth } from "../../hooks/useAuth"
@@ -30,6 +31,7 @@ interface MacWindowFrameProps {
   onOpenImportHistory: () => void
   onResetDemo: () => void
   onOpenAssistant: () => void
+  onOpenSettings?: () => void
 }
 
 export const MacWindowFrame: React.FC<MacWindowFrameProps> = ({
@@ -46,6 +48,7 @@ export const MacWindowFrame: React.FC<MacWindowFrameProps> = ({
   onOpenImportHistory,
   onResetDemo,
   onOpenAssistant,
+  onOpenSettings,
 }) => {
   const { user, isDemoMode, logout } = useAuth()
   const { activeWorkspace } = useWorkspace()
@@ -61,7 +64,6 @@ export const MacWindowFrame: React.FC<MacWindowFrameProps> = ({
     audit: "Activity History",
     periods: "Month-End Close",
     admin: "Matching Rules",
-    design: "Design System & Tokens",
   }
 
   return (
@@ -118,12 +120,16 @@ export const MacWindowFrame: React.FC<MacWindowFrameProps> = ({
           <span className="text-mid-gray/40">&middot;</span>
           <span className="text-mid-gray font-normal">{activeWorkspace.bankAccount}</span>
           <span className="text-mid-gray/40">&rarr;</span>
-          <span className="font-mono text-mid-gray font-semibold">
+          <span className="font-mono text-ink font-semibold">
             {activeWorkspace.glAccount}
           </span>
           <span className="text-mid-gray/30">|</span>
-          <span className="text-[10px] font-mono text-mid-gray">
-            {isDemoMode ? "Sample Data" : "Live"}
+          <span className="flex items-center gap-1.5 text-[10.5px] font-mono text-mid-gray">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
+            </span>
+            <span>Production Ledger</span>
           </span>
         </div>
 
@@ -259,13 +265,24 @@ export const MacWindowFrame: React.FC<MacWindowFrameProps> = ({
             <span className="font-mono text-[9.5px] text-mid-gray bg-canvas px-1 py-0.2 rounded-[4px] border border-hairline">⌘J</span>
           </button>
 
+          {/* Settings Button */}
+          {onOpenSettings && (
+            <button
+              onClick={onOpenSettings}
+              className="h-[34px] w-[34px] rounded-[18px] bg-paper hover:bg-canvas border border-hairline hover:border-[#cbd5e1] text-mid-gray hover:text-ink transition-colors flex items-center justify-center cursor-pointer shadow-2xs"
+              title="Controller Settings & Themes (⌘,)"
+            >
+              <Settings className="w-3.5 h-3.5" />
+            </button>
+          )}
+
           {/* Primary Action Button: Auto-Match */}
           <button
             onClick={onRunBatch}
             disabled={isRunning}
-            className="h-[34px] px-3.5 rounded-[18px] bg-ink text-paper text-[12.5px] font-medium hover:bg-ink-soft active:opacity-90 disabled:opacity-40 transition-colors flex items-center gap-1.5 cursor-pointer border-none shadow-xs"
+            className="h-[34px] px-4 rounded-[18px] bg-ink text-paper text-[12.5px] font-medium hover:bg-ink-soft active:scale-95 disabled:opacity-40 transition-all flex items-center gap-2 cursor-pointer border-none shadow-xs group"
           >
-            <Play className={`w-3.5 h-3.5 ${isRunning ? "animate-pulse" : ""}`} />
+            <Play className={`w-3.5 h-3.5 transition-transform group-hover:scale-110 ${isRunning ? "animate-spin text-emerald-400" : "fill-current"}`} />
             <span>{isRunning ? "Matching…" : "Auto-Match"}</span>
           </button>
 

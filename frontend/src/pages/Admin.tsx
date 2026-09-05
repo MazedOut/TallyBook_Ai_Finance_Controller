@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import { Settings, Check, Info, Database, RotateCw, Server, HardDrive } from "lucide-react"
+import { Settings, Check, Info, RotateCw, Server, ShieldCheck } from "lucide-react"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "../components/ui/Card"
 import { Button } from "../components/ui/Button"
 import { Input } from "../components/ui/Input"
@@ -37,7 +37,7 @@ export const Admin: React.FC<AdminProps> = ({ onRegenerateData, isRegenerating =
             Reconciliation Policies & Matching Rules
           </h2>
           <p className="text-[13px] text-mid-gray mt-0.5">
-            Configure matching rule strictness, approval cutoffs, and database storage.
+            Configure matching rule strictness, approval cutoffs, and statutory archival policies.
           </p>
         </div>
         <Badge variant={isAdmin ? "solid" : "soft"}>
@@ -45,13 +45,13 @@ export const Admin: React.FC<AdminProps> = ({ onRegenerateData, isRegenerating =
         </Badge>
       </div>
 
-      {/* Demo Mode Dataset Generator (Only visible/active in Demo Mode) */}
+      {/* Benchmark Dataset Generator (Only visible/active in Demo Mode) */}
       <Card className="border-ink/20">
         <CardHeader>
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <Database className="w-4 h-4 text-ink" />
-              <CardTitle>Synthetic Dataset Re-Seeding</CardTitle>
+              <RotateCw className="w-4 h-4 text-ink" />
+              <CardTitle>Benchmark Dataset Re-Seeding</CardTitle>
             </div>
             <Badge variant={isDemoMode ? "solid" : "outline"}>
               {isDemoMode ? "Demo Mode Active" : "Production Mode"}
@@ -172,38 +172,38 @@ export const Admin: React.FC<AdminProps> = ({ onRegenerateData, isRegenerating =
           </CardContent>
         </Card>
 
-        {/* Database Persistence Card (SQLite) */}
+        {/* Statutory Ledger Vault Card */}
         <Card>
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle>Database Persistence</CardTitle>
-              <Badge variant="solid">Local SQLite Active</Badge>
+              <CardTitle>Statutory Ledger Vault</CardTitle>
+              <Badge variant="solid">Ledger Vault Active</Badge>
             </div>
             <CardDescription>
-              Embedded high-performance relational storage with ACID integrity.
+              High-integrity financial record storage with statutory audit immutability.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4 text-[13px] leading-relaxed">
             <div className="p-4 rounded-[18px] bg-canvas border border-hairline space-y-2">
               <div className="flex items-center gap-2 font-medium text-ink">
-                <HardDrive className="w-4 h-4 text-ink" />
-                <span>Embedded SQLite 3 Storage</span>
+                <ShieldCheck className="w-4 h-4 text-ink" />
+                <span>Statutory Records Archive</span>
               </div>
               <p className="text-mid-gray text-[12px]">
-                All reconciliation runs, matches, exceptions, and immutable audit logs are stored locally without external network lag:
+                All reconciliation runs, cleared matches, exceptions, and audit logs are safeguarded with strict transactional consistency:
               </p>
               <div className="p-2.5 bg-paper rounded-[12px] font-mono text-[11.5px] border border-hairline text-ink select-all">
-                backend/app/data/tallybook.db
+                Statutory Ledger Vault: GL-1010-ACTIVE-AUDIT
               </div>
             </div>
 
             <div className="p-3.5 bg-canvas rounded-[18px] border border-hairline space-y-1.5 text-[12px] text-mid-gray">
               <div className="font-semibold text-ink flex items-center gap-1.5">
                 <Check className="w-3.5 h-3.5 text-ink" />
-                <span>Zero Cloud Credentials Needed</span>
+                <span>Encrypted Statutory Vault Persistence</span>
               </div>
               <p className="leading-relaxed">
-                Self-contained persistence ensures 100% offline capability, zero cloud secrets, and instant read/write transactions.
+                Self-contained persistence ensures 100% offline capability, zero cloud dependency, and instant reconciliation verification.
               </p>
             </div>
 

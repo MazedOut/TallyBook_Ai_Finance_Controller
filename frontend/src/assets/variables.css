@@ -1,13 +1,72 @@
-:root {
-  /* Colors */
-  --color-canvas: #f5f5f5;
+:root, [data-theme="light"] {
+  /* Colors - Light Minimalist Mode (WCAG AA High Contrast) */
+  --color-canvas: #f6f7f9;
   --color-paper: #ffffff;
   --color-surface-alt: #fafafa;
-  --color-ink: #0a0a0a;
-  --color-ink-soft: #171717;
-  --color-mid-gray: #737373;
-  --color-hairline: #e5e5e5;
-  --color-ember: #e7000b;
+  --color-ink: #09090b;
+  --color-ink-soft: #27272a;
+  --color-mid-gray: #52525b;
+  --color-hairline: #e4e4e7;
+  --color-ember: #e11d48;
+
+  --color-primary-ink: #09090b;
+  --color-electric-blue: #2563eb;
+  --color-cool-wash: #f4f4f5;
+  --color-faded-surface: #fafafa;
+}
+
+[data-theme="dark"] {
+  /* Colors - Obsidian Slate OLED Mode (Vivid High Contrast) */
+  --color-canvas: #090d16;
+  --color-paper: #111827;
+  --color-surface-alt: #1f2937;
+  --color-ink: #f9fafb;
+  --color-ink-soft: #e5e7eb;
+  --color-mid-gray: #9ca3af;
+  --color-hairline: #374151;
+  --color-ember: #fb7185;
+
+  --color-primary-ink: #f9fafb;
+  --color-electric-blue: #38bdf8;
+  --color-cool-wash: #1f2937;
+  --color-faded-surface: #1f2937;
+}
+
+[data-theme="neon"] {
+  /* Colors - Cyberpunk Electric Neon Mode (Radiant & Crisp) */
+  --color-canvas: #030712;
+  --color-paper: #0b0f19;
+  --color-surface-alt: #111827;
+  --color-ink: #ffffff;
+  --color-ink-soft: #e0f2fe;
+  --color-mid-gray: #7dd3fc;
+  --color-hairline: #312e81;
+  --color-ember: #ff0055;
+
+  --color-primary-ink: #ffffff;
+  --color-electric-blue: #38bdf8;
+  --color-cool-wash: #111827;
+  --color-faded-surface: #111827;
+}
+
+[data-theme="bright"] {
+  /* Colors - Warm Ivory Editorial Mode (Rich Slate on Cream) */
+  --color-canvas: #faf8f5;
+  --color-paper: #ffffff;
+  --color-surface-alt: #f5efe6;
+  --color-ink: #0f172a;
+  --color-ink-soft: #1e293b;
+  --color-mid-gray: #475569;
+  --color-hairline: #e2dcd0;
+  --color-ember: #dc2626;
+
+  --color-primary-ink: #0f172a;
+  --color-electric-blue: #1d4ed8;
+  --color-cool-wash: #f5efe6;
+  --color-faded-surface: #f5efe6;
+}
+
+:root {
 
   /* Typography — Font Families */
   --font-geist: 'Geist', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { History, CheckCircle2, AlertTriangle, XCircle, RotateCcw, Database } from "lucide-react"
+import { History, CheckCircle2, AlertTriangle, XCircle, RotateCcw, FileSpreadsheet } from "lucide-react"
 import { api } from "../../lib/api"
 import { Badge } from "../ui/Badge"
 import type { ImportHistoryRecord } from "../../types"
@@ -87,7 +87,7 @@ export const ImportHistoryModal: React.FC<ImportHistoryModalProps> = ({
           ) : history.length === 0 ? (
             <div className="py-12 text-center space-y-3">
               <div className="w-12 h-12 rounded-full bg-canvas border border-hairline flex items-center justify-center mx-auto text-mid-gray">
-                <Database className="w-5 h-5" />
+                <FileSpreadsheet className="w-5 h-5" />
               </div>
               <div className="text-[13.5px] font-medium text-primary-ink">No Custom Imports Logged Yet</div>
               <div className="text-[12px] text-mid-gray max-w-sm mx-auto">

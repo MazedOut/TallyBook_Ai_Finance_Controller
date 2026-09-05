@@ -184,16 +184,19 @@
     line-height: 1.33;
   }
 
-  /* Stat Blocks - Monochromatic Clean Metric Tile */
+  /* Stat Blocks - Clean Metric Tile with Smooth Hover */
   .stat-card {
     background-color: var(--color-paper, #ffffff);
     border: 1px solid var(--color-hairline, #e5e5e5);
     border-radius: var(--radius-cards, 24px);
     padding: 20px;
-    transition: border-color 0.15s ease, background-color 0.15s ease;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.03), 0 1px 2px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
   }
   .stat-card:hover {
-    border-color: #d4d4d4;
+    border-color: #cbd5e1;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+    transform: translateY(-2px);
   }
 
   .stat-label {

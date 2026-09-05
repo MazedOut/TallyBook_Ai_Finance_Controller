@@ -1,5 +1,5 @@
 import React from "react"
-import { Play, Sparkles, Database, ChevronRight, LogOut } from "lucide-react"
+import { Play, Sparkles, BookOpen, ChevronRight, LogOut } from "lucide-react"
 import { Button } from "../ui/Button"
 import { Badge } from "../ui/Badge"
 import { useAuth } from "../../hooks/useAuth"
@@ -58,7 +58,7 @@ export const Topbar: React.FC<TopbarProps> = ({
 
         {/* Dataset status */}
         <div className="hidden lg:flex items-center gap-2 text-[12px] text-mid-gray bg-canvas px-3.5 py-1.5 rounded-full border border-hairline">
-          <Database className="w-3.5 h-3.5 text-primary-ink" />
+          <BookOpen className="w-3.5 h-3.5 text-primary-ink" />
           <span>75 Bank Feed &bull; 79 Ledger</span>
         </div>
 

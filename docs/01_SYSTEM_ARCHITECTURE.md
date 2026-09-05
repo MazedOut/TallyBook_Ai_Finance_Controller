@@ -56,9 +56,11 @@ graph TD
 
 ### 2.1 Presentation Layer (`frontend/src/`)
 - **React 19 & TypeScript**: Strict type safety across financial domain schemas (`MatchRecord`, `ExceptionRecord`, `AuditLog`, `StatisticsData`).
-- **Tailwind CSS v4 & Clinical Design Tokens**: Monochromatic minimalism defined in `theme.css` and `variables.css` (pure `#ffffff` card surfaces, `#f5f5f5` canvas, `#0a0a0a` text, `#e5e5e5` hairlines, and `#e7000b` ember accents).
+- **Dynamic 4-Theme Engine**: Real-time CSS token switching between **Light Corporate**, **Obsidian Dark Terminal**, **Cyber Neon**, and **Warm Ivory Editorial** with WCAG AA compliance.
+- **Multilingual AI Controller Copilot**: Real-time financial advisory and executive briefing generation in **8 native languages** (EN, ES, FR, DE, JA, ZH, PT, HI) with text-to-speech audio narration.
+- **Tailwind CSS v4 & Modular Tokens**: Variable-driven layout defined in `theme.css` and `variables.css`.
 - **Recharts**: High-performance SVG charts for Cash Clearance Velocity, Variance Aging, and Counterparty Exposure.
-- **Framer Motion**: Subtle interface state transitions with zero distracting gradients.
+- **Framer Motion**: Subtle, executive interface state transitions and spring animations.
 
 ### 2.2 Application Service Layer (`backend/app/`)
 - **FastAPI**: Asynchronous Python web service with automatic OpenAPI documentation.

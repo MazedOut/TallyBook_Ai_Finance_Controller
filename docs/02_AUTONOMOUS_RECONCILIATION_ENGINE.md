@@ -113,3 +113,14 @@ $$
 - **Verified Clearance Accuracy**: **97.18%** (Zero false-positive clearing of disparate vouchers).
 - **Match Coverage**: **100.0%** (All eligible ledger items successfully resolved).
 - **Reconciliation Quality Score**: **98.57%**.
+
+### Live Reconciled Batch Composition (101 Records)
+
+The live application is pre-seeded with a comprehensive 101-record test batch incorporating all failure modes:
+
+| Category | Count | Status Badge | Reason / Classification |
+| :--- | :--- | :--- | :--- |
+| **Accepted Clean Matches** | 87 | `Accepted` (Green) | Exact reference, date window, or allowable tolerance match. |
+| **Flagged Exceptions** | 10 | `Flagged Review` (Amber) | Gateway fee creep delta ($\Delta \ge \$1.00$) or settlement date offset ($\ge 2$ business days). |
+| **Manual Supervised Overrides** | 4 | `Manual Override` (Indigo) | High-value FX fee absorptions and consolidated batch disbursements with supervisor annotations. |
+

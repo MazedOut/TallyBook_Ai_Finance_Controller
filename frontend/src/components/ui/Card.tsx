@@ -9,8 +9,8 @@ export const Card: React.FC<CardProps> = ({ className, hoverEffect = false, chil
   return (
     <div
       className={cn(
-        "bg-paper rounded-[24px] border border-hairline p-5 transition-colors",
-        hoverEffect && "hover:border-[#d4d4d4]",
+        "bg-paper rounded-[24px] border border-hairline p-5 transition-all duration-200 shadow-xs",
+        hoverEffect && "hover:border-[#cbd5e1] hover:shadow-md hover:-translate-y-0.5",
         className
       )}
       {...props}
