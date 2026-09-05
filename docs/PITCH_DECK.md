@@ -1,8 +1,15 @@
 # TallyBook — Pitch Deck
 ### AI Finance Controller — Razor Buildathon
 
-> 🎬 **Interactive Product Demo Video**:  
-> **[Watch 1080p Walkthrough on Google Drive](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)**
+> 🎙️ **Official Pitch Video**:  
+> *Please watch in 1080p :)*  
+> **[Watch Official Pitch Presentation on Google Drive](https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing)**  
+> 📁 Local Repository Video: [`docs/TallyBook_Pitch.mp4`](TallyBook_Pitch.mp4)  
+> 📑 Slide Deck Presentation: [`docs/TallyBook_Pitch_Deck.pdf`](TallyBook_Pitch_Deck.pdf) | [`docs/TallyBook_Pitch_Deck.pptx`](TallyBook_Pitch_Deck.pptx)  
+>
+> 🎬 **Interactive Product Demo Walkthrough Video**:  
+> *Please watch in 1080p :)*  
+> **[Watch 1080p Product Walkthrough on Google Drive](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)**
 
 ---
 

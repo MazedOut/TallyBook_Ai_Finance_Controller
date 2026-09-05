@@ -15,14 +15,20 @@
 [![TAM Growth](https://img.shields.io/badge/TAM-6.43B$_by_2030-ff5252?style=for-the-badge&logo=googlecharts&logoColor=white)](docs/MARKET_RESEARCH.md)
 [![MSME Focus](https://img.shields.io/badge/Market-63.4M_MSMEs-f59e0b?style=for-the-badge&logo=target&logoColor=white)](docs/GO_TO_MARKET.md)
 [![Pitch Deck](https://img.shields.io/badge/Pitch_Deck-11_Slides-3b82f6?style=for-the-badge&logo=slideshare&logoColor=white)](docs/PITCH_DECK.md)
+[![Pitch Video](https://img.shields.io/badge/Pitch_Video-1080p_Drive-EA4335?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-1080p_Drive-34A853?style=for-the-badge&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)
 
 <br/>
 
 ---
 
-### 🎬 **Interactive Video Walkthrough & Product Demo**
-### 🔗 **[Watch Full Video Demonstration (Google Drive)]**(https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)
-*Comprehensive 1080p demonstration showcasing autonomous multi-pass matching, flagged exception triage, dual-key controller sign-offs, what-if stress simulation, 4 dynamic theme modes, and the multilingual AI finance copilot.*
+### 🎥 **Official Submission Videos & Walkthroughs**
+
+> 💡 **Please watch in 1080p :)**
+
+| 🎙️ **Official Pitch Video** | 🎬 **Interactive Product Demo Walkthrough** |
+| :--- | :--- |
+| **Please watch in 1080p :)**<br/><br/>🔗 **Google Drive Link**: [**Watch Official Pitch Video**](https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing)<br/>📁 **Local GitHub Repo Video**: [`docs/TallyBook_Pitch.mp4`](docs/TallyBook_Pitch.mp4)<br/>📑 **Pitch Deck PDF**: [`docs/TallyBook_Pitch_Deck.pdf`](docs/TallyBook_Pitch_Deck.pdf) ([Markdown Deck](docs/PITCH_DECK.md))<br/><br/>*Executive problem statement, market sizing ($6.43B TAM), MSME wedge strategy, hybrid engine architecture, and live unit economics.* | **Please watch in 1080p :)**<br/><br/>🔗 **Google Drive Link**: [**Watch Full Video Demonstration**](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)<br/>📖 **Tour Guide & Step-by-Step Script**: [`docs/DEMO.md`](docs/DEMO.md)<br/><br/>*Comprehensive 1080p walkthrough showcasing autonomous multi-pass matching, flagged exception triage, dual-key controller sign-offs, what-if stress simulation, 4 dynamic themes, and multilingual AI finance copilot.* |
 
 ---
 
@@ -438,7 +444,7 @@ Explore the complete institutional documentation suite in the [`docs/`](docs/) d
 | [**AI Usage & Dev Log**](docs/AI_USAGE_AND_DEVELOPMENT_LOG.md) | Comprehensive record of AI tools used (Claude, GPT, Gemini, Groq, HackerGPT) & security fixes. | Tool Justification & Audit | [`docs/AI_LOG.md`](docs/AI_USAGE_AND_DEVELOPMENT_LOG.md) |
 | [**Market Research**](docs/MARKET_RESEARCH.md) | TAM analysis, $3.32B-$15.52B projections, MSME digitization gaps, and IBS Intelligence pain point study. | Market Sizing & Validation | [`docs/MARKET_RESEARCH.md`](docs/MARKET_RESEARCH.md) |
 | [**Go-To-Market Strategy**](docs/GO_TO_MARKET.md) | 4-phase bottom-up network expansion (Beachhead -> Cluster Saturation -> CA Distribution -> WhatsApp). | Commercial Strategy | [`docs/GO_TO_MARKET.md`](docs/GO_TO_MARKET.md) |
-| [**Pitch Deck**](docs/PITCH_DECK.md) | 11-slide pitch deck presentation for evaluators, partners, and institutional investors. | Investment & Pitch Deck | [`docs/PITCH_DECK.md`](docs/PITCH_DECK.md) |
+| [**Pitch Presentation & Video**](docs/PITCH_DECK.md) | Official Pitch Video ([Google Drive](https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing) & [Local MP4](docs/TallyBook_Pitch.mp4)), PDF Deck ([`docs/TallyBook_Pitch_Deck.pdf`](docs/TallyBook_Pitch_Deck.pdf)), and 11-slide narrative deck. | Investment & Pitch Video | [`docs/TallyBook_Pitch.mp4`](docs/TallyBook_Pitch.mp4) <br/> [`docs/TallyBook_Pitch_Deck.pdf`](docs/TallyBook_Pitch_Deck.pdf) |
 | [**01. System Architecture**](docs/01_SYSTEM_ARCHITECTURE.md) | High-level system topology, component layering, and 4-theme clinical blueprint. | Architectural Design | [`docs/01_ARCH.md`](docs/01_SYSTEM_ARCHITECTURE.md) |
 | [**02. Autonomous Engine**](docs/02_AUTONOMOUS_RECONCILIATION_ENGINE.md) | Multi-pass rules, allowable lag windows, fee creep thresholds, and 101-record benchmark batch. | Algorithmic Logic | [`docs/02_ENGINE.md`](docs/02_AUTONOMOUS_RECONCILIATION_ENGINE.md) |
 | [**03. Exception Triage**](docs/03_EXCEPTION_TRIAGE_AND_WORKFLOWS.md) | Root-cause taxonomy, dispute reclassifications, and dual-authorization approvals. | Accounting Workflows | [`docs/03_TRIAGE.md`](docs/03_EXCEPTION_TRIAGE_AND_WORKFLOWS.md) |
@@ -485,6 +491,8 @@ npm run dev
 *Engineered for institutional finance teams demanding precision, explainability, and rigorous compliance.*
 
 [![Apache License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
-[![Demo Video](https://img.shields.io/badge/Demo_Video-Google_Drive-red?style=flat&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)
+[![Pitch Video](https://img.shields.io/badge/Pitch_Video-Google_Drive-red?style=flat&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing)
+[![Demo Video](https://img.shields.io/badge/Demo_Video-Google_Drive-green?style=flat&logo=google-drive&logoColor=white)](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)
+[![Local Pitch MP4](https://img.shields.io/badge/Local_Pitch-MP4_in_Repo-blue?style=flat&logo=video&logoColor=white)](docs/TallyBook_Pitch.mp4)
 
 </div>

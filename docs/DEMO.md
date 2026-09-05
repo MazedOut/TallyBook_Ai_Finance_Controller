@@ -2,7 +2,13 @@
 
 Welcome to the **TallyBook AI Finance Controller** comprehensive evaluation guide. This document provides a complete walkthrough of all system capabilities, workflows, and interactive features designed for CFOs, corporate controllers, internal auditors, and treasury managers.
 
-> 🎬 **Watch Full Video Demonstration (Google Drive)**:  
+> 🎙️ **Watch Official Pitch Presentation (Google Drive)**:  
+> *Please watch in 1080p :)*  
+> **[https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing](https://drive.google.com/file/d/1kAE0XRpmEkOI77T2RNU4CeSxmMeGFFkh/view?usp=sharing)**  
+> 📁 *Local GitHub Repo MP4: [`docs/TallyBook_Pitch.mp4`](TallyBook_Pitch.mp4) | Slide Deck: [`docs/TallyBook_Pitch_Deck.pdf`](TallyBook_Pitch_Deck.pdf)*  
+>
+> 🎬 **Watch Full Product Demonstration (Google Drive)**:  
+> *Please watch in 1080p :)*  
 > **[https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing](https://drive.google.com/file/d/1qkDbucXDn-RKV5QnvdGEFyFZg4kxoVX6/view?usp=sharing)**  
 > *1080p full product tour covering multi-pass matching, flagged exception handling, what-if stress simulation, 4 dynamic theme modes, and multilingual AI assistant briefings.*
 
