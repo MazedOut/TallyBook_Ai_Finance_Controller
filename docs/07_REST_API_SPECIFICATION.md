@@ -164,3 +164,42 @@ Returns the append-only chronological audit log.
 - `GET /api/data/export/csv/{run_id}`: Streamed CSV download of the reconciliation batch.
 - `GET /api/data/export/pdf/{run_id}`: Certified PDF statutory audit schedule.
 - `GET /api/health`: Health status, datastore latency, and version check.
+
+---
+
+### 2.7 Multilingual AI Finance Controller
+
+#### `GET /api/assistant/briefing`
+Generates a structured executive treasury summary translated across **8 native languages**.
+- **Query Parameters**:
+  - `lang` (string, optional): Target language code (`en`, `es`, `fr`, `de`, `ja`, `zh`, `pt`, `hi`). Default: `en`.
+- **Response `200 OK`**:
+  ```json
+  {
+    "language": "es",
+    "language_name": "Español",
+    "headline": "Resumen Ejecutivo de Conciliación",
+    "summary_markdown": "- **Tasa de Conciliación**: 98.4%\n- **Volumen Verificado**: $1,420,500.00...",
+    "metrics": {
+      "clearance_rate": 98.4,
+      "reconciled_volume": 1420500.0,
+      "open_variances_count": 10
+    }
+  }
+  ```
+
+#### `POST /api/assistant/chat`
+Real-time financial copilot inquiry endpoint answering questions on GL balance variances, counterparty exposure, and audit status.
+- **Request Body**:
+  ```json
+  {
+    "message": "Why was the Chase wire fee flagged?",
+    "lang": "en"
+  }
+  ```
+- **Response `200 OK`**:
+  ```json
+  {
+    "reply": "The $15.00 wire fee variance exceeded the automated clearance tolerance ($1.00 threshold) and was routed to the Controller review queue."
+  }
+  ```

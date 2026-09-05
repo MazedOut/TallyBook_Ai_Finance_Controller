@@ -100,3 +100,18 @@ flowchart TD
 4. Enter your certification attestation statement (e.g., *"Audited and certified by Corporate Controller"*).
 5. Click **Certify & Freeze Period**. The period becomes immutable and locked.
 6. Click **Export Audit Package (PDF)** to download the certified statutory workpapers.
+
+### How to Switch Visual Display Themes
+1. Open the user profile or **Settings** menu from the bottom of the sidebar.
+2. Under **Display Theme**, select from 4 optimized modes:
+   - **Light Corporate**: Minimal high-contrast white theme for executive presentations.
+   - **Obsidian Dark Terminal**: OLED deep dark theme with high-contrast emerald and cobalt badges.
+   - **Cyber Neon**: Radiant midnight blue with luminous cyan and violet indicators.
+   - **Warm Ivory Editorial**: Warm newspaper/editorial tone for prolonged accounting sessions.
+3. All UI elements, charts, typography contrast, and sidebars update instantly with WCAG AA compliance.
+
+### How to Generate Multilingual Executive Financial Briefings
+1. Click the **AI Assistant** icon in the header or floating drawer trigger.
+2. Select your preferred executive briefing language from the language switcher (`English`, `Español`, `Français`, `Deutsch`, `日本語`, `中文`, `Português`, `हिन्दी`).
+3. Click **Generate Briefing** to instantly receive localized treasury stats, clearance rate, and high-value approvals.
+4. Click the **Speak** (audio) button to listen to native text-to-speech audio narration.

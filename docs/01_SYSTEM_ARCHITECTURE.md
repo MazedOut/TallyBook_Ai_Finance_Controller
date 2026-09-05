@@ -88,7 +88,7 @@ sequenceDiagram
 
     Controller->>Web: Click "Run Reconcile" or Upload Statement
     Web->>API: POST /api/reconcile/batch (Workspace Context)
-    API->>Engine: Load Bank Statement Feed (75 lines) & GL Vouchers (79 items)
+    API->>Engine: Load Bank Statement Feed & GL Vouchers (101-Record Production Benchmark Batch)
     
     rect rgb(245, 245, 245)
         Note over Engine: Tier 1: Exact Match (Amount + Ref/Date)

@@ -12,6 +12,9 @@
 [![Tailwind v4](https://img.shields.io/badge/Styling-Tailwind_CSS_v4+-38B2AC?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com)
 [![SOX 404](https://img.shields.io/badge/Compliance-SOX_404_Immutable-8b5cf6?style=for-the-badge&logo=shield&logoColor=white)](docs/05_SOX_COMPLIANCE_AND_AUDIT_TRAIL.md)
 [![Security Tested](https://img.shields.io/badge/Security-HackerGPT_Audited-10b981?style=for-the-badge&logo=security&logoColor=white)](docs/AI_USAGE_AND_DEVELOPMENT_LOG.md)
+[![TAM Growth](https://img.shields.io/badge/TAM-6.43B$_by_2030-ff5252?style=for-the-badge&logo=googlecharts&logoColor=white)](docs/MARKET_RESEARCH.md)
+[![MSME Focus](https://img.shields.io/badge/Market-63.4M_MSMEs-f59e0b?style=for-the-badge&logo=target&logoColor=white)](docs/GO_TO_MARKET.md)
+[![Pitch Deck](https://img.shields.io/badge/Pitch_Deck-11_Slides-3b82f6?style=for-the-badge&logo=slideshare&logoColor=white)](docs/PITCH_DECK.md)
 
 <br/>
 
@@ -289,22 +292,161 @@ Switch personas instantly via the sidebar profile card or sign in directly:
 
 ---
 
-## 📚 Exhaustive Documentation Suite
+## 📊 Market Opportunity & Addressable Demand (TAM / SAM / SOM)
 
-Explore the comprehensive guides located in the [`docs/`](docs/) directory:
+> [!NOTE]
+> Sourced from the comprehensive study in [**MARKET_RESEARCH.md**](docs/MARKET_RESEARCH.md), synthesizing data from Research and Markets, Coherent Market Insights, Precedence Research, Fortune Business Insights, PayNearby Digital Index, and IBS Intelligence.
 
-| Guide | Description | Key Reference |
+### 1. Global Market Sizing & CAGR
+
+The global financial reconciliation software market is experiencing rapid expansion driven by payment digitization and regulatory compliance:
+
+```mermaid
+graph LR
+    subgraph MarketTrajectory ["Global Reconciliation Software Expansion"]
+        Y2025["2025: $2.80 Billion"] -->|18.6% CAGR| Y2026["2026: $3.32 Billion"]
+        Y2026 -->|18.6% CAGR| Y2030["2030: $6.43 Billion"]
+        Y2030 -->|Long-Term Growth| Y2035["2035: $15.52 Billion"]
+    end
+```
+
+- **Bank Reconciliation Dominance**: Bank and cash reconciliation holds the largest functional share (**44.3%** of the market in 2026, Coherent Market Insights) due to its critical role in capital management and liquidity tracking.
+- **Asia Pacific Leadership**: APAC represents **$0.79 Billion** (34.1% global share in 2025) and is projected to post the highest CAGR globally, fueled by fintech infrastructure and modernizing SMEs.
+
+### 2. The Indian MSME Opportunity (63.4 Million Businesses)
+
+| Market Dimension | Verified Industry Metric | Strategic Implication for TallyBook |
 | :--- | :--- | :--- |
-| [**DEMO.md**](docs/DEMO.md) | **Complete Interactive Exploration Guide** with step-by-step click walkthroughs and Mermaid maps. | Feature Navigation Tour |
-| [**AI Usage & Dev Log**](docs/AI_USAGE_AND_DEVELOPMENT_LOG.md) | Comprehensive record of AI tools used (Claude, GPT, Gemini, Groq, HackerGPT) & security fixes. | Tool Justification Matrix |
-| [**01. System Architecture**](docs/01_SYSTEM_ARCHITECTURE.md) | High-level system topology, presentation layering, and gateway security. | Architectural Topology |
-| [**02. Autonomous Engine**](docs/02_AUTONOMOUS_RECONCILIATION_ENGINE.md) | Multi-pass rules, allowable lag windows, fee creep thresholds, and semantic fallback. | Pipeline Flowchart |
-| [**03. Exception Triage**](docs/03_EXCEPTION_TRIAGE_AND_WORKFLOWS.md) | Root-cause taxonomy, dispute reclassifications, and dual-authorization queue. | Remediation Lifecycle |
-| [**04. Multi-Entity Workspaces**](docs/04_MULTI_ENTITY_WORKSPACES.md) | Multi-subsidiary tenant model, chart of accounts routing, and currency consolidation. | Entity Isolation Model |
-| [**05. SOX Compliance**](docs/05_SOX_COMPLIANCE_AND_AUDIT_TRAIL.md) | Chained SHA-256 event hashing, tamper-evident logs, and period-close freeze. | Hash Chain Sequence |
-| [**06. Financial Analytics**](docs/06_FINANCIAL_ANALYTICS_AND_METRICS.md) | Liquidity velocity, variance aging schedules, and ground-truth calibration. | Metric Taxonomy |
-| [**07. REST API Specification**](docs/07_REST_API_SPECIFICATION.md) | OpenAPI specification, request/response JSON schemas, and error definitions. | Swagger Endpoint Map |
-| [**08. Operations Runbook**](docs/08_OPERATIONS_AND_USER_PERSONAS_GUIDE.md) | Role runbook, month-end close procedures, and supervisory checklists. | RBAC Governance Matrix |
+| **Total MSME Population** | **63.4 Million+ Enterprises** contributing ~30% of Indian GDP | Massive, underserved volume of operating businesses. |
+| **Software Adoption Gap** | **Only 29%** of tech-savvy MSMEs use accounting software; **6%** use pure pen-and-paper | Vast greenfield opportunity; traditional enterprise software has failed to penetrate. |
+| **Mobile-First Readiness** | **70%+** prefer smartphones; **43%** use UPI; **97%** use WhatsApp Business | Infrastructure receptivity exists; MSMEs adopt intuitive tools that fit existing workflows. |
+| **Documented ROI Impact** | **68%** report growth post-digitalization; **57%** improved accuracy; **49%** enhanced compliance | High willingness to retain software that eliminates manual accounting overhead. |
+
+### 3. Empirical Pain Point Ranking (IBS Intelligence 2026 Study)
+
+In an empirical study of **2,400+ accounting automation product demonstrations** among Indian SMEs:
+1. **Accounts Payable / Bill Processing**: Cited by **69.6%** of businesses as the #1 operational pain point.
+2. **Bank & Credit Card Reconciliation**: Cited by **14.0%** of businesses as the #2 primary bottleneck.
+3. **GST Return Reconciliation**: Cited by **8.1%** of businesses.
+- **The Buyer Persona**: **37.3%** of demo attendees were founders/business owners themselves, converting at **10.7%** (the highest conversion rate of any attendee category).
+
+### 4. Competitive Landscape & Market Vacuum
+
+```mermaid
+quadrantChart
+    title Enterprise vs MSME Reconciliation Positioning
+    x-axis Low Accessibility / High Price --> High Accessibility / Accessible Pricing
+    y-axis Manual / Spreadsheet Heavy --> Autonomous AI-Assisted
+    quadrant-1 "TallyBook Target Sweet Spot"
+    quadrant-2 "Enterprise Incumbents (SAP, Oracle, Trintech)"
+    quadrant-3 "Spreadsheets, Manual Ledgers & Paper"
+    quadrant-4 "Basic Accounting / Invoicing Apps"
+    "Oracle Cloud Recon (March 2026)": [0.15, 0.90]
+    "SAP S/4HANA ML (Feb 2026)": [0.18, 0.88]
+    "Trintech Adra Suite": [0.30, 0.72]
+    "Xero AI Bank Recon": [0.45, 0.65]
+    "Spreadsheets / Excel": [0.20, 0.15]
+    "Basic Tally / Busy Manual": [0.40, 0.30]
+    "TallyBook Autonomous Controller": [0.85, 0.92]
+```
+
+- **The Enterprise Ceiling**: Oracle (March 2026 AI recon release) and SAP (February 2026 ML S/4HANA release) build strictly for Fortune 500 balance sheets with complex six-figure deployment cycles.
+- **The MSME Opening**: Small and mid-sized enterprises are priced out of BlackLine and Trintech. TallyBook delivers enterprise-grade multi-pass precision with zero-friction onboarding.
+
+---
+
+## 🎯 Go-To-Market (GTM) Strategy (Bottom-Up Network Flywheel)
+
+> [!TIP]
+> Fully articulated in [**GO_TO_MARKET.md**](docs/GO_TO_MARKET.md). Rather than a costly top-down enterprise sales motion, TallyBook employs a **bottom-up network expansion model** mirroring how UPI and WhatsApp Business saturated Indian commercial commerce.
+
+```mermaid
+flowchart TD
+    subgraph P1 ["Phase 1: Regional Beachhead (Land)"]
+        F1["Target Founders directly in 1 metro cluster\n(10.7% demo conversion rate)"]
+        F2["Low-friction 1-bank + 1-ledger setup\n(First run in < 2 minutes)"]
+        F3["Accessible pricing / freemium tier"]
+    end
+
+    subgraph P2 ["Phase 2: Network Capture (Expand)"]
+        E1["Trade Association & MSME Clusters\n(Textiles, Auto Components, Electronics)"]
+        E2["In-Network Supplier/Customer Referrals"]
+        E3["Shared Regional Chartered Accountants (CAs)"]
+    end
+
+    subgraph P3 ["Phase 3: Upmarket Distribution (Scale)"]
+        C1["Chartered Accountant & Audit Firms\n(1 CA practice manages 50-100 MSME books)"]
+        C2["Multi-Client Workspace Isolation"]
+        C3["SOX 404 Audit Trails & Period Certification"]
+    end
+
+    subgraph P4 ["Phase 4: Omnichannel Growth (Sustain)"]
+        S1["WhatsApp Business Native Notifications (97% Reach)"]
+        S2["Short-Form Demo Runs & Transparency Content"]
+        S3["SEO on Bank Reconciliation & GST Discrepancies"]
+    end
+
+    P1 -->|Regional Word-of-Mouth| P2
+    P2 -->|CA Multiplier Effect| P3
+    P3 --> P4
+    P4 -.->|Continuous Demand Inflow| P1
+```
+
+### The 4 Expansion Phases:
+1. **Phase 1 — Land: Small MSME Beachhead**:
+   - Focus on depth within a single regional industrial cluster rather than a diluted national launch.
+   - Onboard founders directly with instant 1-click ledger reconciliation and immediate variance clarity.
+2. **Phase 2 — Expand: Network-Driven Regional Saturation**:
+   - Leverage dense vendor-supplier relationships within regional manufacturing and trade associations.
+   - Referral incentives for controllers who invite trading partners to resolve counterparty variances collaboratively.
+3. **Phase 3 — Move Upmarket: CA & Audit Firm Distribution**:
+   - CAs serve as natural force multipliers: onboarding one CA practice instantly distributes TallyBook across **50–100 business clients**.
+   - Provide CAs with multi-entity workspace views, role-based analyst/auditor access, and one-click statutory PDF workpaper exports.
+4. **Phase 4 — Sustain: Omnichannel Engagement**:
+   - Native integration with WhatsApp Business for transaction variance alerts, given 97% MSME operational usage.
+
+---
+
+## 📑 Investor Pitch Deck Architecture
+
+> [!IMPORTANT]
+> The full 11-slide pitch deck is detailed in [**PITCH_DECK.md**](docs/PITCH_DECK.md). Below is the executive slide structure:
+
+| Slide | Title | Core Thesis & Narrative Focus |
+| :---: | :--- | :--- |
+| **01** | **Title & Vision** | **TallyBook**: *Run the books. Trust the exceptions.* AI + rules hybrid reconciliation engine. |
+| **02** | **The Problem** | Reconciliation remains an error-prone manual bottleneck; #2 SME pain point across 2,400+ audited demos. |
+| **03** | **Why Now** | **Verification capacity is the bottleneck, not generation.** AI shift to continuous real-time ledger auditing. |
+| **04** | **The Solution** | Deterministic rules first (exact/tolerances), AI semantic reasoning strictly where rules fail, zero hallucinations. |
+| **05** | **How It Works** | 4-tier pipeline: Exact reference -> Settlement lag -> Fee creep delta -> Groq Llama 3.3 70B disambiguation. |
+| **06** | **Proof Over Hype** | Evaluated on an authentic **101-record production batch** (87 matched, 10 flagged, 4 manual overrides) with verified ground truth. |
+| **07** | **Product Depth** | Real institutional software: RBAC, 4 display themes, 8-language AI copilot, and SHA-256 cryptographic audit chain. |
+| **08** | **Market Opportunity** | Global market reaching **$6.43B by 2030 (18.6% CAGR)** and **$15.52B by 2035**; 63.4M Indian MSMEs underserved. |
+| **09** | **Go-To-Market** | Bottom-up network expansion: Regional beachhead -> MSME cluster referrals -> CA practice distribution. |
+| **10** | **Roadmap** | Multi-currency real-time FX, direct commercial banking open API webhooks, automated GSTN reconciliation. |
+| **11** | **Built With & Hardened** | Full-stack FastAPI + React 19 architecture, penetration tested and audited with HackerGPT. |
+
+---
+
+## 📚 Exhaustive Documentation Suite (13 Master Guides)
+
+Explore the complete institutional documentation suite in the [`docs/`](docs/) directory:
+
+| Guide | Description | Strategic Purpose | Key Direct Link |
+| :--- | :--- | :--- | :---: |
+| [**DEMO.md**](docs/DEMO.md) | **Interactive Exploration Guide** with step-by-step click walkthroughs, tour maps, and drive video link. | Product Tour & Testing | [`docs/DEMO.md`](docs/DEMO.md) |
+| [**AI Usage & Dev Log**](docs/AI_USAGE_AND_DEVELOPMENT_LOG.md) | Comprehensive record of AI tools used (Claude, GPT, Gemini, Groq, HackerGPT) & security fixes. | Tool Justification & Audit | [`docs/AI_LOG.md`](docs/AI_USAGE_AND_DEVELOPMENT_LOG.md) |
+| [**Market Research**](docs/MARKET_RESEARCH.md) | TAM analysis, $3.32B-$15.52B projections, MSME digitization gaps, and IBS Intelligence pain point study. | Market Sizing & Validation | [`docs/MARKET_RESEARCH.md`](docs/MARKET_RESEARCH.md) |
+| [**Go-To-Market Strategy**](docs/GO_TO_MARKET.md) | 4-phase bottom-up network expansion (Beachhead -> Cluster Saturation -> CA Distribution -> WhatsApp). | Commercial Strategy | [`docs/GO_TO_MARKET.md`](docs/GO_TO_MARKET.md) |
+| [**Pitch Deck**](docs/PITCH_DECK.md) | 11-slide pitch deck presentation for evaluators, partners, and institutional investors. | Investment & Pitch Deck | [`docs/PITCH_DECK.md`](docs/PITCH_DECK.md) |
+| [**01. System Architecture**](docs/01_SYSTEM_ARCHITECTURE.md) | High-level system topology, component layering, and 4-theme clinical blueprint. | Architectural Design | [`docs/01_ARCH.md`](docs/01_SYSTEM_ARCHITECTURE.md) |
+| [**02. Autonomous Engine**](docs/02_AUTONOMOUS_RECONCILIATION_ENGINE.md) | Multi-pass rules, allowable lag windows, fee creep thresholds, and 101-record benchmark batch. | Algorithmic Logic | [`docs/02_ENGINE.md`](docs/02_AUTONOMOUS_RECONCILIATION_ENGINE.md) |
+| [**03. Exception Triage**](docs/03_EXCEPTION_TRIAGE_AND_WORKFLOWS.md) | Root-cause taxonomy, dispute reclassifications, and dual-authorization approvals. | Accounting Workflows | [`docs/03_TRIAGE.md`](docs/03_EXCEPTION_TRIAGE_AND_WORKFLOWS.md) |
+| [**04. Multi-Entity Workspaces**](docs/04_MULTI_ENTITY_WORKSPACES.md) | Multi-subsidiary tenant model, chart of accounts routing, and currency consolidation. | Tenant Isolation | [`docs/04_WORKSPACES.md`](docs/04_MULTI_ENTITY_WORKSPACES.md) |
+| [**05. SOX Compliance**](docs/05_SOX_COMPLIANCE_AND_AUDIT_TRAIL.md) | Chained SHA-256 event hashing, tamper-evident logs, forensic state diffs, and period freeze. | Regulatory Compliance | [`docs/05_SOX.md`](docs/05_SOX_COMPLIANCE_AND_AUDIT_TRAIL.md) |
+| [**06. Financial Analytics**](docs/06_FINANCIAL_ANALYTICS_AND_METRICS.md) | Liquidity velocity, variance aging schedules, exposure concentrations, and calibration. | Controller Analytics | [`docs/06_ANALYTICS.md`](docs/06_FINANCIAL_ANALYTICS_AND_METRICS.md) |
+| [**07. REST API Specification**](docs/07_REST_API_SPECIFICATION.md) | OpenAPI specification, request/response JSON schemas, and multilingual AI assistant endpoints. | API Documentation | [`docs/07_API.md`](docs/07_REST_API_SPECIFICATION.md) |
+| [**08. Operations Runbook**](docs/08_OPERATIONS_AND_USER_PERSONAS_GUIDE.md) | RBAC governance matrix, month-end close runbook, theme switching, and AI audio briefings. | User Runbook | [`docs/08_RUNBOOK.md`](docs/08_OPERATIONS_AND_USER_PERSONAS_GUIDE.md) |
 
 ---
 
